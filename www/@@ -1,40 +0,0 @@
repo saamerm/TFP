@@ -1,0 +1,41 @@
+@@ -1,40 +0,0 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Windsor Tech Calendar</title>
+	 <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+	<h1>Windsor Tech Event Calendar</h1>
+	<h5>Febuary 10, 2021</h5>
+	<p> Calendar of the events about technology & innovation in The Windsor Essex region</p>
+	<div id = "boxed">
+		Add your event
+	</div>
+	<img id = "cover" src = "cover.png">
+	<img id = "logo" src = "logo.png">
+	<p id = "companyname">The First Prototype</p>
+	<p id = "upComingEvent"> UPCOMING EVENT</p>
+		<div id = "hostingEvents">
+			<h3 id = "host" >The First Prototype presents: How to start UI design using Figma as a tool</h3>
+			<ul>
+				<li>1:00PM - 2:00PM | March 12, 2021</li>
+				<li> Education & EdTech</li>
+			</ul>
+			<img scr= "https://www.figma.com/file/WnnGHvEo5QWPaim74PxZxO/Untitled?node-id=1%3A17">
+		<div id = "visit">
+			VISIT
+		</div>
+		
+		<script>
+			i = 1;
+			while (i < 10 ){
+				document.getElementById("hostingEvents").innerHTML = text;
+				i++;
+			}
+		</script>
+
+</body>
+</html>
