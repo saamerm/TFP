@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>Support</title>
+<!--   New QA -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=ebebaa29-c9b3-4b6b-8469-8807ffe9d0a7"></script>
+  <script>
+    window.zESettings = {
+      webWidget: {
+        launcher: {
+          chatLabel: {
+            'fr': "Clavardage",
+            '*': 'Chat'
+          }
+        },
+
+        color: { theme: '#15487e' }
+      }
+    };
+  </script>
+<!-- New  Prod -->
+<!-- <script id='ze-snippet' src='https://static.zdassets.com/ekr/snippet.js?key=29fcfb2e-63b1-4a86-9fe5-4110fe27f2c1'></script> -->
+
+<!--     <script id='ze-snippet' src='https://static.zdassets.com/ekr/snippet.js?key=4ae0d722-1e03-4345-bdb9-f779a09406c7'></script> -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.13.0/bodymovin.js'></script>
+</head>
+
+<body class='screen'>
+
+  <style>
+    .screen {
+      background: #E5E5E5;
+      text-align: center;
+      vertical-align: middle;
+      position: absolute;
+      top: 50%;
+      left: 15%;
+      right: 15%;
+    }
+
+    .offlineMessage {
+      letter-spacing: 0.25px;
+      color: #979797;
+      font-family: Helvetica, Cambria, Calibri, Arial;
+      font-size: 1.5em;
+      line-height: 25px;
+      letter-spacing: 0.25px;
+    }
+
+    .container {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #lottie {
+      height: 400px;
+      width: 400px;
+      overflow: hidden;
+      transition: all 0.8s;
+    }
+  </style>
+  <div class='offlineMessage'></div>
+  <div class="container">
+    <div id="lottie"></div>
+  </div>
+  <script>
+    var targetAnim = document.getElementById('lottie');
+    var refreshCounter = 0;
+    var animation = bodymovin.loadAnimation({
+      container: targetAnim, // Required
+      path: 'https://gist.githubusercontent.com/saamerm/d5e3935837aa7019a343432441d3c285/raw/e563acddbe106e06b9d6a4835f3848f032006326/LottieGistFile1.json', // Required
+      // path:"https://s3-us-west-2.amazonaws.com/lottietest/data.json", Could also use this
+      renderer: 'svg', // Required
+      loop: true, // Optional
+      autoplay: true // Optional
+    })
+    // https://tinyurl.com/y5gyng66
+    function timeOut() {
+      console.log('Time out start');
+      setTimeout('Do()', 5000);
+      console.log('Time out end');
+    }
+
+    function HasErrorGettingDepartments(){
+      console.log("HasErrorGettingDepartments");
+      // Maximum number of refresh tries
+      if (refreshCounter++ > 6)
+        return;
+      try {
+              timeOut();
+        if (targetAnim.parentNode != null)
+{        targetAnim.parentNode.removeChild(targetAnim);}
+      } catch (err) {
+        console.log("Console: " + err.message);
+      }
+    }
+    function AllDepartmentsOffline(language) {
+      console.log('All departments offline')
+      zE('webWidget', 'hide');
+      zE('webWidget', 'close');
+      if (language != null && language == 'fr') {
+        $('div.offlineMessage').text('Le support n\'est actuellement pas disponible. Tous les departements sont hors ligne.');
+      } else {
+        $('div.offlineMessage').text('Support is currently not available. All the departments are offline.');
+      }
+      try {
+        targetAnim.parentNode.removeChild(targetAnim);
+      } catch (err) {
+        console.log("AllDepartmentsOffline Console: " + err.message);
+      }
+      timeOut();
+    }
+
+    function SetValuesFromUrlParams(name, refNumber, email) {
+      console.log('SetValues!');
+      try{
+      $zopim.livechat.setName(name);
+      $zopim.livechat.setEmail(email);
+      $zopim.livechat.addTags(refNumber);
+      $zopim.livechat.addTags('Mobile');}
+      catch(err){        console.log("SetValuesFromUrlParams Console: " + err.message);
+}
+    }
+
+    function SetLanguage(language) {
+      console.log('SetLanguage');
+      if (language != null && language == 'fr') {
+        try {
+          console.log('french!');
+          zE('webWidget', 'setLocale', 'fr');
+          $zopim.livechat.setLanguage('fr');
+          $zopim.livechat.concierge.setName('Le pouvoir de la mobilité');
+          $zopim.livechat.concierge.setTitle('Nous sommes là pour vous aider…');
+          $zopim.livechat.prechatForm.setGreetings('Vos renseignements personnels confidentiels devraient être uniquement entrés dans le site Web sécurisé des membres et ne pas être échangés avec nos agents lors de cette interaction électronique. Ces renseignements comprennent vos renseignements bancaires, votre numéro d’assurance sociale, vos numéros de passeport ou vos mots de passe. Au cas où vous enverriez par inadvertance des renseignements personnels confidentiels, veuillez en aviser votre agent pour que nous puissions nous assurer de ne pas les conserver.');
+          $zopim.livechat.departments.setLabel('Quel est le problème?');
+
+          $zopim.livechat.departments.filter(360013140811,360013140751,360013140731,360013140611,360013158332,360013140911,360013158372,360013140711);
+          // $zopim.livechat.departments.filter(2147567679,2147567691,2147567697,2147567689,2147567685,2147567693,2147567707,2147567709);
+          $('div.offlineMessage').text('Tapez sur l\'icone pour commencer a discuter');
+        } catch (err) {
+          console.log('LanguageSet Error: ' + err.message);
+        }
+      } else {
+        zE('webWidget', 'setLocale', 'en');
+        try {
+          console.log('english!');
+          $zopim.livechat.setLanguage('en');
+          $zopim.livechat.concierge.setName('The Power of Mobility');
+          $zopim.livechat.concierge.setTitle('We are here to help...');
+          $zopim.livechat.prechatForm.setGreetings('Sensitive personal information should only be entered into the Member Secure Website, and not exchanged with our agents during this electronic interaction. Sensitive personal information includes, without limitation, banking information, social insurance number, passport numbers, or passwords. In the event that you inadvertently send sensitive personal information, please notify your agent so we can ensure it is not retained.');
+          $zopim.livechat.departments.setLabel('What is the issue?');
+          // $zopim.livechat.departments.filter('2147567691,2147567705,2147567699,2147567677,2147567701,2147567687,2147567695,2147567703');
+          // $zopim.livechat.departments.filter(2147567691,2147567705,2147567699,2147567677,2147567701,2147567687,2147567695,2147567703);
+
+          
+          				$zopim.livechat.departments.filter(360013158312,360013140831,360013140691,360013140851,360013158252,360013140771,360013140871,360013158272);
+          $('div.offlineMessage').text('Tap on the icon to start chatting!');
+        } catch (err) {
+          console.log('LanguageSet Error: ' + err.message);
+        }
+      }
+    }
+
+    function Do() {
+      console.log('Doing!');
+      // 					zE('webWidget', 'show');
+      var urlParams = new URLSearchParams(window.location.search);
+      var myParam = urlParams.get('editors');
+      var langParam = urlParams.get('lang');
+      var nameParam = urlParams.get('name');
+      var refNumberParam = urlParams.get('refnumber');
+      var emailParam = urlParams.get('email');
+      console.log(langParam);
+      console.log(nameParam);
+      console.log(refNumberParam);
+      console.log(emailParam);
+      if (langParam != null && nameParam != null && refNumberParam != null && emailParam != null) {
+        SetValuesFromUrlParams(nameParam, refNumberParam, emailParam);
+        console.log(emailParam);
+      } else {
+        console.log('No params');
+        try {
+          $zopim.livechat.setName('Zaoaasfsflo');
+          $zopim.livechat.setEmail('aasf@com.com');
+          $zopim.livechat.addTags('1235312123252');
+        } catch (err) {
+          console.log('Error caught' + err.message);
+        }
+      }
+      SetLanguage(langParam);
+      // try {
+        var depts = $zopim.livechat.departments.getAllDepartments();
+        var areAllDepartmentsOffline = 'true';
+        console.log("Departments is " + depts);
+        jQuery.each(depts, function(i, val) {
+          // $('#' + val.status).text('Mine is ' + val.status + '.');
+          console.log(val.status);
+          if (val.status == 'online'); {
+            areAllDepartmentsOffline = 'false'; //Test the offline departments functionality by setting this to true
+          }
+        });
+        if (areAllDepartmentsOffline == 'true') {
+          AllDepartmentsOffline(langParam);
+        } else {
+          console.log('Departments are online!');
+          targetAnim.parentNode.removeChild(targetAnim);
+        }
+      // } 
+      // catch (err) {
+      //   console.log('Error caught ' + err.message);
+      //   HasErrorGettingDepartments();
+      // }
+      
+            
+
+      console.log('Done');
+    }
+    
+    $(document).ready(function() {
+      console.log('ready!');
+      timeOut();
+    });
+  </script>
+</body>
+
+</html>
