@@ -1,7 +1,8 @@
 (function($){
     "use strict"; // Start of use strict    
     $(document).ready(function(){
-        pageViewed();  
+        pageViewed();
+        requestReferrerAndLocation();  
         $("#send_message").click(function()
         {
             document.getElementById('form_response').innerHTML = "Thank you! We will get back to you within 24 hours";
@@ -26,7 +27,7 @@
 /* ---------------------------------------------
  Custom GDPR compliant analytics
  --------------------------------------------- */
-
+ 
   function selectAction(actionType){
     var url = "https://script.google.com/macros/s/AKfycbyWa-wyCboDnWOmAuFv8DTZYUYgOgZ0qXc-hBw53NzIzSr_wiOPblAgMwg4ok0YF_ZWqg/exec";
     var myJSObject='{"Event": "' + "SelectAction: " + actionType + '"}';    
@@ -35,7 +36,7 @@
   
   function pageViewed() {
     var url = "https://script.google.com/macros/s/AKfycbyWa-wyCboDnWOmAuFv8DTZYUYgOgZ0qXc-hBw53NzIzSr_wiOPblAgMwg4ok0YF_ZWqg/exec";
-    var myJSObject='{"Event": "' + "PageView" + '"}';    
+    var myJSObject='{"Event": "' + "PageView: Calendar" + '"}';    
     postCall(url, myJSObject);
   }
   
@@ -51,23 +52,4 @@
       console.log(error.responseText);
     },
   });
-  }
-  
-  function submitMessage()
-  {
-    var url = "https://script.google.com/macros/s/AKfycbyNis6FoIjQr0VqbgOInwAFBkUq7OAlxLEdd-A26p1JX1GFq7E/exec";
-    var Name = document.getElementById('contact_name').value;
-    var Email = document.getElementById('contact_email').value;      
-    var Message = document.getElementById('contact_message').value;      
-    var myJSObject='{"Name": "' + Name + '", "Email" : "' + Email + '", "Message" : "' + Message + '"}';    
-    postCall(url, myJSObject);
-  }
-  function submitSubscription()
-  {
-    var url = "https://script.google.com/macros/s/AKfycbyNis6FoIjQr0VqbgOInwAFBkUq7OAlxLEdd-A26p1JX1GFq7E/exec";
-    var Name = 'Subscription';
-    var Email = 'Subscription';      
-    var Message = document.getElementById('subscription_message').value;      
-    var myJSObject='{"Name": "' + Name + '", "Email" : "' + Email + '", "Message" : "' + Message + '"}';    
-    postCall(url, myJSObject);
   }

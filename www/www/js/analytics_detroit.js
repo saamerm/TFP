@@ -28,13 +28,13 @@
  --------------------------------------------- */
 
   function selectAction(actionType){
-    var url = "https://script.google.com/macros/s/AKfycbzRY7ayjnmXdY1Y37nQB9oBk4LBVDfrc2IhVIRS_iZPR5Kcdf2SF-0yXHhUvYVe2CswfQ/exec";
+    var url = "https://script.google.com/macros/s/AKfycbyWa-wyCboDnWOmAuFv8DTZYUYgOgZ0qXc-hBw53NzIzSr_wiOPblAgMwg4ok0YF_ZWqg/exec";
     var myJSObject='{"Event": "' + "SelectAction: " + actionType + '"}';    
     postCall(url, myJSObject);
   }
   
   function pageViewed() {
-    var url = "https://script.google.com/macros/s/AKfycbzRY7ayjnmXdY1Y37nQB9oBk4LBVDfrc2IhVIRS_iZPR5Kcdf2SF-0yXHhUvYVe2CswfQ/exec";
+    var url = "https://script.google.com/macros/s/AKfycbyWa-wyCboDnWOmAuFv8DTZYUYgOgZ0qXc-hBw53NzIzSr_wiOPblAgMwg4ok0YF_ZWqg/exec";
     var myJSObject='{"Event": "' + "PageView: Detroit" + '"}';    
     postCall(url, myJSObject);
   }
