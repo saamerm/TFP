@@ -1,0 +1,170 @@
+/*will remove later, this is to help me visualize where each element is*/
+
+/*
+*{
+    border: 1px solid red;
+}
+
+
+
+*/
+
+
+
+:root{
+    /*variables to make things easier*/
+    --navheight: 64px;
+}
+
+/*removing default padding and margin to make things less confusing*/
+body{
+    padding: 0;
+    margin: 0;
+
+    background-color: #e9e9e9;
+
+}
+
+
+
+#header{
+    /*
+    for some unknown reason without this border there appears whitespace between nav and header?????
+    I guess its fine because figma design has a border regardless but this is a mystery to me
+    edit: this might be caused by "margin collapsing" but i still am not 100% sure
+    
+    */
+    border: 1px solid black;
+
+    overflow: hidden;
+    
+
+    height: calc(100vh - var(--navheight)); /*total height minus height of navbar, this way the image does not get blocked by the navbar*/
+    padding: 0;
+    
+    background-color: aquamarine; /*I put this here as a tester to see if the background image is actually covering the entire div*/
+    
+    
+    background-image: url('images/header_img.png');
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    
+  
+}
+
+#nav{
+    height: var(--navheight);
+    background-color: #2d3e4e;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+
+    z-index: 9999;/*guarantee that everything goes below the navbar*/
+    
+}
+
+#logoImage{
+
+    /*trick to vertically align image inside of div*/
+    position: absolute;
+    top:0;
+    bottom: 0;
+    margin: auto;
+
+    margin-left: 5vw;
+
+    height: calc(0.8*var(--navheight));
+}
+
+#header_words{
+    position: relative;
+
+    font-family: "Roboto";
+
+    padding-top: 3vh;
+
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    /*alignment relative to header (i hope)*/
+    top: 50%;
+    text-align: center;
+}
+
+
+/*not using em for title because they are alot bigger than normal text, and shouldnt change size when user has larger font size selected*/
+#small_header_words{
+
+    font-size: calc(1.5vw + 20px);
+}
+
+#large_header_words{
+    font-size: calc(7vw + 20px);
+    text-shadow: 2px 5px 6px rgba(224, 158, 80, 0.6);
+    font-weight: 700;
+}
+
+
+
+#opportunities{
+    padding: 0;
+
+    box-shadow: 0px 31px 15px -1px rgba(0, 0, 0, 0.2);
+}
+
+
+#opportunities_title{
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+
+    text-align: center;
+
+    background-color: #2d3e4e;
+
+    
+}
+
+#opportunities_title > h1{
+    color: white;
+    font-family: "Roboto";
+    font-size: 2em;
+
+}
+
+#opportunities_description{
+    text-align: center;
+    justify-content: center;
+
+    padding: 2vh 4vw 4vh 4vw;
+
+    font-family: "Roboto";
+    font-weight: 400;
+
+    /*thick lines that appear on figma design*/
+    border-bottom: 10px solid #b5b5b5;
+    border-top: 10px solid #f5f5f5;
+}
+
+
+#post_event_btn{
+    border-radius: 20px;
+    border: 4px solid #e09e50;
+    background-color: #e09e50;
+
+    color: #2A403D;
+
+
+    font-family: "Roboto";
+    font-weight: 500;
+
+    font-size: 1.25em;
+
+    padding: 0.5em 1em 0.5em 1em;
+}
+
+#post_event_btn:hover{
+    background-color: white;
+}
+

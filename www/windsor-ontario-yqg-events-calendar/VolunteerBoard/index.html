@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Bootstrap 5 cdn, mainly used for its accordion and layout tools-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!--importing roboto fonr-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
+    <link rel="stylesheet" href="style.css"> 
+</head>
+
+<!-- put minheight at first so i can scroll even if there is no content-->
+<body style="min-height: 2000px;">
+
+    
+    <div id="nav" class="container-fluid">
+        <img id="logoImage"  src="images/TFP_Logo.png" alt="Logo of The First Prototype">
+    </div>
+
+
+    <div id="header" class="container-fluid">
+        <!--used css background image for this image-->
+        <div id="header_words" class="container-fluid">
+            <h1 id="small_header_words">This is your</h1>
+            <h1 id="large_header_words">Call For Action</h1>
+        </div>
+    </div>
+
+    <div style="height: 8vh"></div><!--spacer for ez layout-->
+
+    
+    <div id="opportunities" class="container">
+        <div id="opportunities_title" class="container-fluid">
+            <h1>Windsor YQG Volunteer Opportunities board</h1>
+        </div>
+
+        <div id="opportunities_description" class="container-fluid">
+            <p>This application is dedicated to the non-profit organizations in the Windsor Essex region looking for volunteers to help with their activities</p>
+
+            <button id="post_event_btn" onclick=""> <!-- Button is set to a dead link, add google form link later? -->
+                Post Event
+            </button>
+        </div>
+        
+
+    </div>
+    
+    
+    <!--Bootstrap's prebuilt JS functionality-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
