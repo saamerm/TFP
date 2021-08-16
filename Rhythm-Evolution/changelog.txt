@@ -1,0 +1,49 @@
+##############################################################
+
+# Changelog
+# Rhythm Evolution - Multipurpose One/Multi Page Template
+
+##############################################################
+
+v. 3.2 – 28 July 2021
+
+- Bootstrap was updated to the latest version:
+--- file /css/bootstrap.min.css was updated
+--- file /css/bootstrap.min.css.map was updated
+--- file /js/bootstrap.bundle.min.js was updated
+--- file /js/bootstrap.bundle.min.js.map was updated
+
+- small bug with tabs was fixed:
+--- file /css/style.css (lines 5469) was updated
+
+##############################################################
+
+v. 3.1 – 12 June 2021
+
+- small bug with contact form in dark version was fixed:
+--- file /css/style.css (lines 874-935) was updated
+
+- small bug was fixed:
+--- file /css/style.css (lines 1528) was updated
+
+- PHPMailer was updated to the latest version:
+--- file /php/PHPMailer.php was added
+--- file /php/SMTP.php was added
+--- file contact_me_smtp.php was updated
+--- file /php/class.phpmailer.php was removed
+--- file /php/class.smtp.php was removed
+--- file /php/PHPMailerAutoload.php was removed
+
+- Bootstrap was updated to the latest version:
+--- file /css/bootstrap.min.css was updated
+--- file /css/bootstrap.min.css.map was updated
+--- file /js/bootstrap.bundle.min.js was updated
+--- file /js/bootstrap.bundle.min.js.map was updated
+
+##############################################################
+
+v. 3.0 – 8 April 2021
+
+- initial
+
+##############################################################
