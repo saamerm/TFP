@@ -11,15 +11,21 @@
     <!--importing roboto fonr-->
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 
+    <!--icons from fontawesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="style.css"> 
+    
 </head>
 
 <!-- put minheight at first so i can scroll even if there is no content-->
-<body style="min-height: 2000px;">
+<body onload="onLoad()">
 
-    
+    <!-- <img id="logoImage"  src="images/TFP_Logo.png" alt="Logo of The First Prototype"> -->
+
     <div id="nav" class="container-fluid">
-        <img id="logoImage"  src="images/TFP_Logo.png" alt="Logo of The First Prototype">
+        <a href="https://thefirstprototype.com/" target="_blank"><img id="logoImage"  src="images/TFP_Logo.png" alt="Logo of The First Prototype"></a>
+        
     </div>
 
 
@@ -42,13 +48,174 @@
         <div id="opportunities_description" class="container-fluid">
             <p>This application is dedicated to the non-profit organizations in the Windsor Essex region looking for volunteers to help with their activities</p>
 
-            <button id="post_event_btn" onclick=""> <!-- Button is set to a dead link, add google form link later? -->
+            <button id="post_event_btn" onclick="window.open('https://forms.gle/QfLM8dEP6Xizt2oW6','_blank')""> <!-- Button is set to a dead link, add google form link later? -->
                 Post Event
             </button>
         </div>
-        
 
+        <div id="column-headers" class="container-fluid">
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-3"><h4 class="col-header-text">Location</h4></div>
+                <div class="col-3"><h4 class="col-header-text">Posted</h4></div>
+            </div>
+        </div>
+
+
+        
+        <!-- using bootstrap accordian to match the design easier, with some modifications to allow divs to go in the header-->
+        <div class="accordion accordion-flush" id="event-list">
+
+            <div class="container-fluid spinner">
+                <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw fa-align-center"></i>
+            </div>
+            
+
+            <!--
+            <div class="accordion-item">
+                <div class="accordion-header"  >
+                    <div class=" accordion-button collapsed" data-bs-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo" id="headingTwo">
+                        
+                        <div   class="container-fluid accordian-content">
+                            <div  class="row">
+                                <div class="col-6">
+                                    <h2 class="title">Cleaners</h2>
+                                    <p class="company-name">Company Name</p>
+                                </div>
+                                <div class="col-3 location"> 
+                                    <p>1234 Oulette Ave,</p>
+                                    <p>Windsor</p>                     
+                                </div>
+                                <div class="col-3 posted-time"><p>2 hrs Ago</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#event-list">
+                    <div class="accordion-body">
+                        
+                        <div class="container-fluid collapse-content">
+                            <h3 class="description-title">Description:</h3>
+                            
+                            <img class="collapse-img" src="images/dog_img.png" alt="image of dogs">
+                            
+                            <p class="description-content">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Neque cum excepturi culpa inventore, expedita sit aperiam voluptates 
+                                reprehenderit error repellendus! Animi aspernatur amet quod nam, rem 
+                                id! Ipsa eos molestias perspiciatis enim error fugiat assumenda placeat 
+                                obcaecati, ducimus asperiores amet, in neque veniam inventore magni voluptatibus 
+                                hic? Tempora, atque. Officia temporibus atque explicabo itaque sint earum sunt fugiat 
+                                autem numquam? Nisi perferendis veniam et iste praesentium suscipit rem animi quae? At 
+                                voluptatum porro, voluptatibus omnis facilis veniam nihil, maxime quam accusamus est 
+                                magni amet veritatis, sapiente consequuntur? Debitis quia magnam impedit ipsum, 
+                                accusamus aspernatur illum numquam tempora enim, quasi doloribus sit minus 
+                                aperiam nesciunt in delectus beatae. Animi veritatis maxime rerum voluptates 
+                                velit illum dolorem aut. Deleniti nam aperiam dolorum tempore voluptatem 
+                                delectus doloribus, assumenda eligendi odio?
+                            </p>
+                            <h3 class="contact-title">Contact Information:</h3>
+                            
+                            <div class="container contact-content">
+                                <div class="row">
+                                    <div class="col-8 contact-text">
+                                        <a>Windsor Pet Shelter</a>
+                                        <a >lorem@ipsum.com</a>
+                                        <p>(123) 345-3434</p>
+                                    </div>
+                                    <div class="col-4 contact-text">
+                                        <p>1123 Oulette Ave,</p>
+                                        <p>Windsor ON</p>
+                                        <p>N1S 2E1</p> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <div class="accordion-header"  >
+                    <div class=" accordion-button collapsed" data-bs-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree" id="headingThree">
+                        
+                        <div   class="container-fluid accordian-content">
+                            <div  class="row">
+                                <div class="col-6">
+                                    <h2 class="title">Cleaners</h2>
+                                    <p class="company-name">Company Name</p>
+                                </div>
+                                <div class="col-3 location"> 
+                                    <p>1234 Oulette Ave,</p>
+                                    <p>Windsor</p>                                
+                                </div>
+                                <div class="col-3 posted-time"><p>2 hrs Ago</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#event-list">
+                    <div class="accordion-body">
+                        
+                        <div class="container-fluid collapse-content">
+                            <h3 class="description-title">Description:</h3>
+                            
+                            <img class="collapse-img" src="images/dog_img.png" alt="image of dogs">
+                            <p class="description-content">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Neque cum excepturi culpa inventore, expedita sit aperiam voluptates 
+                                reprehenderit error repellendus! Animi aspernatur amet quod nam, rem 
+                                id! Ipsa eos molestias perspiciatis enim error fugiat assumenda placeat 
+                                obcaecati, ducimus asperiores amet, in neque veniam inventore magni voluptatibus 
+                                hic? Tempora, atque. Officia temporibus atque explicabo itaque sint earum sunt fugiat 
+                                autem numquam? Nisi perferendis veniam et iste praesentium suscipit rem animi quae? At 
+                                voluptatum porro, voluptatibus omnis facilis veniam nihil, maxime quam accusamus est 
+                                magni amet veritatis, sapiente consequuntur? Debitis quia magnam impedit ipsum, 
+                                accusamus aspernatur illum numquam tempora enim, quasi doloribus sit minus 
+                                aperiam nesciunt in delectus beatae. Animi veritatis maxime rerum voluptates 
+                                velit illum dolorem aut. Deleniti nam aperiam dolorum tempore voluptatem 
+                                delectus doloribus, assumenda eligendi odio?
+                            </p>
+                            <h3 class="contact-title">Contact Information:</h3>
+                            
+                            <div class="container contact-content">
+                                <div class="row">
+                                    <div class="col-8 contact-text">
+                                        <a>Windsor Pet Shelter</a>
+                                        <a>lorem@ipsum.com</a>
+                                        <p>(123) 345-3434</p>  
+                                    </div>
+                                    <div class="col-4 contact-text">
+                                        <p>1123 Oulette Ave,</p>
+                                        <p>Windsor ON</p>
+                                        <p>N1S 2E1</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        -->
+        </div>
+
+        
     </div>
+
+    
+
+
+    <div style="height: 8vh"></div><!--spacer for ez layout-->
+
+    <p class = "disclaimer"> This page is open-source, you can view the code and contribute here. <br>
+        Let us know how we can improve, or edit/flag events by emailing us at info@thefirstprototype.com <br>
+        Disclaimer: We do not check, verify, recommend or endorse any of the events in the calendar. Attend them at your own risk. <br>
+    </p>
+
+    <footer class = "container-fluid">
+        <a href="https://thefirstprototype.com/" target="_blank">© The First Prototype 2021</a>
+    </footer>
     
     
     <!--Bootstrap's prebuilt JS functionality-->
