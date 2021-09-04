@@ -1815,3 +1815,17 @@ function postFeedbackAPI(Name, Email, Message)
   var myJSObject='{"Name": "' + Name + '", "Email" : "' + Email + '", "Message" : "' + Message + '"}';    
   postCall(url, myJSObject);
 }
+
+function postCall(url, myJSObject) {
+    $.ajax({
+    type: "POST",
+    url: url,
+    data: myJSObject,
+    success: function (response) {
+      console.log(response);
+    },
+    error: function (error) {
+      console.log(error.responseText);
+    },
+  });
+}

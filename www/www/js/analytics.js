@@ -28,13 +28,13 @@
  --------------------------------------------- */
 
   function selectAction(actionType){
-    var url = "https://script.google.com/macros/s/AKfycbyWa-wyCboDnWOmAuFv8DTZYUYgOgZ0qXc-hBw53NzIzSr_wiOPblAgMwg4ok0YF_ZWqg/exec";
+    var url = "https://script.google.com/macros/s/AKfycbxV6pevPj7Fn8QK1LbwiRi25CCDkp0PETel0N9EAndhVvX3_TDdtAWuBj6qdTi37NM7vA/exec";
     var myJSObject='{"Event": "' + "SelectAction: " + actionType + '"}';    
     postCall(url, myJSObject);
   }
   
   function pageViewed() {
-    var url = "https://script.google.com/macros/s/AKfycbyWa-wyCboDnWOmAuFv8DTZYUYgOgZ0qXc-hBw53NzIzSr_wiOPblAgMwg4ok0YF_ZWqg/exec";
+    var url = "https://script.google.com/macros/s/AKfycbxV6pevPj7Fn8QK1LbwiRi25CCDkp0PETel0N9EAndhVvX3_TDdtAWuBj6qdTi37NM7vA/exec";
     var myJSObject='{"Event": "' + "PageView" + '"}';    
     postCall(url, myJSObject);
   }
