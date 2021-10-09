@@ -4,7 +4,7 @@
     "start_url": ".",
     "display": "standalone",
     "background_color": "#fff",
-    "description": "Engineering Consulting",
+    "description": "iOS & Android App Development",
     "icons": [{
       "src": "https://thefirstprototype.com/assets/touch/homescreen48.png",
       "sizes": "48x48",
