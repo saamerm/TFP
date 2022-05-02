@@ -29,13 +29,13 @@
  --------------------------------------------- */
 
   function selectAction(actionType){
-    var url = "https://script.google.com/macros/s/AKfycbxV6pevPj7Fn8QK1LbwiRi25CCDkp0PETel0N9EAndhVvX3_TDdtAWuBj6qdTi37NM7vA/exec";
+    var url = "https://script.google.com/macros/s/AKfycbxzEJVBRmE-z7ZY4C6FRzxPn28TKW6mozP73FfPuVgXYgauG3_MnhroSoe5wVyE8eUkMg/exec";
     var myJSObject='{"Event": "' + "SelectAction: " + actionType + '"}';    
     postCall(url, myJSObject);
   }
   
   function pageViewed() {
-    var url = "https://script.google.com/macros/s/AKfycbxV6pevPj7Fn8QK1LbwiRi25CCDkp0PETel0N9EAndhVvX3_TDdtAWuBj6qdTi37NM7vA/exec";
+    var url = "https://script.google.com/macros/s/AKfycbxzEJVBRmE-z7ZY4C6FRzxPn28TKW6mozP73FfPuVgXYgauG3_MnhroSoe5wVyE8eUkMg/exec";
     var myJSObject='{"Event": "' + "PageView: Toronto" + '"}';    
     postCall(url, myJSObject);
   }
