@@ -1,8 +1,7 @@
 (function($){
     "use strict"; // Start of use strict    
     $(document).ready(function(){
-        pageViewed(); 
-        requestReferrerAndLocation();           
+        pageViewed();  
         $("#send_message").click(function()
         {
             document.getElementById('form_response').innerHTML = "Thank you! We will get back to you within 24 hours";
@@ -52,4 +51,23 @@
       console.log(error.responseText);
     },
   });
+  }
+  
+  function submitMessage()
+  {
+    var url = "https://script.google.com/macros/s/AKfycbyNis6FoIjQr0VqbgOInwAFBkUq7OAlxLEdd-A26p1JX1GFq7E/exec";
+    var Name = document.getElementById('contact_name').value;
+    var Email = document.getElementById('contact_email').value;      
+    var Message = document.getElementById('contact_message').value;      
+    var myJSObject='{"Name": "' + Name + '", "Email" : "' + Email + '", "Message" : "' + Message + '"}';    
+    postCall(url, myJSObject);
+  }
+  function submitSubscription()
+  {
+    var url = "https://script.google.com/macros/s/AKfycbyNis6FoIjQr0VqbgOInwAFBkUq7OAlxLEdd-A26p1JX1GFq7E/exec";
+    var Name = 'Subscription';
+    var Email = 'Subscription';      
+    var Message = document.getElementById('subscription_message').value;      
+    var myJSObject='{"Name": "' + Name + '", "Email" : "' + Email + '", "Message" : "' + Message + '"}';    
+    postCall(url, myJSObject);
   }

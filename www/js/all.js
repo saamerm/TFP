@@ -49,6 +49,7 @@
         init_wow();
         init_masonry();
 
+        pageViewed();  
         $("#send_message").click(function()
         {
             document.getElementById('form_response').innerHTML = "Thank you! We will get back to you within 24 hours";
@@ -1770,62 +1771,3 @@ if (typeof document !== 'undefined') {
         }
     });
 })();
-
-/* ---------------------------------------------
- Custom Analytics
- --------------------------------------------- */
-
-function submitMessage()
-{
-  var Name = document.getElementById('contact_name').value;
-  var Email = document.getElementById('contact_email').value;      
-  var Message = document.getElementById('contact_message').value;      
-  postFeedbackAPI(Name, Email, Message)
-}
-
-function requestReferrerAndLocation()
-{
-  $.getJSON("https://ipinfo.io/json", function (data) {
-    console.log("data: " + data);
-    var str = data.city + ", " + data.region + ", " + data.country;
-    console.log("IP: " + str);
-    sendLocationRequest(str);
-  });
-}  
-
-function sendLocationRequest(str)
-{
-  var Name = str;
-  var Email = document.URL;      
-  var Message = document.referrer; 
-  postFeedbackAPI(Name, Email, Message)
-}
-
-function submitSubscription()
-{
-  var Name = 'Subscription';
-  var Email = 'Subscription';      
-  var Message = document.getElementById('subscription_message').value;      
-  postFeedbackAPI(Name, Email, Message)
-}
-
-function postFeedbackAPI(Name, Email, Message)
-{
-  var url = "https://script.google.com/macros/s/AKfycbz42xFl_59V36k5VJgldCLFRBv9Gw1n2Z6XapMt1V9d_G-deUaoaOYbkqHddM3HnzA/exec";
-  var myJSObject='{"Name": "' + Name + '", "Email" : "' + Email + '", "Message" : "' + Message + '"}';    
-  postCall(url, myJSObject);
-}
-
-function postCall(url, myJSObject) {
-    $.ajax({
-    type: "POST",
-    url: url,
-    data: myJSObject,
-    success: function (response) {
-      console.log(response);
-    },
-    error: function (error) {
-      console.log(error.responseText);
-    },
-  });
-}
