@@ -1,0 +1,14 @@
+DirectoryIndex index.html
+
+RewriteEngine On
+
+# Redirect non-canonical hostnames (eg. mail)
+RewriteCond %{HTTP_HOST} !^thefirstprototype\.com$
+RewriteRule ^ https://thefirstprototype.com/ [R=302,L]
+
+# Redirect 404 to root
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . / [R=302,L]
+
