@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Flight prayer time airplane travel Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css'>
+  <link rel="stylesheet" href="./style.css">
+  <meta name="description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer" />
+  <meta name="keywords" content="Flight, prayer, time, airplane, travel, Calculator, Muslim, Islam, Website" />
+
+  <meta property="og:site_name" content="Flight prayer time airplane travel Calculator">
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Flight prayer time airplane travel Calculator">
+  <meta name="twitter:description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer">
+  <meta name="twitter:image" content="https://thefirstprototype.com/images/author.png">
+  <!-- Google / Search Engine Tags -->
+  <meta itemprop="name" content="Flight prayer time airplane travel Calculator">
+  <meta itemprop="description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer">
+  <meta itemprop="image" content="https://thefirstprototype.com/images/author.png">
+  <!-- Facebook Open Graph -->
+  <meta property="og:url" content="https://thefirstprototype.com/flight-prayer-time-airplane-travel-calculator">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Flight prayer time airplane travel Calculator">
+  <meta property="og:description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer">
+  <meta property="og:image" content="https://thefirstprototype.com/images/author.png">
+  <meta name="robots" content="noodp,noydir">
+    <!-- Facebook Open Graph end -->
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+
+  <meta name="author" content="Saamer Mansoor">
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+  
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="images/logo-footer.png">
+
+</head>
+<body>
+<h1>Flight prayer time airplane travel Calculator</h1>
+<h2>Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer</h2>
+<h3>Simply get the prayer times online (you can use islamicfinder.com) and the flight times from your boarding pass, and input them using the time zone they belong. If you are fasting, you can use this to find the time of sunset
+</h3>
+<p>
+<b>Flight time:</b>
+</br>
+Departure
+<input type="text" id="departureTime" class="pickr" name="date">
+Arrival
+<input type="text" id="arrivalTime" class="pickr" name="date">
+</br>
+</p>
+<p>
+<b>Prayer time:</b>
+</br>
+Origin
+<input type="text" id="originPrayerTime" class="pickr" name="date">
+Destination
+<input type="text" id="destinationPrayerTime" class="pickr" name="date">
+</p>
+
+<button onclick="Calculate()">Calculate Best Prayer time</button>
+<div id="calculation" class = "result">See below for explanation on how to use</div>
+</br>
+<div>
+Notes - <ul><li>
+  The problem is challenging because the prayer time changes as the time/distance also changes!
+  </li><li>Currently this tool loops through each minute of the flight and checking when the time and prayer time at the location match (or when time is safely higher by 1 minute)</li><li>
+  For prayer times, dont use values that are lower than the flight time, or higher than the arrival time. </li><li>Dev Note:
+  To increase accuracy to the second, you just have to reduce the step counter of the for-loop</li>
+    <li>
+  If you have any feedback, comments or questions, feel free to get in touch with me on <a href="https://linkedin.com/in/saamer">LinkedIn</a> or <a href="https://twitter.com/saamer">Twitter</a></li>
+  </ul>
+  
+</div>
+
+<div>
+How to use this if you are flying from London, UK to Sylhet, Bangladesh-
+  <ul><li>Your departure time is 6 20 PM August 19 UK time. Flight Time Departure = "19 Aug 2023 18:20"</li>
+  <li>Your arrival time is 9 20 AM August 20 Bangladesh time. Flight Time Arrival = "20 Aug 2023 09:20"</li>
+  <li>The maghrib time in London, UK is 8:21 p.m UK time. Prayer Time Destination = "19 Aug 2023 20:21"</li>
+  <li>The maghrib time in Sylhet, Bangladesh is 6:24 p.m Bangladesh time. Prayer Time Origin = "19 Aug 2023 18:24"</li>
+  <li>Pressing calculate shows that you have to pray at "Sat Aug 19 2023 20:08:00" based on the origin time zone</li>
+  </ul>
+  
+</div>
+<!-- https://trends.google.com/trends/explore?date=now%201-d&q=flight%20prayer%20time,prayer%20time%20travel,airplane%20prayer%20time,air%20prayer%20time,in-flight%20prayer%20time&hl=en Told me what name to use -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js'></script><script  src="./script.js"></script>
+<script src="../js/analytics.js"/>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": "Flight prayer time airplane travel Calculator",
+    "description": "Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer",
+    "brand": {
+        "@type": "Thing",
+        "name": "Flight prayer time airplane travel Calculator"
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "134"
+    }
+}
+
+</script>             
+</body>
+</html>

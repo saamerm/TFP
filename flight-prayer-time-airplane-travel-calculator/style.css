@@ -1,0 +1,90 @@
+/* Css from here https://gist.github.com/JoeyBurzynski/617fb6201335779f8424ad9528b72c41 */
+
+html {
+  font-family: sans-serif;
+  font-size: 1.5em;
+  line-height: 1.75;
+  margin: auto;
+  max-width: 120ch; 
+/*   Max width can't be lower than 120ch because of flatpickr */
+  padding: 3em 1em;
+}
+
+img {
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 3em 0 1em;
+}
+
+p,
+ul,
+ol {
+  color: #1d1d1d;
+  margin-bottom: 2em;
+} 
+
+button {
+  --b: 3px; 
+  --s: 0.45em; 
+  --color: #373b44;
+
+  padding: calc(0.5em + var(--s)) calc(0.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background: conic-gradient(
+      from 90deg at var(--b) var(--b),
+      #0000 90deg,
+      var(--color) 0
+    )
+    var(--_p) var(--_p) / calc(100% - var(--b) - 2 * var(--_p))
+    calc(100% - var(--b) - 2 * var(--_p));
+  transition: 0.3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: 0.6em;
+  font-size: 24px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover,
+button:focus-visible {
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: 0.05em;
+}
+
+button:active {
+  background: var(--color);
+  color: #fff;
+} 
+
+input {
+  padding: 7px;
+  border-radius: 6px;
+  font-size: 20px;
+  background: #fbfbfb;
+  border: 2px solid transparent;
+  height: 36px;
+  box-shadow: 0 0 0 1px #dddddd, 0 2px 4px 0 rgb(0 0 0 / 7%),
+    0 1px 1.5px 0 rgb(0 0 0 / 5%);
+}
+input:focus {
+  border: 2px solid #000;
+  border-radius: 4px;
+}
+
+.result{
+  padding: 40px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
