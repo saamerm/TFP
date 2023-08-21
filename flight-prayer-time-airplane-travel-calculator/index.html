@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Flight prayer time airplane travel Calculator</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css'>
   <link rel="stylesheet" href="./style.css">
   <meta name="description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer" />
@@ -40,7 +40,7 @@
   <link rel="shortcut icon" href="images/logo-footer.png">
 
 </head>
-<body>
+<body class="blur background-tint">
 <h1>Flight prayer time airplane travel Calculator</h1>
 <h2>Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer</h2>
 <h3>Simply get the prayer times online (you can use islamicfinder.com) and the flight times from your boarding pass, and input them using the time zone they belong. If you are fasting, you can use this to find the time of sunset
@@ -71,7 +71,7 @@ Notes - <ul><li>
   The problem is challenging because the prayer time changes as the time/distance also changes!
   </li><li>Currently this tool loops through each minute of the flight and checking when the time and prayer time at the location match (or when time is safely higher by 1 minute)</li><li>
   For prayer times, dont use values that are lower than the flight time, or higher than the arrival time. </li><li>Dev Note:
-  To increase accuracy to the second, you just have to reduce the step counter of the for-loop</li>
+  The code is open-source, so feel free to contribute with design or logic by <a href="https://github.com/saamerm/TFP/tree/prod/flight-prayer-time-airplane-travel-calculator">submitting a Pull Request to the code</a>. To increase accuracy to the second, you just have to reduce the step counter of the for-loop</li>
     <li>
   If you have any feedback, comments or questions, feel free to get in touch with me on <a href="https://linkedin.com/in/saamer">LinkedIn</a> or <a href="https://twitter.com/saamer">Twitter</a></li>
   </ul>

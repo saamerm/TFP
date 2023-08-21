@@ -4,10 +4,42 @@ html {
   font-family: sans-serif;
   font-size: 1.5em;
   line-height: 1.75;
+  background-color:#c5c5c5;
   margin: auto;
   max-width: 120ch; 
 /*   Max width can't be lower than 120ch because of flatpickr */
   padding: 3em 1em;
+}
+
+.blur {
+  /* this is needed or the background will be offset by a few pixels at the top */
+  overflow: auto;
+  position: relative;
+}
+
+.blur::before {
+  content: "";
+  position: fixed;
+  left: -5%;
+  right: -5%;
+  z-index: -1;
+
+  display: block;
+  background-image: url('https://images.unsplash.com/photo-1487800940032-1cf211187aea');
+  background-size:cover;
+  width: 110%;
+  height: 110%;
+
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+}
+
+.background-tint::before {
+  background-color: rgba(255,255,255,0.7);
+  background-blend-mode:color;
 }
 
 img {
