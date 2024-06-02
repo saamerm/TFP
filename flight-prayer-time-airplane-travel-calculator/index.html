@@ -38,22 +38,23 @@
   <meta name="robots" content="noodp,noydir">
     <!-- Facebook Open Graph end -->
 
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://thefirstprototype.com/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://thefirstprototype.com/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://thefirstprototype.com/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://thefirstprototype.com/favicon/site.webmanifest">
 
   <meta name="author" content="Saamer Mansoor">
   <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
   
   <!-- Favicons -->
-  <link rel="shortcut icon" href="../images/logo-footer.png">
+  <link rel="shortcut icon" href="https://thefirstprototype.com/images/logo-footer.png">
 
   </head>
   <body class="blur background-tint appear-animate">
     <div class="page" id="top">
 
     <!-- Navigation panel -->
+    
       <nav class="main-nav dark transparent stick-fixed">
         <div class="full-wrapper relative clearfix">
             <!-- Logo ( * your text or image into link tag *) -->
@@ -67,12 +68,12 @@
                 <span class="sr-only">Menu</span>
             </div>
             <!-- Main Menu -->
-            <div class="inner-nav desktop-nav">
+            <div class="inner-nav desktop-nav"  style="padding-top: 20px;">
                 <ul class="clearlist scroll-nav local-scroll">
-                    <li><a href="../index.html#about">About</a></li>
-                    <li><a href="../index.html#services">Services</a></li>
-                    <li><a href="../index.html#portfolio">Portfolio</a></li>
-                    <li><a href="../index.html#contact">Contact Us</a></li>
+                    <li><a href="../index.html#about">About Us</a></li>
+                    <li><a href="#calculator1">Calculator</a></li>
+                    <li><a href="#explanation">How To Use</a></li>
+                    <li><a href="#calculator2">(Beta)Prayer List</a></li>
                     
                     
                 </ul>
@@ -82,13 +83,12 @@
       <main id="main">
       <!-- End Navigation panel -->  
         <section class="home-section bg-dark" id="calculator">
-          <div class="container">
+          <div class="container" style="padding-top: 60px;" >
             <div class="home-content">
               <div class="home-text">
-                <br/><br/><br/>
                 <h1 class="hs-line-11 font-alt mb-50 mb-xs-30">Flight prayer time airplane travel Calculator</h1>
-                <h2 class="hs-line-8 font-alt mb-50 mb-xs-30">Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer</h2>
-                <h3 class="hs-line-10 font-alt mb-50 mb-xs-30">Simply get the prayer times online (you can use islamicfinder.com) and the flight times from your boarding pass, and input them using the time zone they belong. If you are fasting, you can use this to find the time of sunset
+                <h2 class="hs-line-8 font-alt mb-50 mb-xs-30">Enter flight departure and arrival time, along with the Azan times at origin and destination to get the time of prayer</h2>
+                <h3 class="hs-line-10 font-alt mb-50 mb-xs-30">Simply get the salat times online (you can use islamicfinder.com) and the flight times from your boarding pass, and input them using the time zone they belong. If you are fasting, you can use this to find the time of sunset
                 </h3>
               </div>
             </div>
@@ -97,7 +97,7 @@
         <!-- Calculator 1 Section -->
         <section class="page-section" id="calculator1">          
           <div class="container relative">
-            <h3>In flight prayer times calculator</h3>
+            <h3>In flight Adhan times calculator</h3>
             <p>
               <span class="hs-line-8 font-alt mb-50 mb-xs-30">
                 <b>Flight time:</b>
@@ -129,7 +129,7 @@
             </p>
 
             <button class="btn btn-mod btn-gray btn-round" onclick="Calculate()">Calculate Best Prayer time</button>
-            <div id="calculation" class = "result section-text">See below for explanation on how to use</div>
+            <div id="calculation" class = "result section-text">See below for explanation on how to use. Try our Beta List of Prayers calculator below!</div>
           </div>
         </section>
         <hr class="mt-0 mb-0 "/>
@@ -145,7 +145,7 @@
              
             <ul class = "banner-decription">
               <li>
-                The problem is challenging because the prayer time changes as the time/distance also changes!
+                Hi! I'm Saamer from Detroit, the Founder of <a href="https://khutbahcaptioning.com">Khutbah Live Captioning</a>! Add live-captions for the Deaf & Live Translations for your masjids in seconds. <a href="https://conferencecaptioning.com">Get started for free!</a>
               </li>
               <li>Currently this tool loops through each minute of the flight and checking when the time and prayer time at the location match (or when time is safely higher by 1 minute)</li><li>
                 For prayer times, dont use values that are lower than the flight time, or higher than the arrival time. 
@@ -155,6 +155,9 @@
               </li>
               <li>
                 If you have any feedback, comments or questions, feel free to get in touch with me on <a href="https://linkedin.com/in/saamer">LinkedIn</a> or <a href="https://twitter.com/saamer">Twitter</a>
+              </li>
+              <li>
+                The problem is challenging because the prayer time changes as the time/distance also changes. Don't forget to try our beta calculator below
               </li>
             </ul>
             
@@ -174,6 +177,45 @@
           </div>
         </div>
       </section>        
+      <!-- Calculator 2 Section -->
+      <section class="page-section" id="calculator2">          
+        <div class="container relative">
+          <h3>Beta Calculator: List of Prayers & Times to be Prayed</h3>
+          <p>
+            <span class="hs-line-8 font-alt mb-50 mb-xs-30">
+              <b>Flight time:</b>
+            </span>
+            </br>
+            <span class="hs-line-8 font-alt mb-50 mb-xs-30">
+            Departure
+            </span>
+            <input type="text" id="departureTime2" class="pickr" name="date">
+            <span class="hs-line-8 font-alt mb-50 mb-xs-30">
+            Arrival
+            </span>
+            <input type="text" id="arrivalTime2" class="pickr" name="date">
+            </br>
+          </p>
+          <p>
+            <span class="hs-line-8 font-alt mb-50 mb-xs-30">
+              <b>City, Country:</b>
+            </span>
+            </br>
+            <span class="hs-line-8 font-alt mb-50 mb-xs-30">
+            Origin
+            </span>
+            <input type="text" id="originCity" value="New York, USA" placeholder="Eg: London, United Kingdom" disabled>
+            <span class="hs-line-8 font-alt mb-50 mb-xs-30">
+            Destination
+            </span>
+            <input type="text" id="destinationCity" value="Los Angeles, USA" placeholder="Eg: Dubai, UAE">
+          </p>
+
+          <button class="btn btn-mod btn-gray btn-round" onclick="CalculateList()">Calculate List of Prayer times</button>
+          <div id="calculationList" class = "result section-text">Only supports same day flights for now, and can only edit destination city</div>
+        </div>
+      </section>
+      <hr class="mt-0 mb-0 "/>      
     </main>
     <!-- Foter -->
     <footer class="page-section bg-gray-lighter footer pb-60">
@@ -250,8 +292,8 @@
   <script type="text/javascript" src="../js/masonry.pkgd.min.js"></script>
   <script type="text/javascript" src="../js/jquery.simple-text-rotator.min.js"></script>
   <script type="text/javascript" src="../js/jquery.lazyload.min.js"></script>
-  <script type="text/javascript" src="../js/all.js"></script>
-  <script type="text/javascript" src="../js/analytics.js"></script>
+  <!-- <script type="text/javascript" src="../js/all.js"></script> -->
+  <!-- <script type="text/javascript" src="../js/analytics.js"></script> -->
   <script type="text/javascript" src="../js/contact-form.js"></script>
   <script type="text/javascript" src="../js/jquery.ajaxchimp.min.js"></script>      
   <script type="text/javascript" src="../js/jquery.backgroundvideo.min.js"></script>   
