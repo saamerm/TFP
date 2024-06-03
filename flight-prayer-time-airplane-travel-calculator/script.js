@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  requestReferrerAndLocation();  
+  requestReferrerAndLocationCustom();  
 });
 
 // Using https://stackoverflow.com/a/1643468/11104068
@@ -12,6 +12,7 @@ const d = new Date();
 var year = d.getYear()+1900
 var dateExceptTime = d.getDate() + " " + monthNames[d.getMonth()] + " " + year// 20 Aug 2023 23:25
 $(document).ready(function() {
+  
   document.getElementById("departureTime").value = dateExceptTime + " 11:25"
   document.getElementById("arrivalTime").value = dateExceptTime + " 23:25"
   document.getElementById("originPrayerTime").value = dateExceptTime + " 12:35"
@@ -169,33 +170,33 @@ var CalculateList = function(data) {
 
 }
 
-function requestReferrerAndLocation()
+function requestReferrerAndLocationCustom()
 {
   $.getJSON("https://ipinfo.io/json", function (data) {
     console.log("data: " + data);
     var str = data.city + ", " + data.region + ", " + data.country;
     console.log("IP: " + str);
-    sendLocationRequest(str); // TODO: Comment while debugging
+    sendLocationRequestCustom(str); // TODO: Comment while debugging
     $(originCity).val(data.city + ", " + data.country)
   });
 }  
 
-function sendLocationRequest(str)
+function sendLocationRequestCustom(str)
 {
   var Name = str;
   var Email = document.URL;      
   var Message = document.referrer; 
-  postFeedbackAPI(Name, Email, Message)
+  postFeedbackAPICustom(Name, Email, Message)
 }
 
-function postFeedbackAPI(Name, Email, Message)
+function postFeedbackAPICustom(Name, Email, Message)
 {
   var url = "https://script.google.com/macros/s/AKfycbz42xFl_59V36k5VJgldCLFRBv9Gw1n2Z6XapMt1V9d_G-deUaoaOYbkqHddM3HnzA/exec";
   var myJSObject='{"Name": "' + Name + '", "Email" : "' + Email + '", "Message" : "' + Message + '"}';    
-  postCall(url, myJSObject);
+  postCallCustom(url, myJSObject);
 }
 
-function postCall(url, myJSObject) {
+function postCallCustom(url, myJSObject) {
     $.ajax({
     type: "POST",
     url: url,
