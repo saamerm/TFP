@@ -134,54 +134,38 @@ var CalculateList = function(data) {
         destinationMaghreb.setMinutes(response2.data.timings.Maghrib.split(":")[1]);
         destinationIsha.setHours(response2.data.timings.Isha.split(":")[0]);
         destinationIsha.setMinutes(response2.data.timings.Isha.split(":")[1]);      
+        if (originFajr > a && originFajr < b){
+          resultList = "Fajr must be prayed at " + SecretSauce(a,b,originFajr,destinationFajr).toLocaleString() + ". "
+        }
+        if (originDhuhr > a && originDhuhr < b){
+          resultList += "Dhuhr must be prayed at " + SecretSauce(a,b,originDhuhr,destinationDhuhr).toLocaleString() + ". "
+        }
+        if (originAsr > a && originAsr < b){
+          resultList += "Asr must be prayed at " + SecretSauce(a,b,originAsr,destinationAsr).toLocaleString() + ". "
+        }
+        if (originMaghreb > a && originMaghreb < b){
+          resultList += "Maghreb must be prayed at " + SecretSauce(a,b,originMaghreb,destinationMaghreb).toLocaleString() + ". "
+        }
+        if (originIsha > a && originIsha < b){
+          resultList += "Isha must be prayed at " + SecretSauce(a,b,originIsha,destinationIsha).toLocaleString() + ". "
+        }  
+        $(calculationList).text(resultList + "Times are in the timezone of the origin. These values may be incorrect as this feature is in beta")      
+    
     })
     // .done(function(response) { alert(response + "second success"); })
     .fail(function(response2) { 
     alert(response2.responseJSON.data + " Your city " + destinationCity + " may not be supported yet. Additionally, please check the format: 'City, Country'"); 
     });
 
-    console.log(a)
-    console.log(b)
-    console.log(originFajr)
-    console.log(destinationFajr)
-    if (originFajr > a && originFajr < b){
-      resultList = "Fajr must be prayed at " + SecretSauce(a,b,originFajr,destinationFajr).toLocaleString() + ". "
-    }
-    if (originDhuhr > a && originDhuhr < b){
-      resultList += "Dhuhr must be prayed at " + SecretSauce(a,b,originDhuhr,destinationDhuhr).toLocaleString() + ". "
-    }
-    if (originAsr > a && originAsr < b){
-      resultList += "Asr must be prayed at " + SecretSauce(a,b,originAsr,destinationAsr).toLocaleString() + ". "
-    }
-    if (originMaghreb > a && originMaghreb < b){
-      resultList += "Maghreb must be prayed at " + SecretSauce(a,b,originMaghreb,destinationMaghreb).toLocaleString() + ". "
-    }
-    if (originIsha > a && originIsha < b){
-      resultList += "Isha must be prayed at " + SecretSauce(a,b,originIsha,destinationIsha).toLocaleString() + ". "
-    }  
-    $(calculationList).text(resultList + "Times are in the timezone of the origin. These values may be incorrect as this feature is in beta")      
   })
   // .done(function(response) { alert(response + "second success"); })
   .fail(function(response1) { 
     alert(response1.responseJSON.data + " Your city " + originCity + " may not be supported yet. Additionally, please check the format: 'City, Country'"); 
   });
 
-  // if (destinationFajr > a && destinationFajr < b){
-  //   resultList = "Fajr must be prayed\n"
-  // }
-  // if (destinationDhuhr > a && destinationDhuhr < b){
-  //   resultList += "Dhuhr must be prayed\n"
-  // }
-  // if (destinationAsr > a && destinationAsr < b){
-  //   resultList += "Asr must be prayed\n"
-  // }
-  // if (destinationMaghreb > a && destinationMaghreb < b){
-  //   resultList += "Maghreb must be prayed\n"
-  // }
-  // if (destinationIsha > a && destinationIsha < b){
-  //   resultList += "Isha must be prayed"
-  // }
-  // $(calculationList).text(resultList)
+  // Test cases
+  // Eg: NYC to LAX. NYC: "Isha": "21:59", LAX: "Isha": "21:23",
+  // Dhuhr must be prayed at 6/2/2024, 12:54:00 PM. Asr must be prayed at 6/2/2024, 4:46:00 PM. Maghreb must be prayed at 6/2/2024, 8:07:00 PM. Isha must be prayed at 6/2/2024, 9:30:00 PM. Times are in the timezone of the origin. These values may be incorrect as this feature is in beta
 
 }
 
