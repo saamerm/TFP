@@ -113,7 +113,7 @@ var CalculateList = function(data) {
   var originTimeZone = ""
   var destinationTimeZone = ""
 
-  $.getJSON('https://api.aladhan.com/v1/timingsByCity/' + a + '?city='+ originCity + '&country=' + originCountry, function(response1){
+  $.getJSON('https://api.aladhan.com/v1/timingsByCity/' + a + '?city='+ originCity + '&country=' + originCountry + '&method=2', function(response1){
     originFajr.setHours(response1.data.timings.Fajr.split(":")[0]);
     originFajr.setMinutes(response1.data.timings.Fajr.split(":")[1]);
     originDhuhr.setHours(response1.data.timings.Dhuhr.split(":")[0]);
@@ -126,7 +126,7 @@ var CalculateList = function(data) {
     originIsha.setMinutes(response1.data.timings.Isha.split(":")[1]);
     originTimeZone = response1.data.meta.timezone;
 
-    $.getJSON('https://api.aladhan.com/v1/timingsByCity/' + a + '?city='+ destinationCity + '&country=' + destinationCountry, function(response2){
+    $.getJSON('https://api.aladhan.com/v1/timingsByCity/' + a + '?city='+ destinationCity + '&country=' + destinationCountry + '&method=2', function(response2){
         destinationTimeZone = response2.data.meta.timezone;             
         var now = moment.utc();
         // get the zone offsets for this time, in minutes
