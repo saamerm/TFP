@@ -71,7 +71,7 @@ var Calculate = function(data) {
 // a = departureTime, b = arrivalTime, c = originPrayerTime, d = destinationPrayerTime
 function SecretSauce(a, b, c, d){
   var prayerTime = 0
-  var result = new Date()
+  var result = currentTime
   // 240,000 = 1 minute
   for (let i = a.getTime(); i < b.getTime(); i+=60000) { 
     var percent = 100*(i-a.getTime())/(b.getTime()-a.getTime()) //percent of flight completed
@@ -88,6 +88,7 @@ function SecretSauce(a, b, c, d){
   return result
 }
 
+var currentTime = new Date()
 var CalculateList = function(data) {
   var a = new Date(document.getElementById("departureTime2").value)
   var b = new Date(document.getElementById("arrivalTime2").value)
@@ -109,8 +110,10 @@ var CalculateList = function(data) {
   var destinationIsha = new Date()
   var resultList = ""
 
+  var originTimeZone = ""
+  var destinationTimeZone = ""
+
   $.getJSON('https://api.aladhan.com/v1/timingsByCity/' + a + '?city='+ originCity + '&country=' + originCountry, function(response1){
-    console.log(response1.data.timings.Fajr.split(":")[0]);
     originFajr.setHours(response1.data.timings.Fajr.split(":")[0]);
     originFajr.setMinutes(response1.data.timings.Fajr.split(":")[1]);
     originDhuhr.setHours(response1.data.timings.Dhuhr.split(":")[0]);
@@ -121,20 +124,27 @@ var CalculateList = function(data) {
     originMaghreb.setMinutes(response1.data.timings.Maghrib.split(":")[1]);
     originIsha.setHours(response1.data.timings.Isha.split(":")[0]);
     originIsha.setMinutes(response1.data.timings.Isha.split(":")[1]);
-
+    originTimeZone = response1.data.meta.timezone;
 
     $.getJSON('https://api.aladhan.com/v1/timingsByCity/' + a + '?city='+ destinationCity + '&country=' + destinationCountry, function(response2){
-        destinationFajr.setHours(response2.data.timings.Fajr.split(":")[0]);
-        console.log(response2.data.timings.Fajr.split(":")[0]);
+        destinationTimeZone = response2.data.meta.timezone;             
+        var now = moment.utc();
+        // get the zone offsets for this time, in minutes
+        var originOffset = moment.tz.zone(originTimeZone).utcOffset(now); 
+        var destinationOffset = moment.tz.zone(destinationTimeZone).utcOffset(now);
+        // calculate the difference in hours
+        var hoursDifference = -(originOffset - destinationOffset) / 60; //Eg: NYC (-5) - LAX (-8) = -3
+        destinationFajr.setHours(Number(response2.data.timings.Fajr.split(":")[0])+hoursDifference);
         destinationFajr.setMinutes(response2.data.timings.Fajr.split(":")[1]);
-        destinationDhuhr.setHours(response2.data.timings.Dhuhr.split(":")[0]);
+        destinationDhuhr.setHours(Number(response2.data.timings.Dhuhr.split(":")[0])+hoursDifference);
         destinationDhuhr.setMinutes(response2.data.timings.Dhuhr.split(":")[1]);
-        destinationAsr.setHours(response2.data.timings.Asr.split(":")[0]);
+        destinationAsr.setHours(Number(response2.data.timings.Asr.split(":")[0])+hoursDifference);
         destinationAsr.setMinutes(response2.data.timings.Asr.split(":")[1]);
-        destinationMaghreb.setHours(response2.data.timings.Maghrib.split(":")[0]);
+        destinationMaghreb.setHours(Number(response2.data.timings.Maghrib.split(":")[0])+hoursDifference);
         destinationMaghreb.setMinutes(response2.data.timings.Maghrib.split(":")[1]);
-        destinationIsha.setHours(response2.data.timings.Isha.split(":")[0]);
-        destinationIsha.setMinutes(response2.data.timings.Isha.split(":")[1]);      
+        destinationIsha.setHours(Number(response2.data.timings.Isha.split(":")[0])+hoursDifference);
+        destinationIsha.setMinutes(response2.data.timings.Isha.split(":")[1]); 
+    
         if (originFajr > a && originFajr < b){
           resultList = "Fajr must be prayed at " + SecretSauce(a,b,originFajr,destinationFajr).toLocaleString() + ". "
         }
@@ -148,7 +158,12 @@ var CalculateList = function(data) {
           resultList += "Maghreb must be prayed at " + SecretSauce(a,b,originMaghreb,destinationMaghreb).toLocaleString() + ". "
         }
         if (originIsha > a && originIsha < b){
-          resultList += "Isha must be prayed at " + SecretSauce(a,b,originIsha,destinationIsha).toLocaleString() + ". "
+          var timeOfIshaPrayer = SecretSauce(a,b,originIsha,destinationIsha).toLocaleString()
+          if (Date(timeOfIshaPrayer) == currentTime){
+            resultList += "Since you are traveling, combine Isha with Maghreb, by praying one after the other. "
+          } else{
+            resultList += "Isha must be prayed at " + timeOfIshaPrayer + ". "
+          }
         }  
         $(calculationList).text(resultList + "Times are in the timezone of the origin. These values may be incorrect as this feature is in beta")      
     
