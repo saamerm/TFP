@@ -159,7 +159,7 @@ var CalculateList = function(data) {
         }
         if (originIsha > a && originIsha < b){
           var timeOfIshaPrayer = SecretSauce(a,b,originIsha,destinationIsha).toLocaleString()
-          if (Date(timeOfIshaPrayer) == currentTime){
+          if (Date(timeOfIshaPrayer) == Date(currentTime)){
             resultList += "Since you are traveling, combine Isha with Maghreb, by praying one after the other. "
           } else{
             resultList += "Isha must be prayed at " + timeOfIshaPrayer + ". "
