@@ -56,28 +56,83 @@
 <body>
 <!-- partial:index.partial.html -->
 <header>
-  <h1>Detroit Upcoming Startup Events Calendar</h1>
+
+                  <div class="nav-logo-wrap local-scroll">
+                      <a href="../index.html" class="logo">
+                          <img src="../images/logo-white.webp" alt="Company logo" />
+                      </a>
+                  </div>
+
+  <h1>Detroit Startup Events Calendar</h1>
 </header>
 
+<h2>Events List
+
+  </h2>
 <div id="loader" class="loader"></div>
 
 <main id="events-container" class="events-container"></main>
+<h4 style="text-align: center; margin: 20px;">
+  This tool refreshes with events every 30 minutes from Velocity, Bamboo, SBDC, Oakland Thrive & TechTown! 🚀
+</h4>
 
-<footer style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; text-align: center; font-size: 14px; color: #333; border-top: 1px solid #ddd;">
-  Built by <strong>Saamer Mansoor</strong>.
-  Want to contribute or add your community event?
-  Reach out at <a href="mailto:saamer@thefirstprototype.com" style="color: #007bff; text-decoration: none;">saamer@thefirstprototype.com</a>.
-
-  <div style="margin-top: 15px;">
-    <p style="margin-bottom: 5px;">📩 Subscribe for updates on local events, grants, and startups:</p>
-    <input type="email" id="subscriberEmail" placeholder="Enter your email" style="padding: 8px; width: 250px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;">
-    <button onclick="subscribe()" style="padding: 8px 12px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">
-      Subscribe
-    </button>
-  </div>
-
-  <p id="subscriptionMessage" style="font-size: 13px; margin-top: 10px;"></p>
-</footer>
+      <!-- Foter -->
+      <footer class="page-section bg-gray-lighter footer pb-20" style="padding-top: 0px;">
+        <div class="container">
+            
+            <!-- Footer Logo -->
+            <div class="local-scroll mb-30 wow fadeInUp" data-wow-duration="1.2s">
+                <a href="#top"><img src="../images/logo-footer.webp" width="78" height="36" alt="Company logo" /><span class="sr-only">Scroll to the top of the page</span></a>
+            </div>
+            <!-- End Footer Logo -->
+            <div style="margin-top: 15px;">
+              <p style="margin-bottom: 5px;">📩 Subscribe for updates on local events, grants, and startups:</p>
+              <input type="email" id="subscriberEmail" placeholder="Enter your email" style="padding: 8px; width: 250px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;">
+              <button onclick="subscribe()" style="padding: 8px 12px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">
+                Subscribe
+              </button>
+            </div>
+          
+            <p id="subscriptionMessage" style="font-size: 13px; margin-top: 10px;"></p>
+          
+            <!-- Social Links -->
+            <div class="footer-social-links mb-110 mb-xs-60">
+                <a id="launch_facebook" href="https://www.facebook.com/prototypemakers" title="Facebook" target="Facebook"><i class="fa fa-facebook"></i> <span class="sr-only">Facebook profile</span></a>
+                <a id="launch_twitter" href="https://twitter.com/prototypemakers" title="Twitter" target="Twitter"><i class="fa fa-twitter"></i> <span class="sr-only">Twitter profile</span></a>
+                <a id="launch_linkedin" href="https://www.linkedin.com/company/10621304/" title="LinkedIn" target="LinkedIn"><i class="fa fa-linkedin"></i> <span class="sr-only">LinkedIn+ profile</span></a>
+                <a id="launch_instagram" href="https://www.instagram.com/prototypemakers/" title="Instagram" target="Instagram"><i class="fa fa-instagram"></i> <span class="sr-only">Instagram</span></a>
+                <a id="launch_youtube" href="https://www.youtube.com/channel/UCgiZLb7cRDGsxOsGf8peXjw" title="Youtube" target="Youtube"><i class="fa fa-youtube"></i> <span class="sr-only">Youtube</span></a>
+            </div>
+            <!-- End Social Links -->
+            
+            <!-- Footer Text -->
+            <div class="footer-text">
+                
+                <!-- Copyright -->
+                <div class="footer-copy font-alt">
+                    <a href="https://thefirstprototype.com" target="_blank">© The First Prototype <script>document.write(new Date().getFullYear());</script></br> All Rights Reserved</a>.
+                </div>
+                <!-- End Copyright -->
+                
+                <div class="footer-made">
+                    Made with love for great people to visit. Want to contribute or add your community event?
+                    Reach out at <a href="mailto:saamer@thefirstprototype.com" style="color: #007bff; text-decoration: none;">saamer@thefirstprototype.com</a>. Check out our <a href="../index.html">custom software development portfolio</a>
+                </div>
+                
+            </div>
+            <!-- End Footer Text --> 
+            
+          </div>
+          
+          
+          <!-- Top Link -->
+          <div class="local-scroll">
+              <a href="#top" class="link-to-top"><i class="fa fa-caret-up"></i></a>
+          </div>
+          <!-- End Top Link -->
+          
+    </footer>
+    <!-- End Foter -->
 
 <script>
   function subscribe() {

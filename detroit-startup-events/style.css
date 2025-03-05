@@ -9,7 +9,7 @@ body {
 
 /* Header */
 header {
-  background: #0073e6;
+  background: rgba(10,10,10, .95);
   color: white;
   padding: 15px;
   font-size: 24px;
@@ -18,7 +18,7 @@ header {
 /* Loader */
 .loader {
   border: 6px solid #f3f3f3;
-  border-top: 6px solid #0073e6;
+  border-top: 6px solid rgba(10,10,10, .95);
   border-radius: 50%;
   width: 40px;
   height: 40px;
