@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>LaunchDTW Detroit Upcoming Startup Events Calendar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  
+  <meta name="description" content="LaunchDTW - Detroit's Upcoming Startup Events Calendar">    
+  <meta name="author" content="Saamer Mansoor">
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+
+  <meta name="keywords" content="LaunchDTW, Detroit, Upcoming, Startup, Events, Calendar" />
+  <link rel="canonical" href="https://thefirstprototype.com/detroit-startup-events">  
+  <meta property="og:site_name" content="Detroit Startup Events Calendar">
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Detroit Startup Events Calendar">
+  <meta name="twitter:description" content="LaunchDTW - Presenting Detroit's Upcoming Startup Events Calendar">
+  <meta name="twitter:image" content="https://thefirstprototype.com/images/author.png">
+  <!-- Google / Search Engine Tags -->
+  <meta itemprop="name" content="Detroit Startup Events Calendar">
+  <meta itemprop="description" content="LaunchDTW - Presenting Detroit's Upcoming Startup Events Calendar">
+  <meta itemprop="image" content="https://thefirstprototype.com/images/author.png">
+  <!-- Facebook Open Graph -->
+  <meta property="og:url" content="https://thefirstprototype.com/detroit-startup-events">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Detroit Startup Events Calendar">
+  <meta property="og:description" content="LaunchDTW - Presenting Detroit's Upcoming Startup Events Calendar">
+  <meta property="og:image" content="https://thefirstprototype.com/images/author.png">
+  <meta name="robots" content="noodp,noydir">
+    <!-- Facebook Open Graph end -->
+
+  <link rel="apple-touch-icon" sizes="57x57" href="../images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png">
+  <!-- <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png"> Need 180x180 icon medium-->
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+  <!-- <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png"> Need this low-->
+  <link rel="manifest" href="../favicon/site.webmanifest">
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="../images/favicon.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style-responsive.css">
+  <link rel="stylesheet" href="../css/animate.min.css">
+  <link rel="stylesheet" href="../css/vertical-rhythm.min.css">
+  <link rel="stylesheet" href="../css/owl.carousel.css">
+  <link rel="stylesheet" href="../css/magnific-popup.css">    
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<header>
+  <h1>Detroit Upcoming Startup Events Calendar</h1>
+</header>
+
+<div id="loader" class="loader"></div>
+
+<main id="events-container" class="events-container"></main>
+
+<footer style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; text-align: center; font-size: 14px; color: #333; border-top: 1px solid #ddd;">
+  Built by <strong>Saamer Mansoor</strong>.
+  Want to contribute or add your community event?
+  Reach out at <a href="mailto:saamer@thefirstprototype.com" style="color: #007bff; text-decoration: none;">saamer@thefirstprototype.com</a>.
+
+  <div style="margin-top: 15px;">
+    <p style="margin-bottom: 5px;">📩 Subscribe for updates on local events, grants, and startups:</p>
+    <input type="email" id="subscriberEmail" placeholder="Enter your email" style="padding: 8px; width: 250px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;">
+    <button onclick="subscribe()" style="padding: 8px 12px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">
+      Subscribe
+    </button>
+  </div>
+
+  <p id="subscriptionMessage" style="font-size: 13px; margin-top: 10px;"></p>
+</footer>
+
+<script>
+  function subscribe() {
+    var email = document.getElementById("subscriberEmail").value;
+    var message = document.getElementById("subscriptionMessage");
+    if (!email.includes("@") || !email.includes(".")) {
+      message.innerHTML = "❌ Please enter a valid email address.";
+      message.style.color = "red";
+      return;
+    }
+    var requestBody = {
+      "Name": "DTW",
+      "Email": email,
+      "Message": document.referrer
+    };
+    fetch("https://script.google.com/macros/s/AKfycbz42xFl_59V36k5VJgldCLFRBv9Gw1n2Z6XapMt1V9d_G-deUaoaOYbkqHddM3HnzA/exec", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        mode: 'no-cors',
+        body: JSON.stringify(requestBody)
+      })
+      .then(data => {
+        console.log(data)
+        // if (data.success) {
+        message.innerHTML = "✅ Thank you! You have been subscribed.";
+        message.style.color = "green";
+        document.getElementById("subscriberEmail").value = ""; // Clear input
+        // } else {
+        //     message.innerHTML = "⚠️ Something went wrong. Please try again.";
+        //     message.style.color = "red";
+        // }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        message.innerHTML = "⚠️ Error: Unable to subscribe at the moment.";
+        message.style.color = "red";
+      });
+  }
+</script>
+<!-- partial -->
+  <script  src="./script.js"></script>
+  <!-- JS -->
+  <script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>        
+  <script type="text/javascript" src="../js/SmoothScroll.js"></script>
+  <script type="text/javascript" src="../js/jquery.scrollTo.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.localScroll.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.viewport.mini.js"></script>
+  <script type="text/javascript" src="../js/jquery.countTo.js"></script>
+  <script type="text/javascript" src="../js/jquery.appear.js"></script>
+  <script type="text/javascript" src="../js/jquery.sticky.js"></script>
+  <script type="text/javascript" src="../js/jquery.parallax-1.1.3.js"></script>
+  <script type="text/javascript" src="../js/jquery.fitvids.js"></script>
+  <script type="text/javascript" src="../js/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="../js/isotope.pkgd.min.js"></script>
+  <script type="text/javascript" src="../js/imagesloaded.pkgd.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.magnific-popup.min.js"></script>
+  <script type="text/javascript" src="../js/wow.min.js"></script>
+  <script type="text/javascript" src="../js/masonry.pkgd.min.js"></script>
+  <script type="text/javascript" src="../js/morphext.js"></script>
+  <script type="text/javascript" src="../js/jquery.lazyload.min.js"></script>
+  <script type="text/javascript" src="../js/all.js"></script>
+  <script type="text/javascript" src="../js/contact-form.js"></script>
+  <script type="text/javascript" src="../js/jquery.ajaxchimp.min.js"></script>        
+  <!--[if lt IE 10]><script type="text/javascript" src="js/placeholder.js"></script><![endif]-->
+  <script type="text/javascript" src="https://deafassistant.com/js/analytics.js"></script>       
+  <script type="application/ld+json">
+      {
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Detroit Startup Events Calendar",
+          "operatingSystem": "Web",
+          "applicationCategory": "UtilitiesApplication",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "ratingCount": "124"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }          
+  </script>        
+</body>
+</html>
