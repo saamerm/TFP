@@ -86,7 +86,7 @@ function getEventCard(event){
 
         eventCard.innerHTML = `
                 <div style="background-color: blue; padding:1px;">
-                    <img style="object-fit: cover; object-position: center; width:300px; height:200px;" src="${
+                    <img loading="lazy" style="object-fit: cover; object-position: center; width:300px; height:200px;" src="${
                       event.Image
                     }" alt="Event Image" onerror="this.onerror=null;this.src='https://michigansbdc.org/wp-content/uploads/2021/06/Michigan_SBDC-LogoWhite.svg'; ">
                 </div>
