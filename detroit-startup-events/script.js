@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("embed") === "true") {
+    document.getElementById("page-header").style.display = "none";
+    document.getElementById("h3-try").style.display = "none";
+    document.getElementById("page-footer").style.display = "none";
+  }
   const API_URL = "https://api.deafassistant.com/retrieve/GetJson?guid=24c8b245-018b-4ca7-8455-612c9339d636";
   // const API_URL = "https://script.google.com/macros/s/AKfycbzQIl7H91UC-3E8ma56iL4egPgX3kxmLf9rBJSlB4ltaMMvA-4dIruyBGjHUVezVe35Pw/exec"; // Replace with your API URL
   const eventsContainer = document.getElementById("events-container");
