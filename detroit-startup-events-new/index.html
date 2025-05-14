@@ -53,6 +53,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <link rel="stylesheet" href="css/owl.carousel.css">
         <link rel="stylesheet" href="css/animate.min.css">
         <link rel="stylesheet" href="css/splitting.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">            
         <script src="https://kit.fontawesome.com/cf78c5be65.js" crossorigin="anonymous"></script>
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-0LVRKJGVDT">
@@ -197,16 +200,16 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                           We scour startup support organizations & event sites..., boosting your odds of being in the right room, at the right time!
                                         </h3>
                                         <div class="local-scroll wow fadeInUpShort" data-wow-delay=".3s">
-                                            <a href="https://conferencecaptioning.com/portal" class="btn btn-mod btn-medium btn-round me-md-1">
+                                            <a href="#subscribe" class="btn btn-mod btn-medium btn-round me-md-1">
                                                 Subscribe
                                             </a>
-                                            <a href="https://app.conferencecaptioning.com" class="btn btn-mod btn-w btn-medium btn-round me-md-1">
+                                            <a href="#events" class="btn btn-mod btn-w btn-medium btn-round me-md-1">
                                                 View Events
                                             </a>
                                         </div>
                                         <br />
                                         <h3 class="section-more white mb-60 mb-xs-40 wow fadeInUpShort" data-wow-delay=".2s">
-                                          People like you are subscribing to get your time back, see the secret events & saying goodbye to FOMO
+                                          People like you are subscribing to get your time back, see the secret events & saying goodbye to FOMO. 
                                         </h3>
                                     </div>
                                 </div>
@@ -242,27 +245,45 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 <hr class="mt-0 mb-0 white" />
                 <!-- End Divider -->
                 <!-- Process Section -->
-                <section class="page-section bg-dark light-content">
+                <section id="events" class="page-section bg-dark light-content">
                     <div class="container relative">
                         <!-- Grid -->
                         <div class="row">
+                            <div id="loader" class="loader"></div>
                             <div id="events-container" class="events-container"></div>
                         </div>
+                        <!-- Embed Button -->
+                        <button id="embed" onclick="copyEmbedCode()" style="padding: 10px 15px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">
+                        📋 Embed on your site
+                        </button>
+                        <p id="embedMessage" style="font-size: 13px; margin-top: 5px; color: green;"></p>                        
                         <!-- End Grid -->
                     </div>
                 </section>
                 <hr class="mt-0 mb-0 white" />
-                <section class="page-section bg-dark light-content">
+                <section id="subscribe" class="page-section bg-dark light-content">
+                <div style="margin-top: 15px;">
+                    <p style="margin-bottom: 5px;">📩 Subscribe for updates on local events, grants, and startups:</p>
+                    <input type="email" id="subscriberEmail" placeholder="Enter your email" style="padding: 8px; width: 250px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;">
+                    <button onclick="subscribe()" style="padding: 8px 12px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">
+                      Subscribe
+                    </button>
+                  </div>
+                
+                  <p id="subscriptionMessage" style="font-size: 13px; margin-top: 10px;"></p>
+                </section>  
+                <hr class="mt-0 mb-0 white" />
+                <section id="community" class="page-section bg-dark light-content">
                   <div class="container">
-                    Events hosted by
+                    This tool refreshes every 30 minutes with events hosted by
                   </br>
-                    <img class="events-src-img" src="https://michigansbdc.org/wp-content/uploads/2021/06/Michigan_SBDC-LogoWhite.svg">
-                    <img class="events-src-img" src="https://oaklandthrive.org/wp-content/uploads/2022/06/oaklandthrivelogo.png">
-                    <img class="events-src-img" src="https://static.wixstatic.com/media/6a0d40_df948e390c254b0cb40ec323d051ccf5~mv2.png/v1/fill/w_654,h_88,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/velocity_logo_main_white.png">
-                    <img class="events-src-img img-white-border" src="https://www.tedxdetroit.com/wp-content/uploads/2022/10/bamboo-300x300.png">                    
-                    <img class="events-src-img" src="https://techtowndetroit.org/wp-content/uploads/2020/09/TechTown_F_whitebkd-new-2013.png">                    
-                    <img class="events-src-img" src="https://www.buildinstitute.org/wp-content/uploads/2024/07/Build-Institute_Horizontal_Blue.svg">                                        
-                    <img class="events-src-img" src="https://images.squarespace-cdn.com/content/v1/6664ed2598423802fc10730f/0a242c8e-1ab1-4a10-85bb-a05bc351a338/4.png?format=1500w">                                        
+                    <a href="https://michigansbdc.org"><img class="events-src-img" src="https://michigansbdc.org/wp-content/uploads/2021/06/Michigan_SBDC-LogoWhite.svg"></a>
+                    <a href="https://oaklandthrive.org/workshops-events/"><img class="events-src-img" src="https://oaklandthrive.org/wp-content/uploads/2022/06/oaklandthrivelogo.png"></a>
+                    <a href="https://mivelocity.com"><img class="events-src-img" src="https://static.wixstatic.com/media/6a0d40_df948e390c254b0cb40ec323d051ccf5~mv2.png/v1/fill/w_654,h_88,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/velocity_logo_main_white.png"></a>
+                    <a href="https://bamboodetroit.com"><img class="events-src-img img-white-border" src="https://www.tedxdetroit.com/wp-content/uploads/2022/10/bamboo-300x300.png"></a>
+                    <a href="https://techtowndetroit.org"><img class="events-src-img" src="https://techtowndetroit.org/wp-content/uploads/2020/09/TechTown_F_whitebkd-new-2013.png"></a>
+                    <a href="https://www.buildinstitute.org"><img class="events-src-img" src="https://www.buildinstitute.org/wp-content/uploads/2024/07/Build-Institute_Horizontal_Blue.svg"></a>                      
+                    <a href="https://blacktechsaturdays.com"><img class="events-src-img" src="https://images.squarespace-cdn.com/content/v1/6664ed2598423802fc10730f/0a242c8e-1ab1-4a10-85bb-a05bc351a338/4.png?format=1500w"></a>
                     
                   </br>
                   and more...
@@ -400,6 +421,57 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         </script>
         <script type="text/javascript" src="js/analytics.js">
         </script>
+        <script>
+            function copyEmbedCode() {
+            const embedCode = `<iframe src="https://thefirstprototype.com/detroit-startup-events?embed=true" width="100%" height="500px" style="border:none;"></iframe>`;
+            navigator.clipboard.writeText(embedCode).then(() => {
+                document.getElementById("embedMessage").innerText = "✅ Embed code copied!";
+            }).catch(err => {
+                console.error("Error copying embed code:", err);
+                document.getElementById("embedMessage").innerText = "⚠️ Failed to copy.";
+            });
+            }
+        </script>
+        <script>
+            function subscribe() {
+            var email = document.getElementById("subscriberEmail").value;
+            var message = document.getElementById("subscriptionMessage");
+            if (!email.includes("@") || !email.includes(".")) {
+                message.innerHTML = "❌ Please enter a valid email address.";
+                message.style.color = "red";
+                return;
+            }
+            var requestBody = {
+                "Name": "DTW",
+                "Email": email,
+                "Message": document.referrer
+            };
+            fetch("https://script.google.com/macros/s/AKfycbz42xFl_59V36k5VJgldCLFRBv9Gw1n2Z6XapMt1V9d_G-deUaoaOYbkqHddM3HnzA/exec", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                mode: 'no-cors',
+                body: JSON.stringify(requestBody)
+                })
+                .then(data => {
+                console.log(data)
+                // if (data.success) {
+                message.innerHTML = "✅ Thank you! You have been subscribed.";
+                message.style.color = "green";
+                document.getElementById("subscriberEmail").value = ""; // Clear input
+                // } else {
+                //     message.innerHTML = "⚠️ Something went wrong. Please try again.";
+                //     message.style.color = "red";
+                // }
+                })
+                .catch(error => {
+                console.error("Error:", error);
+                message.innerHTML = "⚠️ Error: Unable to subscribe at the moment.";
+                message.style.color = "red";
+                });
+            }
+        </script>  
         <script type="text/javascript">
             $(document).ready(function () {
                 var userLang = navigator.language || navigator.userLanguage;
