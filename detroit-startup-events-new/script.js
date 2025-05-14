@@ -109,7 +109,7 @@ function getEventCard(event){
                   }</div>
                   <a href="${
                     event.URL
-                  }" class="event-link" target="_blank">View Event</a>
+                  }" class="btn btn-mod btn-small btn-round me-md-1" target="_blank">View Event</a>
               </div>
           `;
           return eventCard;

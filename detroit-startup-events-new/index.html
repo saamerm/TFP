@@ -246,32 +246,51 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 <!-- End Divider -->
                 <!-- Process Section -->
                 <section id="events" class="page-section bg-dark light-content">
-                    <div class="container relative">
+                    <div class="relative">
                         <!-- Grid -->
                         <div class="row">
                             <div id="loader" class="loader"></div>
                             <div id="events-container" class="events-container"></div>
                         </div>
                         <!-- Embed Button -->
-                        <button id="embed" onclick="copyEmbedCode()" style="padding: 10px 15px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">
-                        📋 Embed on your site
+                        <div class="text-center">
+                        <button id="embed" onclick="copyEmbedCode()" class="btn btn-mod btn-medium btn-round me-md-1 align-items-center justify-content-center">
+                        📋 Embed this calendar on your website
                         </button>
-                        <p id="embedMessage" style="font-size: 13px; margin-top: 5px; color: green;"></p>                        
+                        <p id="embedMessage" style="font-size: 13px; margin-top: 5px; color: white;"></p>                        
+                        </div>  
                         <!-- End Grid -->
+                         
                     </div>
                 </section>
                 <hr class="mt-0 mb-0 white" />
-                <section id="subscribe" class="page-section bg-dark light-content">
-                <div style="margin-top: 15px;">
-                    <p style="margin-bottom: 5px;">📩 Subscribe for updates on local events, grants, and startups:</p>
-                    <input type="email" id="subscriberEmail" placeholder="Enter your email" style="padding: 8px; width: 250px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;">
-                    <button onclick="subscribe()" style="padding: 8px 12px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">
-                      Subscribe
-                    </button>
-                  </div>
-                
-                  <p id="subscriptionMessage" style="font-size: 13px; margin-top: 10px;"></p>
-                </section>  
+                <section class="small-section bg-black page-section light-content" id="subscribe">
+                    <div class="relative">
+                        
+                        <div class="text-center form">
+                                <div class="">
+                                    
+                                    <div class="newsletter-label font-alt">
+                                        📩 Subscribe for updates on local events, grants, and startups
+                                    </div>
+                                    
+                                    <div class="mb-20">
+                                        <input placeholder="Enter Your Email" id="subscriberEmail" class="newsletter-field form-control input-md round mb-xs-10" type="email" >
+                                        <button onclick="subscribe()" class="btn btn-mod btn-w btn-medium btn-round me-md-1" style="align-content: center;" aria-controls="result">
+                                            Subscribe
+                                          </button>                      
+                                    </div>
+                                    
+                                    <div class="form-tip">
+                                        <i class="fa fa-info-circle"></i> Unsubscribe at any time
+                                    </div>
+                                    
+                                    <div id="subscription_reponse" role="region" aria-live="polite" aria-atomic="true"></div>
+                                </div>
+                        </div>
+                        
+                    </div>
+                </section>
                 <hr class="mt-0 mb-0 white" />
                 <section id="community" class="page-section bg-dark light-content">
                   <div class="container">
@@ -438,12 +457,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             var message = document.getElementById("subscriptionMessage");
             if (!email.includes("@") || !email.includes(".")) {
                 message.innerHTML = "❌ Please enter a valid email address.";
-                message.style.color = "red";
+                message.style.color = "white";
                 return;
             }
             var requestBody = {
                 "Name": "DTW",
-                "Email": email,
+                "Email": email + "+calendar_subscribe",
                 "Message": document.referrer
             };
             fetch("https://script.google.com/macros/s/AKfycbz42xFl_59V36k5VJgldCLFRBv9Gw1n2Z6XapMt1V9d_G-deUaoaOYbkqHddM3HnzA/exec", {
@@ -576,6 +595,38 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                             Location: "Mock Location 2",
                             URL: "#",
                             Image: "https://via.placeholder.com/150"
+                        },
+                        {
+                            Title: "Mock Event 3",
+                            Date: "2023-10-02",
+                            Time: "2:00 PM - 4:00 PM",
+                            Location: "Mock Location 2",
+                            URL: "#",
+                            Image: "https://via.placeholder.com/150"
+                        },
+                        {
+                            Title: "Mock Event 4",
+                            Date: "2023-10-02",
+                            Time: "2:00 PM - 4:00 PM",
+                            Location: "Mock Location 2",
+                            URL: "#",
+                            Image: "https://via.placeholder.com/150"
+                        },
+                        {
+                            Title: "Mock Event 5",
+                            Date: "2023-10-02",
+                            Time: "2:00 PM - 4:00 PM",
+                            Location: "Mock Location 2",
+                            URL: "#",
+                            Image: "https://via.placeholder.com/150"
+                        },
+                        {
+                            Title: "Mock Event 6",
+                            Date: "2023-10-02",
+                            Time: "2:00 PM - 4:00 PM",
+                            Location: "Mock Location 2",
+                            URL: "#",
+                            Image: "https://via.placeholder.com/150"
                         }
                         ];
 
@@ -627,7 +678,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 }</div>
                                 <a href="${
                                     event.URL
-                                }" class="event-link" target="_blank">View Event</a>
+                                }" class="btn btn-mod btn-small btn-round me-md-1" target="_blank">View Event</a>
                             </div>
                         `;
                         return eventCard;
