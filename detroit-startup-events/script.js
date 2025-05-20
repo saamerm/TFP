@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Content-Type": " application/json"
     },
     mode: "cors"
-})
+  })
     .then((response) => { 
       console.log(response);      
       console.log("response");      
@@ -87,30 +87,30 @@ function convertTime(time) {
 }
 
 function getEventCard(event){
-        const eventCard = document.createElement("div");
-        eventCard.classList.add("event-card");
+  const eventCard = document.createElement("div");
+  eventCard.classList.add("event-card");
 
-        eventCard.innerHTML = `
-                <div style="background-color: blue; padding:1px;">
-                    <img loading="lazy" style="object-fit: cover; object-position: center; width:300px; height:200px;" src="${
-                      event.Image
-                    }" alt="Event Image" onerror="this.onerror=null;this.src='https://michigansbdc.org/wp-content/uploads/2021/06/Michigan_SBDC-LogoWhite.svg'; ">
-                </div>
-                    <div class="event-details">
-                        <div class="event-title">${event.Title}</div>
-                        <div class="event-info"><strong>Date:</strong> ${
-                          event.Date
-                        }</div>
-                        <div class="event-info"><strong>Time:</strong> ${convertTime(
-                          event.Time
-                        )}</div>
-                        <div class="event-info"><strong>Location:</strong> ${
-                          event.Location
-                        }</div>
-                        <a href="${
-                          event.URL
-                        }" class="event-link" target="_blank">View Event</a>
-                    </div>
-                `;
-                return eventCard;
-    }
+  eventCard.innerHTML = `
+          <div style="background-color: blue; padding:1px;">
+              <img loading="lazy" style="object-fit: cover; object-position: center; width:300px; height:200px;" src="${
+                event.Image
+              }" alt="Event Image" onerror="this.onerror=null;this.src='https://michigansbdc.org/wp-content/uploads/2021/06/Michigan_SBDC-LogoWhite.svg'; ">
+          </div>
+              <div class="event-details">
+                  <div class="event-title">${event.Title}</div>
+                  <div class="event-info"><strong>Date:</strong> ${
+                    event.Date
+                  }</div>
+                  <div class="event-info"><strong>Time:</strong> ${convertTime(
+                    event.Time
+                  )}</div>
+                  <div class="event-info"><strong>Location:</strong> ${
+                    event.Location
+                  }</div>
+                  <a href="${
+                    event.URL
+                  }" class="btn btn-mod btn-small btn-round me-md-1" target="_blank">View Event</a>
+              </div>
+          `;
+          return eventCard;
+}

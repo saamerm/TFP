@@ -74,6 +74,7 @@ header {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 5px;
+  color: #000;
 }
 
 .event-info {
@@ -95,4 +96,17 @@ header {
 
 .event-link:hover {
   background: #005bb5;
+}
+
+.events-src-img {
+  /* width: 100%; */
+  width: 180px;
+  object-fit: cover;
+  padding: 20px;
+}
+.img-white-border {
+  -webkit-filter: drop-shadow(1px 1px 0 white)
+  drop-shadow(-1px -1px 0 white);
+filter: drop-shadow(1px 1px 0 white) 
+drop-shadow(-1px -1px 0 white);
 }
