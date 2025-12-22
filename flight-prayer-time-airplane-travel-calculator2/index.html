@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In-Flight Prayer Time Calculator | Musafir Prayer</title>
+    
+    <!-- External CSS Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/themes/dark.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'media',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                        darkInput: '#334155',
+                        darkBorder: '#475569'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 dark:bg-darkBg dark:text-gray-100 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white dark:bg-darkCard shadow-sm py-4 border-b dark:border-darkBorder">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h1 class="text-2xl font-bold text-blue-900 dark:text-blue-400 flex justify-center items-center gap-2">
+                <span class="text-3xl">🛫</span> 
+                <span>Musafir Prayer Calc</span>
+            </h1>
+            <div class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                Hi! I'm <span class="font-bold text-blue-600 dark:text-blue-400">Saamer from Detroit</span>, Founder of 
+                <a href="https://khutbahcaptioning.com" target="_blank" class="underline decoration-blue-400 hover:text-blue-800 dark:hover:text-blue-300">Khutbah Captioning</a>!
+                <a href="https://www.linkedin.com/in/saamer/" target="_blank" class="text-blue-500 ml-1"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Ad Section -->
+    <div class="bg-blue-900 text-white border-b border-blue-800">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
+            <img src="https://khutbahcaptioning.com/images/logo-white.svg" alt="Khutbah Captioning" class="h-8 w-auto opacity-90">
+            <div class="text-sm">
+                <span class="font-bold text-blue-200">Help us make your mosque Friday Khutbah more accessible for the Deaf.</span> 
+                <br class="hidden md:block">
+                Share this with your Imam and get started for free!
+            </div>
+            <a href="https://khutbahcaptioning.com" target="_blank" class="bg-white text-blue-900 px-4 py-2 rounded-full text-xs font-bold hover:bg-blue-50 transition whitespace-nowrap">
+                Check it out <i class="fa-solid fa-arrow-right ml-1"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow container max-w-2xl mx-auto p-4 mt-4">
+        
+        <div class="bg-white dark:bg-darkCard rounded-xl shadow-lg p-6 mb-8 border border-gray-100 dark:border-darkBorder">
+            <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4 border-b dark:border-darkBorder pb-2">Flight Details</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Origin -->
+                <div class="col-span-1">
+                    <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Origin (City, Country)</label>
+                    <div class="relative">
+                        <input type="text" id="origin" placeholder="e.g. Detroit, US" 
+                               class="w-full p-3 border border-gray-300 dark:border-darkBorder rounded-lg focus:ring-2 focus:ring-blue-500 outline-none pl-10 bg-white dark:bg-darkInput dark:text-white placeholder-gray-400">
+                        <i class="fa-solid fa-location-dot absolute left-3 top-3.5 text-gray-400"></i>
+                    </div>
+                    <p class="text-xs text-green-600 dark:text-green-400 mt-1 hidden" id="loc-detected"><i class="fa-solid fa-check-circle"></i> Auto-filled from IP</p>
+                </div>
+
+                <!-- Destination -->
+                <div class="col-span-1">
+                    <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Destination (City, Country)</label>
+                    <div class="relative">
+                        <input type="text" id="destination" placeholder="e.g. Dubai, UAE" 
+                               class="w-full p-3 border border-gray-300 dark:border-darkBorder rounded-lg focus:ring-2 focus:ring-blue-500 outline-none pl-10 bg-white dark:bg-darkInput dark:text-white placeholder-gray-400">
+                        <i class="fa-solid fa-plane-arrival absolute left-3 top-3.5 text-gray-400"></i>
+                    </div>
+                </div>
+
+                <!-- Departure -->
+                <div class="col-span-1">
+                    <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Departure (Origin Local Time)</label>
+                    <div class="relative">
+                        <input type="text" id="depTime" class="w-full p-3 border border-gray-300 dark:border-darkBorder rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white dark:bg-darkInput dark:text-white">
+                        <i class="fa-regular fa-calendar absolute right-3 top-3.5 text-gray-400 pointer-events-none"></i>
+                    </div>
+                </div>
+
+                <!-- Arrival -->
+                <div class="col-span-1">
+                    <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Arrival (Dest Local Time)</label>
+                    <div class="relative">
+                        <input type="text" id="arrTime" class="w-full p-3 border border-gray-300 dark:border-darkBorder rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white dark:bg-darkInput dark:text-white">
+                        <i class="fa-regular fa-calendar absolute right-3 top-3.5 text-gray-400 pointer-events-none"></i>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="calculate()" id="calcBtn" class="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 shadow-md flex justify-center items-center gap-2">
+                <span>Calculate Prayers</span>
+            </button>
+            <div id="statusMsg" class="mt-4 text-center text-sm hidden p-2 rounded"></div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsArea" class="hidden">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4 px-2 gap-4">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white">Prayer Schedule</h3>
+                    <p class="text-xs text-gray-400 mt-1" id="route-info"></p>
+                </div>
+                
+                <!-- Timezone Toggle -->
+                <div class="flex items-center bg-white dark:bg-darkCard px-3 py-1 rounded-full shadow-sm border border-gray-200 dark:border-darkBorder">
+                    <span class="text-xs font-bold text-gray-500 dark:text-gray-400 mr-2 uppercase" id="label-origin">Origin Time</span>
+                    <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                        <input type="checkbox" name="toggle" id="tzToggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-gray-300"/>
+                        <label for="tzToggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                    </div>
+                    <span class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase" id="label-dest">Dest Time</span>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-darkCard rounded-xl shadow-lg p-6 relative overflow-hidden border border-gray-100 dark:border-darkBorder" id="timelineContainer">
+                <!-- Results go here -->
+            </div>
+            
+            <div class="mt-4 text-center text-xs text-gray-400">
+                <p>Calculations use the Great Circle Path & solar position.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-darkCard border-t dark:border-darkBorder mt-8 py-6">
+        <div class="text-center">
+            <a href="https://github.com/saamerm/TFP/tree/prod/flight-prayer-time-airplane-travel-calculator" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-full text-sm hover:bg-black transition border border-gray-700">
+                <i class="fa-brands fa-github"></i> Contribute on GitHub
+            </a>
+            <p class="text-gray-400 text-xs mt-4">&copy; 2025 Musafir Prayer Calc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Logic Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/adhan@4.4.3/lib/bundles/adhan.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
