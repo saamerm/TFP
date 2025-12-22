@@ -147,13 +147,68 @@
         </div>
     </div>
 
+        <!-- FAQ Section -->
+    <div class="mt-8 border-t border-gray-200 dark:border-darkBorder pt-6 mb-12 max-w-4xl mx-auto">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-6 text-center">Interesting Notes & FAQ's</h3>
+        
+        <!-- FAQ 1 -->
+        <details class="group mb-4">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none bg-white dark:bg-darkCard dark:border-darkBorder border border-gray-200 p-4 rounded-lg shadow-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2"><i class="fa-solid fa-circle-question"></i> How do I use these timings for my Madhab?</span>
+                <span class="transition group-open:rotate-180 text-gray-500">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </span>
+            </summary>
+            <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn px-4 text-sm leading-relaxed border-l-2 border-blue-500 ml-2">
+                <p class="mb-2">The main difference between Madhabs is for the <strong>Asr</strong> prayer:</p>
+                <ul class="list-disc ml-5 mb-2 space-y-1">
+                    <li><strong>Standard (Shafi, Maliki, Hanbali):</strong> Asr begins when an object's shadow equals its length (Earlier).</li>
+                    <li><strong>Hanafi:</strong> Asr begins when the shadow is twice the length (Later).</li>
+                </ul>
+                <p><strong>Note:</strong> This tool currently calculates using the <strong>Hanafi</strong> method (Later time) to be more inclusive since it works for all people. If you follow the majority opinion and you're not flying, your Asr time enters approximately 45-60 minutes <em>before</em> the time shown here.</p>
+            </div>
+        </details>
+
+        <!-- FAQ 2 -->
+            <details class="group mb-4">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none bg-white dark:bg-darkCard dark:border-darkBorder border border-gray-200 p-4 rounded-lg shadow-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2"><i class="fa-solid fa-calculator"></i> Which Calculation Authority is used?</span>
+                <span class="transition group-open:rotate-180 text-gray-500">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </span>
+            </summary>
+            <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn px-4 text-sm leading-relaxed border-l-2 border-blue-500 ml-2">
+                <p class="mb-2">We use the <strong>Moonsighting Committee</strong> method as the "calculation authority". Different authorities (like ISNA, MWL, or Umm al-Qura) use slightly different sun angles to determine the exact start of <strong>Fajr</strong> and <strong>Isha</strong>.</p>
+                <p>This method is chosen for its reliability in international contexts, correlating astronomical calculation with visibility. However, you should always add a safety margin of +/- 10 minutes when traveling.</p>
+            </div>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details class="group mb-4">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none bg-white dark:bg-darkCard dark:border-darkBorder border border-gray-200 p-4 rounded-lg shadow-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2"><i class="fa-solid fa-plane-slash"></i> Why is In-Flight calculation so difficult?</span>
+                <span class="transition group-open:rotate-180 text-gray-500">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </span>
+            </summary>
+            <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn px-4 text-sm leading-relaxed border-l-2 border-blue-500 ml-2">
+                <ul class="list-disc ml-5 space-y-2">
+                    <li><strong>Chasing the Sun:</strong> If you fly West, you extend the day (Dhuhr could last 5 hours). If you fly East, the night accelerates (Maghrib/Isha combined might be only 20 minutes).</li>
+                    <li><strong>Altitude:</strong> At 35,000ft, you can see further over the curve of the earth. This means the sun sets later and rises earlier than it does for people on the ground below you.</li>
+                    <li><strong>Great Circle Physics:</strong> Planes fly in arcs, often reaching high latitudes (near the North Pole) where standard math breaks down because the sun may not set for weeks. We use special "High Latitude Rules" to estimate times in these zones.</li>
+                </ul>
+            </div>
+        </details>
+    </div>
+
+
     <!-- Footer -->
     <footer class="bg-white dark:bg-darkCard border-t dark:border-darkBorder mt-8 py-6">
         <div class="text-center">
             <a href="https://github.com/saamerm/TFP/tree/prod/flight-prayer-time-airplane-travel-calculator" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-full text-sm hover:bg-black transition border border-gray-700">
                 <i class="fa-brands fa-github"></i> Contribute on GitHub
             </a>
-            <p> <span class="text-gray-400 text-xs mt-4">&copy; 2025 Musafir Prayer Calculator. All rights reserved.</span> </br>
+            <p> <span class="text-gray-400 text-xs mt-4">&copy; Musafir Prayer Calculator. All rights reserved.</span> </br>
                 <a class="text-blue-400 text-xs mt-4" href="mailto:saamer@thefirstprototype.com&subject=Promote my business&body=Hi Saamer, I would like to promote my business on your page. Here's my business details:">Promote your Muslim business on our popular page today</a></p>
         </div>
     </footer>
