@@ -33,12 +33,26 @@
     <link rel="shortcut icon" href="https://thefirstprototype.com/images/logo-footer.png">
     
     <!-- External CSS Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/themes/dark.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Defer CSS Loading -->
+    <link rel="preload" href="https://cdn.tailwindcss.com/3.4.17" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.tailwindcss.com/3.4.17"></noscript>
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css"></noscript>
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/themes/dark.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/themes/dark.min.css"></noscript>
+    <!-- Lazy Load Non-Critical CSS -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '../css/all.min.css';
+        document.head.appendChild(link);
+    </script>    
+    <!-- Preconnects for faster API calls -->
     <link rel="preconnect" href="https://ipinfo.io">
-    <!-- Custom CSS -->
+    <!-- Custom Using a Local Copy of CSS -->
     <link rel="stylesheet" href="style.css">
 
     <!-- Tailwind Config -->
