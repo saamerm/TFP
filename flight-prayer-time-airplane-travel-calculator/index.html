@@ -46,8 +46,14 @@
     <!-- Preconnects for faster API calls -->
     <link rel="preconnect" href="https://ipinfo.io">
     <!-- Custom Using a Local Copy of CSS -->
-    <link rel="stylesheet" href="style.css">
-
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        .loader {     border: 3px solid #f3f3f3;     border-top: 3px solid #3b82f6;     border-radius: 50%;     width: 16px;     height: 16px;     animation: spin 1s linear infinite;     display: inline-block; } 
+        @keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+        .toggle-checkbox:checked{right:0;border-color:#3b82f6}
+        .toggle-checkbox:checked+.toggle-label{background-color:#3b82f6}
+        body,button,div,h1,h2,h3,h4,i,input,p,span{transition:background-color .3s ease,color .3s ease,border-color .3s ease}
+    </style>
     <!-- Tailwind Config -->
     <script>
         tailwind.config = {
