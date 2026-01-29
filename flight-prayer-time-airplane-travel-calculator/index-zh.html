@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        In Flight prayer time airplane travel Calculator
+        飞行中祈祷时间飞机旅行计算器
     </title>
-    <meta name="description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer" />
+    <meta name="description" content="输入航班起飞和到达时间，以及出发地和目的地的祈祷时间，即可获取祈祷时间。" />
     <meta name="keywords" content="Flight, prayer, time, airplane, travel, Calculator, Muslim, Islam, Website" />
     <meta name="author" content="Saamer Mansoor">
     <meta name="robots" content="noodp,noydir">
@@ -14,17 +14,17 @@
     <meta name="apple-mobile-web-app-capable" content="no"/>
 
     <!-- Open Graph -->
-    <meta property="og:site_name" content="In Flight prayer time airplane travel Calculator">
+    <meta property="og:site_name" content="飞行中祈祷时间飞机旅行计算器">
     <meta property="og:url" content="https://thefirstprototype.com/flight-prayer-time-airplane-travel-calculator">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="In Flight prayer time airplane travel Calculator">
-    <meta property="og:description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer">
+    <meta property="og:title" content="飞行中祈祷时间飞机旅行计算器">
+    <meta property="og:description" content="输入航班起飞和到达时间，以及出发地和目的地的祈祷时间，即可获取祈祷时间。">
     <meta property="og:image" content="https://thefirstprototype.com/images/author.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="In Flight prayer time airplane travel Calculator">
-    <meta name="twitter:description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer">
+    <meta name="twitter:title" content="飞行中祈祷时间飞机旅行计算器">
+    <meta name="twitter:description" content="输入航班起飞和到达时间，以及出发地和目的地的祈祷时间，即可获取祈祷时间。">
     <meta name="twitter:image" content="https://thefirstprototype.com/images/author.png">
 
     <!-- Favicons -->
@@ -77,13 +77,13 @@
     <!-- Navbar -->
     <nav class="bg-white dark:bg-darkCard shadow-sm py-4 border-b dark:border-darkBorder">
         <h1 class="text-2xl font-bold text-blue-900 dark:text-blue-400 flex justify-center items-center gap-2 px-4">
-            In-Flight Airplane Prayer Time Calculator
+            飞机上祈祷时间计算器
         </h1>
         <div class="max-w-3xl mx-auto px-4 flex justify-between items-center">
             <div class="text-center">
                 <h2 class="text-xl font-bold text-blue-900 dark:text-blue-400 flex justify-center items-center gap-2 px-2">
                     <span class="text-3xl">🛫</span>
-                    <span>Musafir Prayer Calc</span>
+                    <span>穆萨菲尔祈祷计算器</span>
                 </h2>
             </div>
             <!-- Language Dropdown -->
@@ -130,13 +130,13 @@
     <main class="flex-grow container max-w-2xl mx-auto p-4 mt-4">
         <div class="bg-white dark:bg-darkCard rounded-xl shadow-lg p-6 mb-8 border border-gray-100 dark:border-darkBorder">
             <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4 border-b dark:border-darkBorder pb-2">
-                Flight Details
+                航班详情
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Origin -->
                 <div class="col-span-1">
                     <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">
-                        Origin (City, Country)
+                        来源地（城市，国家）
                     </label>
                     <div class="relative">
                         <input type="text" id="origin" placeholder="e.g. Detroit, US" class="w-full p-3 border border-gray-300 dark:border-darkBorder rounded-lg focus:ring-2 focus:ring-blue-500 outline-none pl-10 bg-white dark:bg-darkInput dark:text-white placeholder-gray-400" />
@@ -146,13 +146,13 @@
                     <p class="text-xs text-green-700 dark:text-green-400 mt-1 hidden" id="loc-detected">
                         <i class="fa-solid fa-check-circle">
                         </i>
-                        Auto-filled from IP
+                        从 IP 地址自动填充
                     </p>
                 </div>
                 <!-- Destination -->
                 <div class="col-span-1">
                     <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">
-                        Destination (City, Country)
+                        目的地（城市，国家）
                     </label>
                     <div class="relative">
                         <input type="text" id="destination" placeholder="e.g. Dubai, UAE" class="w-full p-3 border border-gray-300 dark:border-darkBorder rounded-lg focus:ring-2 focus:ring-blue-500 outline-none pl-10 bg-white dark:bg-darkInput dark:text-white placeholder-gray-400" />
@@ -163,7 +163,7 @@
                 <!-- Departure -->
                 <div class="col-span-1">
                     <label for="depTime" class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">
-                        Departure (Origin Local Time)
+                        出发时间（出发地当地时间）
                     </label>
                     <div class="relative">
                         <input type="datetime-local" id="depTime" class="w-full p-3 border border-gray-300 dark:border-darkBorder rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white dark:bg-darkInput dark:text-white" />
@@ -174,7 +174,7 @@
                 <!-- Arrival -->
                 <div class="col-span-1">
                     <label for="arrTime" class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">
-                        Arrival (Dest Local Time)
+                        到达时间（目的地当地时间）
                     </label>
                     <div class="relative">
                         <input type="datetime-local" id="arrTime" class="w-full p-3 border border-gray-300 dark:border-darkBorder rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white dark:bg-darkInput dark:text-white" />
@@ -185,7 +185,7 @@
             </div>
             <button onclick="calculate()" id="calcBtn" class="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 shadow-md flex justify-center items-center gap-2">
                 <span>
-                    Calculate Prayers
+                    计算祈祷
                 </span>
             </button>
             <div id="statusMsg" class="mt-4 text-center text-sm hidden p-2 rounded">
@@ -196,7 +196,7 @@
             <div class="flex flex-col md:flex-row justify-between items-center mb-4 px-2 gap-4">
                 <div>
                     <h3 class="text-xl font-bold text-gray-800 dark:text-white">
-                        Prayer Schedule
+                        祈祷时间表
                     </h3>
                     <p class="text-xs text-gray-400 mt-1" id="route-info">
                     </p>
@@ -204,7 +204,7 @@
                 <!-- Timezone Toggle -->
                 <div class="flex items-center bg-white dark:bg-darkCard px-3 py-1 rounded-full shadow-sm border border-gray-200 dark:border-darkBorder">
                     <span class="text-xs font-bold text-gray-500 dark:text-gray-400 mr-2 uppercase" id="label-origin">
-                        Origin Time
+                        起源时间
                     </span>
                     <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
                         <input type="checkbox" name="toggle" id="tzToggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-gray-300" />
@@ -212,7 +212,7 @@
                         </label>
                     </div>
                     <span class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase" id="label-dest">
-                        Dest Time
+                        目的地时间
                     </span>
                 </div>
             </div>
@@ -221,7 +221,7 @@
             </div>
             <div class="mt-4 text-center text-xs text-gray-400">
                 <p>
-                    Calculations use the Great Circle Path & solar position.
+                    计算采用大圆路径和太阳位置。
                 </p>
             </div>
         </div>
@@ -230,13 +230,13 @@
                 <i class="fa-brands fa-linkedin">
                 </i>
                 <span class="font-bold text-blue-600 dark:text-blue-400">
-                    Hi! I'm Saamer, a Kashmiri in living Michigan & Ontario. 
+                    嗨！我是萨默，一个居住在密歇根州和安大略省的克什米尔人。. 
                 </span>
             </a>
             <a href="https://khutbahcaptioning.com" target="_blank" class="underline decoration-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
-                I am also the Founder of KhutbahCaptioning!
+                我也是 KhutbahCaptioning 的创始人。!
             </a>
-            Please share this with your family and friends
+            请与您的家人和朋友分享。
         </div>
     </main>
     <!-- Ad Section -->
@@ -245,13 +245,13 @@
             <img src="https://khutbahcaptioning.com/images/logo-white.svg" alt="Khutbah Captioning" class="h-8 w-auto opacity-90" />
             <div class="text-sm">
                 <span class="font-bold text-blue-200">
-                    Help us make your mosque Halaqas and Friday Khutbahs more accessible for non-natives & the Deaf with accurate captions & multi-lingual translations.
+                    请帮助我们为非母语人士和聋人提供准确的字幕和多语言翻译，使你们清真寺的 Halaqas 和星期五 Khutbah 更容易被他们理解。
                 </span>
                 <br class="hidden md:block" />
-                Check out the World's first AI Audio Trascription Models designed for mosques!
+                快来看看世界上首个专为清真寺设计的AI音频转录模型！
             </div>
             <a href="https://khutbahcaptioning.com" target="_blank" class="bg-white text-blue-900 px-4 py-2 rounded-full text-xs font-bold hover:bg-blue-50 transition whitespace-nowrap">
-                Get started for free!
+                立即免费开始！
                 <i class="fa-solid fa-arrow-right ml-1">
                 </i>
             </a>
@@ -260,7 +260,7 @@
     <!-- FAQ Section -->
     <div class="mt-8 border-t border-gray-200 dark:border-darkBorder pt-6 mb-12 container max-w-2xl mx-auto">
         <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-6 text-center">
-            Interesting Notes & FAQ's
+            有趣的笔记和常见问题解答
         </h3>
         <!-- FAQ 1 -->
         <details class="group mb-4">
@@ -268,7 +268,7 @@
                 <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2">
                     <i class="fa-solid fa-circle-question">
                     </i>
-                    How do I use these timings for my Madhab?
+                    我该如何将这些时间安排运用到我的 Madhab 中？
                 </span>
                 <span class="transition group-open:rotate-180 text-gray-500">
                     <i class="fa-solid fa-chevron-down">
@@ -277,27 +277,27 @@
             </summary>
             <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn px-4 text-sm leading-relaxed border-l-2 border-blue-500 ml-2">
                 <p class="mb-2">
-                    The main difference between Madhabs is for the Asr prayer:                    
+                    各教派之间的主要区别在于晡礼（Asr）的祈祷：                    
                 </p>
                 <ul class="list-disc ml-5 mb-2 space-y-1">
                     <li>
                         <strong>
-                            Standard (Shafi, Maliki, Hanbali):
+                            标准（Shafi、Maliki、Hanbali）：
                         </strong>
-                        Asr begins when an object's shadow equals its length (Earlier).
+                        当物体的影子长度等于其长度时，Asr 就开始了（更早）。
                     </li>
                     <li>
                         <strong>
-                            Hanafi:
+                            哈那菲派：
                         </strong>
-                        Asr begins when the shadow is twice the length (Later).
+                        当影子长度是实际长度的两倍时，Asr 就开始了（稍后）。
                     </li>
                 </ul>
                 <p>
                     <strong>
-                        Note:
+                        笔记：
                     </strong>
-                    This tool currently calculates using the Hanafi method (Later time) to be more inclusive since it works for all people. If you follow the majority opinion and you're not flying, your Asr time enters approximately 45-60 minutes before the time shown here.
+                    此工具目前采用哈乃斐教法（较晚时间）进行计算，以便更全面地适用于所有人。如果您遵循大多数人的意见且不乘坐飞机，您的晡礼时间大约会比此处显示的时间提前 45-60 分钟。
                 </p>
             </div>
         </details>
@@ -307,7 +307,7 @@
                 <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2">
                     <i class="fa-solid fa-calculator">
                     </i>
-                    Which Calculation Authority is used?
+                    使用的是哪个计算机构？
                 </span>
                 <span class="transition group-open:rotate-180 text-gray-500">
                     <i class="fa-solid fa-chevron-down">
@@ -316,10 +316,10 @@
             </summary>
             <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn px-4 text-sm leading-relaxed border-l-2 border-blue-500 ml-2">
                 <p class="mb-2">
-                    We use the Moonsighting Committee method as the "calculation authority". Different authorities (like ISNA, MWL, or Umm al-Qura) use slightly different sun angles to determine the exact start of Fajr and Isha.
+                    我们采用月亮观测委员会的方法作为“计算权威”。不同的机构（例如ISNA、MWL或Umm al-Qura）使用略有不同的太阳角度来确定晨礼和宵礼的确切开始时间。
                 </p>
                 <p>
-                    This method is chosen for its reliability in international contexts, correlating astronomical calculation with visibility. However, you should always add a safety margin of +/- 10 minutes when traveling.
+                    之所以选择这种方法，是因为它具有国际可靠性，能够将天文计算与能见度联系起来。但是，旅行时始终应增加正负 10 分钟的安全余量。
                 </p>
             </div>
         </details>
@@ -329,7 +329,7 @@
                 <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2">
                     <i class="fa-solid fa-plane-slash">
                     </i>
-                    Why is In-Flight calculation so difficult?
+                    为什么飞行中计算如此困难？
                 </span>
                 <span class="transition group-open:rotate-180 text-gray-500">
                     <i class="fa-solid fa-chevron-down">
@@ -340,21 +340,21 @@
                 <ul class="list-disc ml-5 space-y-2">
                     <li>
                         <strong>
-                            Chasing the Sun:
+                            追逐太阳：
                         </strong>
-                        If you fly West, you extend the day (Dhuhr could last 5 hours). If you fly East, the night accelerates (Maghrib/Isha combined might be only 20 minutes).
+                        如果你向西飞行，白昼就会延长（晌礼可能持续5个小时）。如果你向东飞行，夜晚就会缩短（昏礼/宵礼加起来可能只有20分钟）。
                     </li>
                     <li>
                         <strong>
-                            Altitude:
+                            高度：
                         </strong>
-                        At 35,000ft, you can see further over the curve of the earth. This means the sun sets later and rises earlier than it does for people on the ground below you.
+                        在35000英尺的高空，你可以看到地球曲面更远处的景色。这意味着，在你所在的高度，太阳落山的时间比地面上的人们更晚，升起的时间也更早。
                     </li>
                     <li>
                         <strong>
-                            Great Circle Physics:
+                            大圆物理学：
                         </strong>
-                        Planes fly in arcs, often reaching high latitudes (near the North Pole) where standard math breaks down because the sun may not set for weeks. We use special "High Latitude Rules" to estimate times in these zones.
+                        飞机飞行轨迹呈弧形，经常到达高纬度地区（靠近北极），在这些地区，由于太阳可能连续数周不落山，标准的数学方法不再适用。我们使用特殊的“高纬度规则”来估算这些地区的时间。
                     </li>
                 </ul>
             </div>
@@ -365,7 +365,7 @@
                 <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2">
                     <i class="fa-solid fa-history">
                     </i>
-                    Prefer the old v2 calculator?
+                    更喜欢旧版v2计算器？
                 </span>
                 <span class="transition group-open:rotate-180 text-gray-500">
                     <i class="fa-solid fa-chevron-down">
@@ -375,7 +375,7 @@
             <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn px-4 text-sm leading-relaxed border-l-2 border-blue-500 ml-2">
                 <p>
                     <a href="https://thefirstprototype.com/flight-prayer-time-airplane-travel-calculator-old/" target="_blank" class="text-blue-500 hover:underline">
-                        You can still access the original version here.
+                        您仍然可以点击此处访问原版。
                     </a>                    
                 </p>
             </div>
@@ -386,7 +386,7 @@
                 <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2">
                     <i class="fa-solid fa-code">
                     </i>
-                    Credits & Open Source Libraries
+                    鸣谢与开源库
                 </span>
                 <span class="transition group-open:rotate-180 text-gray-500">
                     <i class="fa-solid fa-chevron-down">
@@ -395,7 +395,7 @@
             </summary>
             <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn px-4 text-sm leading-relaxed border-l-2 border-blue-500 ml-2">
                 <p class="mb-2">
-                    We would like to thank the following open-source projects and APIs:
+                    我们衷心感谢以下开源项目和API：
                 </p>
                 <ul class="list-disc ml-5 space-y-1">
                     <li>
@@ -404,7 +404,7 @@
                                 Adhan.js
                             </a>
                         </strong>
-                        : For precise prayer time calculations using astronomical algorithms.
+                        ：利用天文算法进行精确的祈祷时间计算。
                     </li>
                     <li>
                         <strong>
@@ -412,7 +412,7 @@
                                 Luxon
                             </a>
                         </strong>
-                        : For handling complex time zone manipulations.
+                        用于处理复杂的时区操作。
                     </li>
                     <li>
                         <strong>
@@ -426,7 +426,7 @@
                                 OpenStreetMap
                             </a>
                         </strong>
-                        : For city search and geocoding data.
+                        用于城市搜索和地理编码数据。
                     </li>
                     <li>
                         <strong>
@@ -434,7 +434,7 @@
                                 Open-Meteo
                             </a>
                         </strong>
-                        : For accurate timezone detection based on coordinates.
+                        ：用于根据坐标进行精确时区检测。
                     </li>
                 </ul>
             </div>
@@ -446,15 +446,15 @@
             <a href="https://github.com/saamerm/TFP/tree/prod/flight-prayer-time-airplane-travel-calculator" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-full text-sm hover:bg-black transition border border-gray-700">
                 <i class="fa-brands fa-github">
                 </i>
-                Contribute on GitHub
+                在 GitHub 上贡献代码
             </a>
             <p>
                 <span class="text-gray-600 text-xs mt-4">
-                    © Musafir Prayer Calculator. All rights reserved.
+                    © Musafir 祈祷计算器。版权所有。
                 </span>
                 <br />
                 <a class="text-blue-600 text-xs mt-4" href="mailto:saamer@thefirstprototype.com&subject=Promote my business&body=Hi Saamer, I would like to promote my business on your page. Here's my business details:">
-                    Promote your Muslim business on our popular page today
+                    今天就来我们热门页面推广您的穆斯林企业吧！
                 </a>
             </p>
         </div>
@@ -492,11 +492,11 @@
         {
         "@context": "http://schema.org/",
         "@type": "Product",
-        "name": "In Flight prayer time airplane travel Calculator",
-        "description": "Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer",
+        "name": "飞行中祈祷时间飞机旅行计算器",
+        "description": "输入航班起飞和到达时间，以及出发地和目的地的祈祷时间，即可获取祈祷时间。",
         "brand": {
             "@type": "Thing",
-            "name": "In Flight prayer time airplane travel Calculator"
+            "name": "飞行中祈祷时间飞机旅行计算器"
         },
         "aggregateRating": {
             "@type": "AggregateRating",
@@ -513,26 +513,26 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "How do I use these timings for my Madhab?",
+                "name": "我该如何将这些时间安排运用到我的 Madhab 中？",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "The main difference between Madhabs is for the Asr prayer: Standard (Shafi, Maliki, Hanbali): Asr begins when an object's shadow equals its length (Earlier). Hanafi: Asr begins when the shadow is twice the length (Later)."
+                    "text": "各教派之间的主要区别在于晡礼（Asr）的祈祷： 标准（Shafi、Maliki、Hanbali）： 当物体的影子长度等于其长度时，Asr 就开始了（更早）。 哈那菲派： 当影子长度是实际长度的两倍时，Asr 就开始了（稍后）。"
                 }
             },
             {
                 "@type": "Question",
-                "name": "Which Calculation Authority is used?",
+                "name": "使用的是哪个计算机构？",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We use the Moonsighting Committee method as the calculation authority. Different authorities (like ISNA, MWL, or Umm al-Qura) use slightly different sun angles to determine the exact start of Fajr and Isha. This method is chosen for its reliability in international contexts."
+                    "text": "我们采用月相观测委员会的方法作为计算依据。不同的机构（例如ISNA、MWL或乌姆古拉）使用略有不同的太阳角度来确定晨礼和宵礼的确切开始时间。之所以选择这种方法，是因为它在国际上具有可靠性。"
                 }
             },
             {
                 "@type": "Question",
-                "name": "Why is In-Flight calculation so difficult?",
+                "name": "为什么飞行中计算如此困难？",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "In-Flight calculation is challenging due to factors like chasing the sun (extending or compressing day/night), altitude (affecting sunset/sunrise visibility), and great circle physics (high latitude routes where the sun may not set for weeks)."
+                    "text": "由于追逐太阳（延长或压缩白天/黑夜）、高度（影响日落/日出可见度）以及大圆航线物理特性（高纬度航线，太阳可能数周都不会落山）等因素，飞行中的计算非常具有挑战性。"
                 }
             },
             {

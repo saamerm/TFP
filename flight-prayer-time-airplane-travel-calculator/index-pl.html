@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        In Flight prayer time airplane travel Calculator
+        Kalkulator czasu modlitwy w locie i podróży samolotem
     </title>
-    <meta name="description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer" />
+    <meta name="description" content="Wprowadź godzinę odlotu i przylotu samolotu, a także godzinę modlitwy w miejscu wylotu i przylotu, aby uzyskać czas modlitwy" />
     <meta name="keywords" content="Flight, prayer, time, airplane, travel, Calculator, Muslim, Islam, Website" />
     <meta name="author" content="Saamer Mansoor">
     <meta name="robots" content="noodp,noydir">
@@ -14,17 +14,17 @@
     <meta name="apple-mobile-web-app-capable" content="no"/>
 
     <!-- Open Graph -->
-    <meta property="og:site_name" content="In Flight prayer time airplane travel Calculator">
+    <meta property="og:site_name" content="Kalkulator czasu modlitwy w locie i podróży samolotem">
     <meta property="og:url" content="https://thefirstprototype.com/flight-prayer-time-airplane-travel-calculator">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="In Flight prayer time airplane travel Calculator">
-    <meta property="og:description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer">
+    <meta property="og:title" content="Kalkulator czasu modlitwy w locie i podróży samolotem">
+    <meta property="og:description" content="Wprowadź godzinę odlotu i przylotu samolotu, a także godzinę modlitwy w miejscu wylotu i przylotu, aby uzyskać czas modlitwy">
     <meta property="og:image" content="https://thefirstprototype.com/images/author.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="In Flight prayer time airplane travel Calculator">
-    <meta name="twitter:description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer">
+    <meta name="twitter:title" content="Kalkulator czasu modlitwy w locie i podróży samolotem">
+    <meta name="twitter:description" content="Wprowadź godzinę odlotu i przylotu samolotu, a także godzinę modlitwy w miejscu wylotu i przylotu, aby uzyskać czas modlitwy">
     <meta name="twitter:image" content="https://thefirstprototype.com/images/author.png">
 
     <!-- Favicons -->
@@ -77,13 +77,13 @@
     <!-- Navbar -->
     <nav class="bg-white dark:bg-darkCard shadow-sm py-4 border-b dark:border-darkBorder">
         <h1 class="text-2xl font-bold text-blue-900 dark:text-blue-400 flex justify-center items-center gap-2 px-4">
-            In-Flight Airplane Prayer Time Calculator
+            Kalkulator czasu modlitwy w samolocie
         </h1>
         <div class="max-w-3xl mx-auto px-4 flex justify-between items-center">
             <div class="text-center">
                 <h2 class="text-xl font-bold text-blue-900 dark:text-blue-400 flex justify-center items-center gap-2 px-2">
                     <span class="text-3xl">🛫</span>
-                    <span>Musafir Prayer Calc</span>
+                    <span>Kalkulator modlitwy Musafir</span>
                 </h2>
             </div>
             <!-- Language Dropdown -->
@@ -130,13 +130,13 @@
     <main class="flex-grow container max-w-2xl mx-auto p-4 mt-4">
         <div class="bg-white dark:bg-darkCard rounded-xl shadow-lg p-6 mb-8 border border-gray-100 dark:border-darkBorder">
             <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4 border-b dark:border-darkBorder pb-2">
-                Flight Details
+                Szczegóły lotu
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Origin -->
                 <div class="col-span-1">
                     <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">
-                        Origin (City, Country)
+                        Pochodzenie (miasto, kraj)
                     </label>
                     <div class="relative">
                         <input type="text" id="origin" placeholder="e.g. Detroit, US" class="w-full p-3 border border-gray-300 dark:border-darkBorder rounded-lg focus:ring-2 focus:ring-blue-500 outline-none pl-10 bg-white dark:bg-darkInput dark:text-white placeholder-gray-400" />
@@ -146,13 +146,13 @@
                     <p class="text-xs text-green-700 dark:text-green-400 mt-1 hidden" id="loc-detected">
                         <i class="fa-solid fa-check-circle">
                         </i>
-                        Auto-filled from IP
+                        Wypełniono automatycznie z adresu IP
                     </p>
                 </div>
                 <!-- Destination -->
                 <div class="col-span-1">
                     <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">
-                        Destination (City, Country)
+                        Cel podróży (miasto, kraj)
                     </label>
                     <div class="relative">
                         <input type="text" id="destination" placeholder="e.g. Dubai, UAE" class="w-full p-3 border border-gray-300 dark:border-darkBorder rounded-lg focus:ring-2 focus:ring-blue-500 outline-none pl-10 bg-white dark:bg-darkInput dark:text-white placeholder-gray-400" />
@@ -163,7 +163,7 @@
                 <!-- Departure -->
                 <div class="col-span-1">
                     <label for="depTime" class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">
-                        Departure (Origin Local Time)
+                        Wylot (czas lokalny w miejscu wylotu)
                     </label>
                     <div class="relative">
                         <input type="datetime-local" id="depTime" class="w-full p-3 border border-gray-300 dark:border-darkBorder rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white dark:bg-darkInput dark:text-white" />
@@ -174,7 +174,7 @@
                 <!-- Arrival -->
                 <div class="col-span-1">
                     <label for="arrTime" class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">
-                        Arrival (Dest Local Time)
+                        Przyjazd (czas lokalny)
                     </label>
                     <div class="relative">
                         <input type="datetime-local" id="arrTime" class="w-full p-3 border border-gray-300 dark:border-darkBorder rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white dark:bg-darkInput dark:text-white" />
@@ -185,7 +185,7 @@
             </div>
             <button onclick="calculate()" id="calcBtn" class="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 shadow-md flex justify-center items-center gap-2">
                 <span>
-                    Calculate Prayers
+                    Oblicz modlitwy
                 </span>
             </button>
             <div id="statusMsg" class="mt-4 text-center text-sm hidden p-2 rounded">
@@ -196,7 +196,7 @@
             <div class="flex flex-col md:flex-row justify-between items-center mb-4 px-2 gap-4">
                 <div>
                     <h3 class="text-xl font-bold text-gray-800 dark:text-white">
-                        Prayer Schedule
+                        Harmonogram modlitwy
                     </h3>
                     <p class="text-xs text-gray-400 mt-1" id="route-info">
                     </p>
@@ -204,7 +204,7 @@
                 <!-- Timezone Toggle -->
                 <div class="flex items-center bg-white dark:bg-darkCard px-3 py-1 rounded-full shadow-sm border border-gray-200 dark:border-darkBorder">
                     <span class="text-xs font-bold text-gray-500 dark:text-gray-400 mr-2 uppercase" id="label-origin">
-                        Origin Time
+                        Czas pochodzenia
                     </span>
                     <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
                         <input type="checkbox" name="toggle" id="tzToggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-gray-300" />
@@ -212,7 +212,7 @@
                         </label>
                     </div>
                     <span class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase" id="label-dest">
-                        Dest Time
+                        Czas docelowy
                     </span>
                 </div>
             </div>
@@ -221,7 +221,7 @@
             </div>
             <div class="mt-4 text-center text-xs text-gray-400">
                 <p>
-                    Calculations use the Great Circle Path & solar position.
+                    Obliczenia wykorzystują orbitę okołoziemską i położenie Słońca.
                 </p>
             </div>
         </div>
@@ -230,13 +230,13 @@
                 <i class="fa-brands fa-linkedin">
                 </i>
                 <span class="font-bold text-blue-600 dark:text-blue-400">
-                    Hi! I'm Saamer, a Kashmiri in living Michigan & Ontario. 
+                    Cześć! Jestem Saamer, Kaszmirczyk mieszkający w Michigan i Ontario. 
                 </span>
             </a>
             <a href="https://khutbahcaptioning.com" target="_blank" class="underline decoration-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
-                I am also the Founder of KhutbahCaptioning!
+                Jestem również założycielem KhutbahCaptioning!
             </a>
-            Please share this with your family and friends
+            Podziel się tym z rodziną i przyjaciółmi
         </div>
     </main>
     <!-- Ad Section -->
@@ -245,13 +245,13 @@
             <img src="https://khutbahcaptioning.com/images/logo-white.svg" alt="Khutbah Captioning" class="h-8 w-auto opacity-90" />
             <div class="text-sm">
                 <span class="font-bold text-blue-200">
-                    Help us make your mosque Halaqas and Friday Khutbahs more accessible for non-natives & the Deaf with accurate captions & multi-lingual translations.
+                    Pomóż nam uczynić Halaqas i piątkowe chutby w Twoim meczecie bardziej dostępnymi dla osób niebędących rodzimymi użytkownikami języka i osób głuchych dzięki dokładnym napisom i tłumaczeniom wielojęzycznym.
                 </span>
                 <br class="hidden md:block" />
-                Check out the World's first AI Audio Trascription Models designed for mosques!
+                Sprawdź pierwsze na świecie modele transkrypcji dźwięku oparte na sztucznej inteligencji (AI) zaprojektowane z myślą o meczetach!
             </div>
             <a href="https://khutbahcaptioning.com" target="_blank" class="bg-white text-blue-900 px-4 py-2 rounded-full text-xs font-bold hover:bg-blue-50 transition whitespace-nowrap">
-                Get started for free!
+                Zacznij za darmo!
                 <i class="fa-solid fa-arrow-right ml-1">
                 </i>
             </a>
@@ -260,7 +260,7 @@
     <!-- FAQ Section -->
     <div class="mt-8 border-t border-gray-200 dark:border-darkBorder pt-6 mb-12 container max-w-2xl mx-auto">
         <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-6 text-center">
-            Interesting Notes & FAQ's
+            Ciekawe notatki i FAQ
         </h3>
         <!-- FAQ 1 -->
         <details class="group mb-4">
@@ -268,7 +268,7 @@
                 <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2">
                     <i class="fa-solid fa-circle-question">
                     </i>
-                    How do I use these timings for my Madhab?
+                    Jak mogę wykorzystać te godziny w moim Madhabie?
                 </span>
                 <span class="transition group-open:rotate-180 text-gray-500">
                     <i class="fa-solid fa-chevron-down">
@@ -277,27 +277,27 @@
             </summary>
             <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn px-4 text-sm leading-relaxed border-l-2 border-blue-500 ml-2">
                 <p class="mb-2">
-                    The main difference between Madhabs is for the Asr prayer:                    
+                    Główną różnicą pomiędzy madhabami jest modlitwa Asr:                    
                 </p>
                 <ul class="list-disc ml-5 mb-2 space-y-1">
                     <li>
                         <strong>
                             Standard (Shafi, Maliki, Hanbali):
                         </strong>
-                        Asr begins when an object's shadow equals its length (Earlier).
+                        ASR rozpoczyna się w momencie, gdy cień obiektu jest równy jego długości (wcześniej).
                     </li>
                     <li>
                         <strong>
                             Hanafi:
                         </strong>
-                        Asr begins when the shadow is twice the length (Later).
+                        ASR zaczyna się, gdy cień jest dwukrotnie dłuższy (później).
                     </li>
                 </ul>
                 <p>
                     <strong>
-                        Note:
+                        Notatka:
                     </strong>
-                    This tool currently calculates using the Hanafi method (Later time) to be more inclusive since it works for all people. If you follow the majority opinion and you're not flying, your Asr time enters approximately 45-60 minutes before the time shown here.
+                    To narzędzie obecnie oblicza czas metodą Hanafi (czas późniejszy), co jest bardziej inkluzywne, ponieważ działa dla wszystkich. Jeśli stosujesz się do opinii większości i nie lecisz samolotem, Twój czas ASR zostanie wprowadzony około 45–60 minut przed czasem pokazanym tutaj.
                 </p>
             </div>
         </details>
@@ -307,7 +307,7 @@
                 <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2">
                     <i class="fa-solid fa-calculator">
                     </i>
-                    Which Calculation Authority is used?
+                    Który organ obliczeniowy jest używany?
                 </span>
                 <span class="transition group-open:rotate-180 text-gray-500">
                     <i class="fa-solid fa-chevron-down">
@@ -316,10 +316,10 @@
             </summary>
             <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn px-4 text-sm leading-relaxed border-l-2 border-blue-500 ml-2">
                 <p class="mb-2">
-                    We use the Moonsighting Committee method as the "calculation authority". Different authorities (like ISNA, MWL, or Umm al-Qura) use slightly different sun angles to determine the exact start of Fajr and Isha.
+                    Jako „autorytet obliczeniowy” stosujemy metodę Moonsighting Committee. Różne organizacje (takie jak ISNA, MWL czy Umm al-Qura) stosują nieco inne kąty padania promieni słonecznych do określania dokładnego początku Fajr i Isha.
                 </p>
                 <p>
-                    This method is chosen for its reliability in international contexts, correlating astronomical calculation with visibility. However, you should always add a safety margin of +/- 10 minutes when traveling.
+                    Tę metodę wybrano ze względu na jej niezawodność w kontekście międzynarodowym, korelując obliczenia astronomiczne z widocznością. Należy jednak zawsze uwzględnić margines bezpieczeństwa wynoszący +/- 10 minut podczas podróży.
                 </p>
             </div>
         </details>
@@ -329,7 +329,7 @@
                 <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2">
                     <i class="fa-solid fa-plane-slash">
                     </i>
-                    Why is In-Flight calculation so difficult?
+                    Dlaczego obliczenia w trakcie lotu są tak trudne?
                 </span>
                 <span class="transition group-open:rotate-180 text-gray-500">
                     <i class="fa-solid fa-chevron-down">
@@ -340,21 +340,21 @@
                 <ul class="list-disc ml-5 space-y-2">
                     <li>
                         <strong>
-                            Chasing the Sun:
+                            W pogoni za słońcem:
                         </strong>
-                        If you fly West, you extend the day (Dhuhr could last 5 hours). If you fly East, the night accelerates (Maghrib/Isha combined might be only 20 minutes).
+                        Lecąc na zachód, wydłużasz dzień (dhuhr może trwać 5 godzin). Lecąc na wschód, noc się wydłuża (łącznie Maghrib/Isha może trwać tylko 20 minut).
                     </li>
                     <li>
                         <strong>
-                            Altitude:
+                            Wysokość:
                         </strong>
-                        At 35,000ft, you can see further over the curve of the earth. This means the sun sets later and rises earlier than it does for people on the ground below you.
+                        Na wysokości 35 000 stóp możesz zobaczyć więcej niż krzywiznę Ziemi. Oznacza to, że słońce zachodzi później i wschodzi wcześniej niż dla ludzi na ziemi poniżej.
                     </li>
                     <li>
                         <strong>
-                            Great Circle Physics:
+                            Fizyka koła wielkiego:
                         </strong>
-                        Planes fly in arcs, often reaching high latitudes (near the North Pole) where standard math breaks down because the sun may not set for weeks. We use special "High Latitude Rules" to estimate times in these zones.
+                        Samoloty latają po łukach, często docierając do wysokich szerokości geograficznych (w pobliżu Bieguna Północnego), gdzie standardowe obliczenia zawodzą, ponieważ słońce może nie zachodzić przez tygodnie. Do szacowania czasu w tych strefach stosujemy specjalne „reguły wysokich szerokości geograficznych”.
                     </li>
                 </ul>
             </div>
@@ -365,7 +365,7 @@
                 <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2">
                     <i class="fa-solid fa-history">
                     </i>
-                    Prefer the old v2 calculator?
+                    Wolisz stary kalkulator v2?
                 </span>
                 <span class="transition group-open:rotate-180 text-gray-500">
                     <i class="fa-solid fa-chevron-down">
@@ -375,7 +375,7 @@
             <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn px-4 text-sm leading-relaxed border-l-2 border-blue-500 ml-2">
                 <p>
                     <a href="https://thefirstprototype.com/flight-prayer-time-airplane-travel-calculator-old/" target="_blank" class="text-blue-500 hover:underline">
-                        You can still access the original version here.
+                        Oryginalną wersję nadal można znaleźć tutaj.
                     </a>                    
                 </p>
             </div>
@@ -386,7 +386,7 @@
                 <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2">
                     <i class="fa-solid fa-code">
                     </i>
-                    Credits & Open Source Libraries
+                    Podziękowania i biblioteki Open Source
                 </span>
                 <span class="transition group-open:rotate-180 text-gray-500">
                     <i class="fa-solid fa-chevron-down">
@@ -395,7 +395,7 @@
             </summary>
             <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn px-4 text-sm leading-relaxed border-l-2 border-blue-500 ml-2">
                 <p class="mb-2">
-                    We would like to thank the following open-source projects and APIs:
+                    Chcielibyśmy podziękować następującym projektom open-source i interfejsom API:
                 </p>
                 <ul class="list-disc ml-5 space-y-1">
                     <li>
@@ -404,7 +404,7 @@
                                 Adhan.js
                             </a>
                         </strong>
-                        : For precise prayer time calculations using astronomical algorithms.
+                        :Do precyzyjnego obliczania czasu modlitwy przy użyciu algorytmów astronomicznych.
                     </li>
                     <li>
                         <strong>
@@ -412,7 +412,7 @@
                                 Luxon
                             </a>
                         </strong>
-                        : For handling complex time zone manipulations.
+                        :Do obsługi złożonych operacji związanych ze strefą czasową.
                     </li>
                     <li>
                         <strong>
@@ -426,7 +426,7 @@
                                 OpenStreetMap
                             </a>
                         </strong>
-                        : For city search and geocoding data.
+                        :Do wyszukiwania miast i geokodowania danych.
                     </li>
                     <li>
                         <strong>
@@ -434,7 +434,7 @@
                                 Open-Meteo
                             </a>
                         </strong>
-                        : For accurate timezone detection based on coordinates.
+                        :Do dokładnego wykrywania strefy czasowej na podstawie współrzędnych.
                     </li>
                 </ul>
             </div>
@@ -446,15 +446,15 @@
             <a href="https://github.com/saamerm/TFP/tree/prod/flight-prayer-time-airplane-travel-calculator" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-full text-sm hover:bg-black transition border border-gray-700">
                 <i class="fa-brands fa-github">
                 </i>
-                Contribute on GitHub
+                Wnieś swój wkład na GitHub
             </a>
             <p>
                 <span class="text-gray-600 text-xs mt-4">
-                    © Musafir Prayer Calculator. All rights reserved.
+                    © Kalkulator Modlitw Musafir. Wszelkie prawa zastrzeżone.
                 </span>
                 <br />
                 <a class="text-blue-600 text-xs mt-4" href="mailto:saamer@thefirstprototype.com&subject=Promote my business&body=Hi Saamer, I would like to promote my business on your page. Here's my business details:">
-                    Promote your Muslim business on our popular page today
+                    Promuj swój muzułmański biznes na naszej popularnej stronie już dziś
                 </a>
             </p>
         </div>
@@ -492,11 +492,11 @@
         {
         "@context": "http://schema.org/",
         "@type": "Product",
-        "name": "In Flight prayer time airplane travel Calculator",
-        "description": "Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer",
+        "name": "Kalkulator czasu modlitwy w locie i podróży samolotem",
+        "description": "Wprowadź godzinę odlotu i przylotu samolotu, a także godzinę modlitwy w miejscu wylotu i przylotu, aby uzyskać czas modlitwy",
         "brand": {
             "@type": "Thing",
-            "name": "In Flight prayer time airplane travel Calculator"
+            "name": "Kalkulator czasu modlitwy w locie i podróży samolotem"
         },
         "aggregateRating": {
             "@type": "AggregateRating",
@@ -513,26 +513,26 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "How do I use these timings for my Madhab?",
+                "name": "Jak mogę wykorzystać te godziny w moim Madhabie?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "The main difference between Madhabs is for the Asr prayer: Standard (Shafi, Maliki, Hanbali): Asr begins when an object's shadow equals its length (Earlier). Hanafi: Asr begins when the shadow is twice the length (Later)."
+                    "text": "Główną różnicą pomiędzy madhabami jest modlitwa Asr: Standard (Shafi, Maliki, Hanbali): ASR rozpoczyna się w momencie, gdy cień obiektu jest równy jego długości (wcześniej). Hanafi: ASR zaczyna się, gdy cień jest dwukrotnie dłuższy (później)."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Which Calculation Authority is used?",
+                "name": "Który organ obliczeniowy jest używany?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We use the Moonsighting Committee method as the calculation authority. Different authorities (like ISNA, MWL, or Umm al-Qura) use slightly different sun angles to determine the exact start of Fajr and Isha. This method is chosen for its reliability in international contexts."
+                    "text": "Jako podstawę obliczeń stosujemy metodę Moonsighting Committee. Różne organizacje (takie jak ISNA, MWL czy Umm al-Qura) stosują nieco inne kąty padania promieni słonecznych do określania dokładnego początku Fajr i Isha. Metoda ta została wybrana ze względu na swoją niezawodność w kontekście międzynarodowym."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Why is In-Flight calculation so difficult?",
+                "name": "Dlaczego obliczenia w trakcie lotu są tak trudne?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "In-Flight calculation is challenging due to factors like chasing the sun (extending or compressing day/night), altitude (affecting sunset/sunrise visibility), and great circle physics (high latitude routes where the sun may not set for weeks)."
+                    "text": "Obliczenia w trakcie lotu są utrudnione ze względu na takie czynniki, jak pogoń za słońcem (wydłużająca lub skracająca dzień/noc), wysokość (wpływająca na widoczność zachodu/wschodu słońca) i fizyka koła wielkiego (trasy na dużych szerokościach geograficznych, na których słońce może nie zachodzić przez wiele tygodni)."
                 }
             },
             {

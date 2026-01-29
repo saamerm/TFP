@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        In Flight prayer time airplane travel Calculator
+        ماشین حساب زمان نماز در پرواز، سفر با هواپیما
     </title>
-    <meta name="description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer" />
+    <meta name="description" content="برای دریافت وقت نماز، زمان حرکت و ورود پرواز را به همراه اوقات نماز در مبدا و مقصد وارد کنید" />
     <meta name="keywords" content="Flight, prayer, time, airplane, travel, Calculator, Muslim, Islam, Website" />
     <meta name="author" content="Saamer Mansoor">
     <meta name="robots" content="noodp,noydir">
@@ -14,17 +14,17 @@
     <meta name="apple-mobile-web-app-capable" content="no"/>
 
     <!-- Open Graph -->
-    <meta property="og:site_name" content="In Flight prayer time airplane travel Calculator">
+    <meta property="og:site_name" content="ماشین حساب زمان نماز در پرواز، سفر با هواپیما">
     <meta property="og:url" content="https://thefirstprototype.com/flight-prayer-time-airplane-travel-calculator">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="In Flight prayer time airplane travel Calculator">
-    <meta property="og:description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer">
+    <meta property="og:title" content="ماشین حساب زمان نماز در پرواز، سفر با هواپیما">
+    <meta property="og:description" content="برای دریافت وقت نماز، زمان حرکت و ورود پرواز را به همراه اوقات نماز در مبدا و مقصد وارد کنید">
     <meta property="og:image" content="https://thefirstprototype.com/images/author.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="In Flight prayer time airplane travel Calculator">
-    <meta name="twitter:description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer">
+    <meta name="twitter:title" content="ماشین حساب زمان نماز در پرواز، سفر با هواپیما">
+    <meta name="twitter:description" content="برای دریافت وقت نماز، زمان حرکت و ورود پرواز را به همراه اوقات نماز در مبدا و مقصد وارد کنید">
     <meta name="twitter:image" content="https://thefirstprototype.com/images/author.png">
 
     <!-- Favicons -->
@@ -77,13 +77,13 @@
     <!-- Navbar -->
     <nav class="bg-white dark:bg-darkCard shadow-sm py-4 border-b dark:border-darkBorder">
         <h1 class="text-2xl font-bold text-blue-900 dark:text-blue-400 flex justify-center items-center gap-2 px-4">
-            In-Flight Airplane Prayer Time Calculator
+            محاسبه‌گر زمان نماز هواپیما در حین پرواز
         </h1>
         <div class="max-w-3xl mx-auto px-4 flex justify-between items-center">
             <div class="text-center">
                 <h2 class="text-xl font-bold text-blue-900 dark:text-blue-400 flex justify-center items-center gap-2 px-2">
                     <span class="text-3xl">🛫</span>
-                    <span>Musafir Prayer Calc</span>
+                    <span>محاسبه نماز مسافر</span>
                 </h2>
             </div>
             <!-- Language Dropdown -->
@@ -130,13 +130,13 @@
     <main class="flex-grow container max-w-2xl mx-auto p-4 mt-4">
         <div class="bg-white dark:bg-darkCard rounded-xl shadow-lg p-6 mb-8 border border-gray-100 dark:border-darkBorder">
             <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4 border-b dark:border-darkBorder pb-2">
-                Flight Details
+                جزئیات پرواز
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Origin -->
                 <div class="col-span-1">
                     <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">
-                        Origin (City, Country)
+                        مبدا (شهر، کشور)
                     </label>
                     <div class="relative">
                         <input type="text" id="origin" placeholder="e.g. Detroit, US" class="w-full p-3 border border-gray-300 dark:border-darkBorder rounded-lg focus:ring-2 focus:ring-blue-500 outline-none pl-10 bg-white dark:bg-darkInput dark:text-white placeholder-gray-400" />
@@ -146,13 +146,13 @@
                     <p class="text-xs text-green-700 dark:text-green-400 mt-1 hidden" id="loc-detected">
                         <i class="fa-solid fa-check-circle">
                         </i>
-                        Auto-filled from IP
+                        پر کردن خودکار از IP
                     </p>
                 </div>
                 <!-- Destination -->
                 <div class="col-span-1">
                     <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">
-                        Destination (City, Country)
+                        مقصد (شهر، کشور)
                     </label>
                     <div class="relative">
                         <input type="text" id="destination" placeholder="e.g. Dubai, UAE" class="w-full p-3 border border-gray-300 dark:border-darkBorder rounded-lg focus:ring-2 focus:ring-blue-500 outline-none pl-10 bg-white dark:bg-darkInput dark:text-white placeholder-gray-400" />
@@ -163,7 +163,7 @@
                 <!-- Departure -->
                 <div class="col-span-1">
                     <label for="depTime" class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">
-                        Departure (Origin Local Time)
+                        حرکت (به وقت محلی مبدا)
                     </label>
                     <div class="relative">
                         <input type="datetime-local" id="depTime" class="w-full p-3 border border-gray-300 dark:border-darkBorder rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white dark:bg-darkInput dark:text-white" />
@@ -174,7 +174,7 @@
                 <!-- Arrival -->
                 <div class="col-span-1">
                     <label for="arrTime" class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">
-                        Arrival (Dest Local Time)
+                        ورود (به وقت محلی)
                     </label>
                     <div class="relative">
                         <input type="datetime-local" id="arrTime" class="w-full p-3 border border-gray-300 dark:border-darkBorder rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white dark:bg-darkInput dark:text-white" />
@@ -185,7 +185,7 @@
             </div>
             <button onclick="calculate()" id="calcBtn" class="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 shadow-md flex justify-center items-center gap-2">
                 <span>
-                    Calculate Prayers
+                    محاسبه نماز
                 </span>
             </button>
             <div id="statusMsg" class="mt-4 text-center text-sm hidden p-2 rounded">
@@ -196,7 +196,7 @@
             <div class="flex flex-col md:flex-row justify-between items-center mb-4 px-2 gap-4">
                 <div>
                     <h3 class="text-xl font-bold text-gray-800 dark:text-white">
-                        Prayer Schedule
+                        برنامه دعا
                     </h3>
                     <p class="text-xs text-gray-400 mt-1" id="route-info">
                     </p>
@@ -204,7 +204,7 @@
                 <!-- Timezone Toggle -->
                 <div class="flex items-center bg-white dark:bg-darkCard px-3 py-1 rounded-full shadow-sm border border-gray-200 dark:border-darkBorder">
                     <span class="text-xs font-bold text-gray-500 dark:text-gray-400 mr-2 uppercase" id="label-origin">
-                        Origin Time
+                        زمان مبدا
                     </span>
                     <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
                         <input type="checkbox" name="toggle" id="tzToggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-gray-300" />
@@ -212,7 +212,7 @@
                         </label>
                     </div>
                     <span class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase" id="label-dest">
-                        Dest Time
+                        زمان مقصد
                     </span>
                 </div>
             </div>
@@ -221,7 +221,7 @@
             </div>
             <div class="mt-4 text-center text-xs text-gray-400">
                 <p>
-                    Calculations use the Great Circle Path & solar position.
+                    محاسبات از مسیر دایره بزرگ و موقعیت خورشید استفاده می‌کنند.
                 </p>
             </div>
         </div>
@@ -230,13 +230,13 @@
                 <i class="fa-brands fa-linkedin">
                 </i>
                 <span class="font-bold text-blue-600 dark:text-blue-400">
-                    Hi! I'm Saamer, a Kashmiri in living Michigan & Ontario. 
+                    سلام! من سامر هستم، یک کشمیری ساکن میشیگان و انتاریو. 
                 </span>
             </a>
             <a href="https://khutbahcaptioning.com" target="_blank" class="underline decoration-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
-                I am also the Founder of KhutbahCaptioning!
+                من همچنین بنیانگذار «خطبه نویسی» هستم.!
             </a>
-            Please share this with your family and friends
+            لطفا این مطلب را با خانواده و دوستانتان به اشتراک بگذارید
         </div>
     </main>
     <!-- Ad Section -->
@@ -245,13 +245,13 @@
             <img src="https://khutbahcaptioning.com/images/logo-white.svg" alt="Khutbah Captioning" class="h-8 w-auto opacity-90" />
             <div class="text-sm">
                 <span class="font-bold text-blue-200">
-                    Help us make your mosque Halaqas and Friday Khutbahs more accessible for non-natives & the Deaf with accurate captions & multi-lingual translations.
+                    به ما کمک کنید تا خطبه‌های نماز جمعه و خطبه‌های نماز جمعه مساجد شما را با زیرنویس دقیق و ترجمه‌های چندزبانه برای افراد غیربومی و ناشنوایان قابل دسترس‌تر کنیم.
                 </span>
                 <br class="hidden md:block" />
-                Check out the World's first AI Audio Trascription Models designed for mosques!
+                اولین مدل‌های رونویسی صوتی هوش مصنوعی جهان که برای مساجد طراحی شده‌اند را ببینید!
             </div>
             <a href="https://khutbahcaptioning.com" target="_blank" class="bg-white text-blue-900 px-4 py-2 rounded-full text-xs font-bold hover:bg-blue-50 transition whitespace-nowrap">
-                Get started for free!
+                رایگان شروع کنید!
                 <i class="fa-solid fa-arrow-right ml-1">
                 </i>
             </a>
@@ -260,7 +260,7 @@
     <!-- FAQ Section -->
     <div class="mt-8 border-t border-gray-200 dark:border-darkBorder pt-6 mb-12 container max-w-2xl mx-auto">
         <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-6 text-center">
-            Interesting Notes & FAQ's
+            نکات جالب و سوالات متداول
         </h3>
         <!-- FAQ 1 -->
         <details class="group mb-4">
@@ -268,7 +268,7 @@
                 <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2">
                     <i class="fa-solid fa-circle-question">
                     </i>
-                    How do I use these timings for my Madhab?
+                    چگونه می‌توانم از این زمان‌بندی‌ها برای مذهب خود استفاده کنم؟
                 </span>
                 <span class="transition group-open:rotate-180 text-gray-500">
                     <i class="fa-solid fa-chevron-down">
@@ -277,27 +277,27 @@
             </summary>
             <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn px-4 text-sm leading-relaxed border-l-2 border-blue-500 ml-2">
                 <p class="mb-2">
-                    The main difference between Madhabs is for the Asr prayer:                    
+                    تفاوت اصلی بین مذاهب در مورد نماز عصر است:                    
                 </p>
                 <ul class="list-disc ml-5 mb-2 space-y-1">
                     <li>
                         <strong>
-                            Standard (Shafi, Maliki, Hanbali):
+                            استاندارد (شافی، مالکی، حنبلی):
                         </strong>
-                        Asr begins when an object's shadow equals its length (Earlier).
+                        عصر زمانی شروع می‌شود که سایه یک جسم با طول آن برابر شود (قبلاً).
                     </li>
                     <li>
                         <strong>
-                            Hanafi:
+                            حنفی:
                         </strong>
-                        Asr begins when the shadow is twice the length (Later).
+                        عصر از زمانی شروع می‌شود که سایه دو برابر طول آن باشد (بعد).
                     </li>
                 </ul>
                 <p>
                     <strong>
-                        Note:
+                        توجه:
                     </strong>
-                    This tool currently calculates using the Hanafi method (Later time) to be more inclusive since it works for all people. If you follow the majority opinion and you're not flying, your Asr time enters approximately 45-60 minutes before the time shown here.
+                    این ابزار در حال حاضر با استفاده از روش حنفی (زمان دیرتر) محاسبه می‌کند تا جامع‌تر باشد، زیرا برای همه افراد کار می‌کند. اگر از نظر اکثریت پیروی می‌کنید و پرواز ندارید، زمان عصر شما تقریباً ۴۵ تا ۶۰ دقیقه قبل از زمانی که در اینجا نشان داده شده است، وارد می‌شود.
                 </p>
             </div>
         </details>
@@ -307,7 +307,7 @@
                 <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2">
                     <i class="fa-solid fa-calculator">
                     </i>
-                    Which Calculation Authority is used?
+                    از کدام مرجع محاسبه استفاده می‌شود؟
                 </span>
                 <span class="transition group-open:rotate-180 text-gray-500">
                     <i class="fa-solid fa-chevron-down">
@@ -316,10 +316,10 @@
             </summary>
             <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn px-4 text-sm leading-relaxed border-l-2 border-blue-500 ml-2">
                 <p class="mb-2">
-                    We use the Moonsighting Committee method as the "calculation authority". Different authorities (like ISNA, MWL, or Umm al-Qura) use slightly different sun angles to determine the exact start of Fajr and Isha.
+                    ما از روش کمیته رویت هلال به عنوان "مرجع محاسبه" استفاده می‌کنیم. مراجع مختلف (مانند ایسنا، MWL یا ام القری) از زوایای خورشید با تفاوت‌های جزئی برای تعیین دقیق شروع فجر و عشاء استفاده می‌کنند.
                 </p>
                 <p>
-                    This method is chosen for its reliability in international contexts, correlating astronomical calculation with visibility. However, you should always add a safety margin of +/- 10 minutes when traveling.
+                    این روش به دلیل قابلیت اطمینانش در زمینه‌های بین‌المللی و مرتبط کردن محاسبات نجومی با میزان دید انتخاب شده است. با این حال، هنگام سفر همیشه باید یک حاشیه ایمنی +/- 10 دقیقه اضافه کنید.
                 </p>
             </div>
         </details>
@@ -329,7 +329,7 @@
                 <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2">
                     <i class="fa-solid fa-plane-slash">
                     </i>
-                    Why is In-Flight calculation so difficult?
+                    چرا محاسبه در حین پرواز اینقدر دشوار است؟
                 </span>
                 <span class="transition group-open:rotate-180 text-gray-500">
                     <i class="fa-solid fa-chevron-down">
@@ -340,21 +340,21 @@
                 <ul class="list-disc ml-5 space-y-2">
                     <li>
                         <strong>
-                            Chasing the Sun:
+                            تعقیب خورشید:
                         </strong>
-                        If you fly West, you extend the day (Dhuhr could last 5 hours). If you fly East, the night accelerates (Maghrib/Isha combined might be only 20 minutes).
+                        اگر به سمت غرب پرواز کنید، روز را طولانی‌تر می‌کنید (ظهر می‌تواند ۵ ساعت طول بکشد). اگر به سمت شرق پرواز کنید، شب سریع‌تر می‌گذرد (مغرب/عشا روی هم رفته ممکن است فقط ۲۰ دقیقه طول بکشد).
                     </li>
                     <li>
                         <strong>
-                            Altitude:
+                            ارتفاع:
                         </strong>
-                        At 35,000ft, you can see further over the curve of the earth. This means the sun sets later and rises earlier than it does for people on the ground below you.
+                        در ارتفاع ۳۵۰۰۰ پایی، می‌توانید از انحنای زمین، افق وسیع‌تری را ببینید. این یعنی خورشید دیرتر غروب می‌کند و زودتر از افرادی که روی زمین هستند، طلوع می‌کند.
                     </li>
                     <li>
                         <strong>
-                            Great Circle Physics:
+                            فیزیک دایره بزرگ:
                         </strong>
-                        Planes fly in arcs, often reaching high latitudes (near the North Pole) where standard math breaks down because the sun may not set for weeks. We use special "High Latitude Rules" to estimate times in these zones.
+                        هواپیماها در قوس‌ها پرواز می‌کنند و اغلب به عرض‌های جغرافیایی بالا (نزدیک قطب شمال) می‌رسند، جایی که محاسبات استاندارد ریاضی به دلیل اینکه خورشید ممکن است هفته‌ها غروب نکند، از کار می‌افتند. ما از «قوانین ویژه عرض‌های جغرافیایی بالا» برای تخمین زمان در این مناطق استفاده می‌کنیم.
                     </li>
                 </ul>
             </div>
@@ -365,7 +365,7 @@
                 <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2">
                     <i class="fa-solid fa-history">
                     </i>
-                    Prefer the old v2 calculator?
+                    ماشین حساب قدیمی نسخه ۲ را ترجیح می‌دهید؟
                 </span>
                 <span class="transition group-open:rotate-180 text-gray-500">
                     <i class="fa-solid fa-chevron-down">
@@ -375,7 +375,7 @@
             <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn px-4 text-sm leading-relaxed border-l-2 border-blue-500 ml-2">
                 <p>
                     <a href="https://thefirstprototype.com/flight-prayer-time-airplane-travel-calculator-old/" target="_blank" class="text-blue-500 hover:underline">
-                        You can still access the original version here.
+                        شما هنوز هم می‌توانید به نسخه اصلی اینجا دسترسی داشته باشید.
                     </a>                    
                 </p>
             </div>
@@ -386,7 +386,7 @@
                 <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2">
                     <i class="fa-solid fa-code">
                     </i>
-                    Credits & Open Source Libraries
+                    اعتبارات و کتابخانه‌های متن‌باز
                 </span>
                 <span class="transition group-open:rotate-180 text-gray-500">
                     <i class="fa-solid fa-chevron-down">
@@ -395,7 +395,7 @@
             </summary>
             <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn px-4 text-sm leading-relaxed border-l-2 border-blue-500 ml-2">
                 <p class="mb-2">
-                    We would like to thank the following open-source projects and APIs:
+                    ما مایلیم از پروژه‌های متن‌باز و APIهای زیر تشکر کنیم:
                 </p>
                 <ul class="list-disc ml-5 space-y-1">
                     <li>
@@ -404,7 +404,7 @@
                                 Adhan.js
                             </a>
                         </strong>
-                        : For precise prayer time calculations using astronomical algorithms.
+                        : برای محاسبه دقیق وقت نماز با استفاده از الگوریتم‌های نجومی.
                     </li>
                     <li>
                         <strong>
@@ -412,7 +412,7 @@
                                 Luxon
                             </a>
                         </strong>
-                        : For handling complex time zone manipulations.
+                        : برای مدیریت دستکاری‌های پیچیده منطقه زمانی.
                     </li>
                     <li>
                         <strong>
@@ -420,13 +420,13 @@
                                 Photon
                             </a>
                         </strong>
-                        &
+                        و
                         <strong>
                             <a href="https://www.openstreetmap.org/" target="_blank" class="text-blue-500 hover:underline">
                                 OpenStreetMap
                             </a>
                         </strong>
-                        : For city search and geocoding data.
+                        : برای جستجوی شهر و داده‌های جغرافیایی.
                     </li>
                     <li>
                         <strong>
@@ -434,7 +434,7 @@
                                 Open-Meteo
                             </a>
                         </strong>
-                        : For accurate timezone detection based on coordinates.
+                        : برای تشخیص دقیق منطقه زمانی بر اساس مختصات.
                     </li>
                 </ul>
             </div>
@@ -446,15 +446,15 @@
             <a href="https://github.com/saamerm/TFP/tree/prod/flight-prayer-time-airplane-travel-calculator" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-full text-sm hover:bg-black transition border border-gray-700">
                 <i class="fa-brands fa-github">
                 </i>
-                Contribute on GitHub
+                مشارکت در گیت‌هاب
             </a>
             <p>
                 <span class="text-gray-600 text-xs mt-4">
-                    © Musafir Prayer Calculator. All rights reserved.
+                    © ماشین حساب نماز مسافر. تمامی حقوق محفوظ است.
                 </span>
                 <br />
                 <a class="text-blue-600 text-xs mt-4" href="mailto:saamer@thefirstprototype.com&subject=Promote my business&body=Hi Saamer, I would like to promote my business on your page. Here's my business details:">
-                    Promote your Muslim business on our popular page today
+                    همین امروز کسب و کار مسلمانان خود را در صفحه محبوب ما تبلیغ کنید
                 </a>
             </p>
         </div>
@@ -492,11 +492,11 @@
         {
         "@context": "http://schema.org/",
         "@type": "Product",
-        "name": "In Flight prayer time airplane travel Calculator",
-        "description": "Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer",
+        "name": "ماشین حساب زمان نماز در پرواز، سفر با هواپیما",
+        "description": "برای دریافت وقت نماز، زمان حرکت و ورود پرواز را به همراه اوقات نماز در مبدا و مقصد وارد کنید",
         "brand": {
             "@type": "Thing",
-            "name": "In Flight prayer time airplane travel Calculator"
+            "name": "ماشین حساب زمان نماز در پرواز، سفر با هواپیما"
         },
         "aggregateRating": {
             "@type": "AggregateRating",
@@ -513,26 +513,26 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "How do I use these timings for my Madhab?",
+                "name": "چگونه می‌توانم از این زمان‌بندی‌ها برای مذهب خود استفاده کنم؟",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "The main difference between Madhabs is for the Asr prayer: Standard (Shafi, Maliki, Hanbali): Asr begins when an object's shadow equals its length (Earlier). Hanafi: Asr begins when the shadow is twice the length (Later)."
+                    "text": "تفاوت اصلی بین مذاهب در مورد نماز عصر است: استاندارد (شافی، مالکی، حنبلی): عصر زمانی شروع می‌شود که سایه یک جسم با طول آن برابر شود (قبلاً). حنفی: عصر از زمانی شروع می‌شود که سایه دو برابر طول آن باشد (بعد)."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Which Calculation Authority is used?",
+                "name": "از کدام مرجع محاسبه استفاده می‌شود؟",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We use the Moonsighting Committee method as the calculation authority. Different authorities (like ISNA, MWL, or Umm al-Qura) use slightly different sun angles to determine the exact start of Fajr and Isha. This method is chosen for its reliability in international contexts."
+                    "text": "ما از روش کمیته رویت هلال به عنوان مرجع محاسبه استفاده می‌کنیم. مراجع مختلف (مانند ایسنا، MWL یا ام القری) از زوایای خورشید کمی متفاوت برای تعیین دقیق شروع فجر و عشاء استفاده می‌کنند. این روش به دلیل قابلیت اطمینان آن در زمینه‌های بین‌المللی انتخاب شده است."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Why is In-Flight calculation so difficult?",
+                "name": "چرا محاسبه در حین پرواز اینقدر دشوار است؟",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "In-Flight calculation is challenging due to factors like chasing the sun (extending or compressing day/night), altitude (affecting sunset/sunrise visibility), and great circle physics (high latitude routes where the sun may not set for weeks)."
+                    "text": "محاسبه در حین پرواز به دلیل عواملی مانند تعقیب خورشید (گسترش یا فشرده‌سازی روز/شب)، ارتفاع (تأثیر بر دید غروب/طلوع خورشید) و فیزیک دایره بزرگ (مسیرهای عرض جغرافیایی بالا که ممکن است خورشید برای هفته‌ها غروب نکند) چالش برانگیز است."
                 }
             },
             {
