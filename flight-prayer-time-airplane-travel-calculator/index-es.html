@@ -76,32 +76,18 @@
 <body class="font-sans text-gray-800 bg-gray-50 dark:bg-darkBg dark:text-gray-100 flex flex-col min-h-screen">
     <!-- Navbar -->
     <nav class="bg-white dark:bg-darkCard shadow-sm py-4 border-b dark:border-darkBorder">
-        <h1 class="text-2xl font-bold text-blue-900 dark:text-blue-400 flex justify-center items-center gap-2 px-4">
-            In-Flight Airplane Prayer Time Calculator
-        </h1>
-        <div class="max-w-3xl mx-auto px-4 flex justify-between items-center">
-            <div class="text-center">
-                <h2 class="text-xl font-bold text-blue-900 dark:text-blue-400 flex justify-center items-center gap-2 px-2">
-                    <span class="text-3xl">🛫</span>
-                    <span>Musafir Prayer Calc</span>
-                </h2>
-            </div>
-            <!-- Language Dropdown -->
-            <div class="relative">
-                <button id="langDropdownBtn" class="flex items-center gap-2 bg-gray-100 dark:bg-darkInput text-gray-700 dark:text-gray-300 px-4 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-darkCard transition">
-                    <span>🌎 </span>
-                    English
-                    <i class="fa-solid fa-chevron-down text-sm"></i>
-                </button>
-                <div id="langDropdownMenu" class="absolute right-0 mt-2 w-40 bg-white dark:bg-darkCard border border-gray-200 dark:border-darkBorder rounded-lg shadow-lg hidden">
-                    <a href="index-es.html" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-darkInput transition">
-                        Español
-                    </a>
-                    <a href="index-fr.html" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-darkInput transition">
-                        Français
-                    </a>
-                </div>
-            </div>
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h1 class="text-2xl font-bold text-blue-900 dark:text-blue-400 flex justify-center items-center gap-2">
+                In-Flight Airplane Prayer Time Calculator
+            </h1>
+            <h2 class="text-xl font-bold text-blue-900 dark:text-blue-400 flex justify-center items-center gap-2">
+                <span class="text-3xl">
+                    🛫
+                </span>
+                <span>
+                    Musafir Prayer Calc
+                </span>
+            </h2>
         </div>
     </nav>
     <!-- Main Content -->
@@ -450,22 +436,6 @@
     </script>
     <script type="text/javascript" src="https://deafassistant.com/js/analytics.js">
     </script>
-    <script>
-        // Toggle dropdown visibility
-        const langDropdownBtn = document.getElementById('langDropdownBtn');
-        const langDropdownMenu = document.getElementById('langDropdownMenu');
-
-        langDropdownBtn.addEventListener('click', () => {
-            langDropdownMenu.classList.toggle('hidden');
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!langDropdownBtn.contains(e.target) && !langDropdownMenu.contains(e.target)) {
-                langDropdownMenu.classList.add('hidden');
-            }
-        });
-    </script>    
     <script type="application/ld+json">
         {
         "@context": "http://schema.org/",

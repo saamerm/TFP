@@ -2,7 +2,7 @@
 # Shell script that takes a json file and generates translations of the index.html file!. Json file format used is created by pasting the string from here https://codepen.io/saamerm/pen/NWVZyEm
 # Run by placing this file in the same folder as the index.html and the json file using `sh translate.sh`
 # Edit below JSON file containing translations
-TRANSLATION_FILE="languages.json"
+TRANSLATION_FILE="translations.json"
 # Define the language codes
 languageCodes=("ES" "FR" "PT" "AR" "RU" "DE" "UK" "HI" "UR" "YO" "ID" "IT" "JA" "SW" "PL" "VI" "RO" "zh-Hant" "ZH" "HR" "FA" "NL" "KO" "SV" "HU" "SQ")
 
