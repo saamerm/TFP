@@ -413,6 +413,25 @@
                 </ul>
             </div>
         </details>
+        <!-- FAQ 3.5 -->
+        <details class="group mb-4">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none bg-white dark:bg-darkCard dark:border-darkBorder border border-gray-200 p-4 rounded-lg shadow-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                <span class="text-blue-900 dark:text-blue-300 flex items-center gap-2">
+                    <i class="fa-solid fa-history">
+                    </i>
+                    Can I use this flight prayer calculator offline?
+                </span>
+                <span class="transition group-open:rotate-180 text-gray-500">
+                    <i class="fa-solid fa-chevron-down">
+                    </i>
+                </span>
+            </summary>
+            <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn px-4 text-sm leading-relaxed border-l-2 border-blue-500 ml-2">
+                <p>
+                    This is a web-based calculator. We recommend inputting your flight details and taking a screenshot of the results before you take off, as internet access is often restricted during flights.
+                </p>
+            </div>
+        </details>
         <!-- FAQ 4 -->
         <details class="group mb-4">
             <summary class="flex justify-between items-center font-medium cursor-pointer list-none bg-white dark:bg-darkCard dark:border-darkBorder border border-gray-200 p-4 rounded-lg shadow-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition">
@@ -544,22 +563,57 @@
     </script>    
     <script type="application/ld+json">
         {
-        "@context": "http://schema.org/",
-        "@type": "Product",
-        "name": "In Flight prayer time airplane travel Calculator",
-        "description": "Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer",
-        "brand": {
-            "@type": "Thing",
-            "name": "In Flight prayer time airplane travel Calculator"
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Flight Prayer Time Calculator",
+        "alternateName": "Muslim In-Flight Prayer Calculator",
+        "operatingSystem": "Web Browser",
+        "applicationCategory": "TravelApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
         },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "ratingCount": "134"
+        "description": "A free online tool to calculate accurate Islamic prayer times (Salah) for airline passengers based on flight path, departure, and arrival times.",
+        "featureList": "Calculates based on sun position at altitude, Supports Hanafi and Shafi methods, Works for international flights",
+        "url": "http://thefirstprototype.com/flight-prayer-time-airplane-travel-calculator/",
+        "author": {
+            "@type": "Organization",
+            "name": "The First Prototype"
         },
-        "image": "https://thefirstprototype.com/images/author.png"
-    }
-    </script>
+        "image": "https://thefirstprototype.com/flight-prayer-time-airplane-travel-calculator/screenshot.png" 
+        }
+    </script>    
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          "name": "How to Calculate Prayer Times on a Plane",
+          "description": "Step-by-step guide to finding accurate Salah times during a flight.",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "name": "Enter Flight Details",
+              "text": "Input your departure time, arrival time, and the duration of your flight."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Input Origin and Destination Prayer Times",
+              "text": "Enter the Fajr and Maghrib times for both the city you are leaving and the city you are arriving at."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Generate Schedule",
+              "text": "Click calculate to view a generated timeline of when to pray while in the air."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Select Calculation Method",
+                "text": "Choose your preferred calculation method (e.g., Moonsighting Committee) to adjust for high-altitude sun angles using the FAQ section."
+            }  
+          ]
+        }
+    </script>    
     <script type="application/ld+json">
         {
         "@context": "https://schema.org",
@@ -596,7 +650,15 @@
                     "@type": "Answer",
                     "text": "You can use Open-source projects like Adhan.js for prayer time calculations, Luxon for time zone handling, Photon & OpenStreetMap for geocoding, and Open-Meteo for timezone detection."
                 }
-            }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use this flight prayer calculator offline?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "This is a web-based calculator. We recommend inputting your flight details and taking a screenshot of the results before you take off, as internet access is often restricted during flights."
+                }
+            }            
         ]
     }
     </script>
