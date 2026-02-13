@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michigan Inventors Coalition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --blue: #00274C;
+            --maize: #FFCB05;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--blue);
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover, 
+        .nav-links a.active {
+            color: var(--maize);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--maize);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            min-width: 250px;
+            box-shadow: var(--shadow);
+            border-radius: 4px;
+            z-index: 1001;
+            flex-direction: column;
+            padding: 0.5rem 0;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: flex;
+        }
+        
+        .dropdown-content a {
+            padding: 0.75rem 1.5rem;
+            color: var(--blue);
+            font-weight: 500;
+            transition: var(--transition);
+            width: 100%;
+            text-align: left;
+            border-left: 3px solid transparent;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: var(--light-gray);
+            color: var(--maize);
+            border-left: 3px solid var(--maize);
+            padding-left: 1.25rem;
+        }
+        
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--blue);
+            cursor: pointer;
+        }
+        
+        /* Page Styles */
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding-top: 80px;
+            padding-bottom: 4rem;
+            background-color: var(--white);
+            animation: fadeIn 0.6s ease;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        section {
+            padding: 4rem 10%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--blue);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background-color: var(--maize);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.5rem;
+            color: var(--blue);
+            margin: 1.5rem 0 1rem;
+            text-align: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: var(--transition);
+            border: 2px solid var(--blue);
+            cursor: pointer;
+            font-size: 1.05rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--maize);
+            color: var(--blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--blue);
+            border-color: var(--blue);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--blue);
+            color: var(--white);
+        }
+        
+        .btn-maize {
+            background-color: var(--maize);
+            color: var(--blue);
+            border-color: var(--maize);
+        }
+        
+        .btn-maize:hover {
+            background-color: var(--blue);
+            color: var(--white);
+            border-color: var(--blue);
+        }
+        
+        /* Home Page Styles */
+        .hero-carousel {
+            position: relative;
+            width: 100%;
+            max-height: 85vh;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+        
+        .carousel-slide {
+            display: none;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-slide.active {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+        
+        .carousel-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .carousel-text {
+            position: absolute;
+            bottom: 20%;
+            left: 10%;
+            color: var(--white);
+            max-width: 600px;
+            background-color: rgba(0, 39, 76, 0.85);
+            padding: 2rem;
+            border-radius: 4px;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards;
+        }
+        
+        .carousel-slide.active .carousel-text {
+            animation-delay: 0.3s;
+        }
+        
+        .carousel-title {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .carousel-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+        
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .dot {
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .dot.active {
+            background-color: var(--maize);
+            transform: scale(1.2);
+        }
+        
+        .welcome-section, .about-section, .get-involved {
+            text-align: center;
+            margin: 4rem auto;
+        }
+        
+        .welcome-section p, .about-section p {
+            font-size: 1.2rem;
+            max-width: 900px;
+            margin: 1.5rem auto;
+            line-height: 1.7;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .about-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .about-card h3 {
+            color: var(--blue);
+            margin: 1rem 0;
+            font-size: 1.75rem;
+        }
+        
+        /* Summit Page Styles */
+        .summit-details {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .summit-date {
+            font-size: 1.8rem;
+            color: var(--blue);
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+        
+        .summit-location {
+            font-size: 1.5rem;
+            color: var(--maize);
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+        
+        .expect-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        
+        .expect-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--maize);
+            transition: var(--transition);
+        }
+        
+        .expect-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .expect-card h3 {
+            color: var(--blue);
+            margin: 1rem 0;
+            font-size: 1.6rem;
+        }
+        
+        .expect-card ul {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .expect-card li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Know Before You Go Page */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+        
+        .info-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .info-card i {
+            font-size: 3.5rem;
+            color: var(--blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-card h3 {
+            color: var(--blue);
+            margin: 1rem 0;
+            font-size: 1.75rem;
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 350px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue);
+            font-weight: 600;
+            font-size: 1.2rem;
+            overflow: hidden;
+        }
+        
+        .map-placeholder {
+            background-color: #e9ecef;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue);
+            font-weight: 600;
+        }
+        
+        /* Programming Page */
+        .coming-soon {
+            text-align: center;
+            padding: 4rem 2rem;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            margin: 2rem 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .coming-soon h3 {
+            font-size: 3rem;
+            color: var(--blue);
+            margin-bottom: 1rem;
+        }
+        
+        .coming-soon p {
+            font-size: 1.5rem;
+            color: var(--medium-gray);
+        }
+        
+        /* Attend/Exhibit Page */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 5rem;
+            color: var(--maize);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--blue);
+            border-top: 1px solid var(--light-gray);
+            padding-top: 1rem;
+            display: block;
+        }
+        
+        .ticket-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Pitch Competition Page */
+        .pitch-info {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+        
+        .criteria-list {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .criteria-list ul {
+            padding-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .criteria-list li {
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        
+        /* Sponsor Page */
+        .sponsorship-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .sponsor-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--blue);
+            transition: var(--transition);
+        }
+        
+        .sponsor-card.gold {
+            border-top-color: #FFD700;
+        }
+        
+        .sponsor-card.silver {
+            border-top-color: #C0C0C0;
+        }
+        
+        .sponsor-card.bronze {
+            border-top-color: #CD7F32;
+        }
+        
+        .sponsor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .sponsor-card h3 {
+            color: var(--blue);
+            margin: 1rem 0;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .sponsor-card .price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--maize);
+            margin: 0.5rem 0;
+        }
+        
+        .sponsor-card ul {
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .sponsor-card li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        
+        .availability {
+            background-color: var(--light-gray);
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .volunteer-info {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        /* Board Page */
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+            justify-items: center;
+        }
+        
+        .board-member {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            max-width: 300px;
+            transition: var(--transition);
+        }
+        
+        .board-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .board-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: var(--light-gray);
+            margin-bottom: 1.5rem;
+            border: 4px solid var(--maize);
+        }
+        
+        .board-member h3 {
+            color: var(--blue);
+            margin: 0.5rem 0;
+            font-size: 1.6rem;
+        }
+        
+        .board-member .title {
+            color: var(--maize);
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        /* Contact Page */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-info {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 2.5rem;
+        }
+        
+        .contact-info h3 {
+            color: var(--blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .contact-details {
+            margin-top: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--blue);
+            min-width: 24px;
+            margin-top: 4px;
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--blue);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--blue);
+            color: var(--white);
+            text-align: center;
+            padding: 2.5rem 5%;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--maize);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            padding: 0.25rem 0;
+        }
+        
+        .footer-links a:hover {
+            color: var(--maize);
+            transform: translateX(5px);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            section {
+                padding: 3rem 5%;
+            }
+            
+            .carousel-title {
+                font-size: 2.3rem;
+            }
+            
+            .carousel-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: var(--transition);
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                padding: 2rem 0;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .dropdown-content {
+                position: static;
+                display: none;
+                box-shadow: none;
+                padding: 0;
+                margin-top: 0.5rem;
+            }
+            
+            .dropdown.active .dropdown-content {
+                display: flex;
+            }
+            
+            .dropdown-toggle {
+                background: none;
+                border: none;
+                width: 100%;
+                text-align: left;
+                padding: 0.75rem 1.5rem;
+                font-family: 'Poppins', sans-serif;
+                font-size: 1.05rem;
+                font-weight: 600;
+                color: var(--blue);
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .dropdown-toggle::after {
+                content: '+';
+                font-size: 1.5rem;
+                transition: var(--transition);
+            }
+            
+            .dropdown.active .dropdown-toggle::after {
+                content: '-';
+            }
+            
+            .dropdown-content a {
+                padding: 0.75rem 1.5rem;
+                border-left: none !important;
+            }
+            
+            .ticket-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.9rem;
+            }
+            
+            .carousel-title {
+                font-size: 1.9rem;
+            }
+            
+            .carousel-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .summit-date {
+                font-size: 1.5rem;
+            }
+            
+            .summit-location {
+                font-size: 1.3rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="https://thefirstprototype.com/mic/2.png" alt="Michigan Inventors Coalition Logo" class="logo">
+            </div>
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li class="dropdown">
+                    <button class="dropdown-toggle">
+                        2026 Inventors Summit
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-content">
+                        <li><a href="#summit">Event Details</a></li>
+                        <li><a href="#know">Know Before You Go</a></li>
+                        <li><a href="#programming">Programming</a></li>
+                        <li><a href="#attend">Attend | Exhibit</a></li>
+                        <li><a href="#pitch-competition">Pitch Competition</a></li>
+                        <li><a href="#sponsor">Sponsor | Volunteer</a></li>
+                    </ul>
+                </li>
+                <li><a href="#board" class="nav-link">Board of Directors</a></li>
+                <li><a href="#contact-us" class="nav-link">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Page -->
+    <main>
+        <section id="home" class="page active">
+            <div class="hero-carousel">
+                <div class="carousel-slide active">
+                    <img src="https://thefirstprototype.com/mic/event.jpg" alt="2026 Inventors Summit" class="carousel-img">
+                    <div class="carousel-text">
+                        <h2 class="carousel-title">Join us at the 2026 Inventors Summit</h2>
+                        <p class="carousel-subtitle">Connect with innovators across Michigan</p>
+                        <a href="#summit" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://thefirstprototype.com/mic/event.jpg" alt="Inventors Networking" class="carousel-img">
+                    <div class="carousel-text">
+                        <h2 class="carousel-title">Showcase Your Invention</h2>
+                        <p class="carousel-subtitle">Gain exposure and valuable feedback from industry experts</p>
+                        <a href="#attend" class="btn">Exhibit Your Product</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://thefirstprototype.com/mic/event.jpg" alt="Pitch Competition" class="carousel-img">
+                    <div class="carousel-text">
+                        <h2 class="carousel-title">Compete in Our Pitch Competition</h2>
+                        <p class="carousel-subtitle">Win cash prizes and recognition for your innovation</p>
+                        <a href="#pitch-competition" class="btn">Apply to Pitch</a>
+                    </div>
+                </div>
+                <div class="carousel-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
+            </div>
+            
+            <section class="welcome-section">
+                <h1 class="section-title">Welcome to the Michigan Inventors Coalition</h1>
+                <p>The Michigan Inventors Coalition (MIC) is a statewide 501(c)(3) nonprofit dedicated to supporting Michigan's early-stage inventors and innovators as they move ideas toward commercialization. Founded in 2011, MIC connects inventors to critical resources through education, mentorship, and a collaborative network of local, statewide, and federal partners.</p>
+                <p>In partnership with Michigan State University and the EDA University Center, MIC hosts its annual Inventors Expo and year-round opportunities that bring together innovators, service providers, and industry experts—strengthening Michigan's innovation ecosystem and helping inventors access the guidance, connections, and opportunities they need to succeed.</p>
+                <a href="#summit" class="btn">Join Our 2026 Summit</a>
+            </section>
+            
+            <section class="about-section">
+                <h2 class="section-title">About Us</h2>
+                <p>The Michigan Inventors Coalition was founded in 2011 with a mission to foster innovation and support inventors across the state of Michigan. We believe that every great invention starts with an idea and the right support system to bring it to life.</p>
+                
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h3>Our Mission</h3>
+                        <p>To empower Michigan's inventors and innovators by providing resources, mentorship, and connections needed to transform ideas into successful commercial ventures.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Our Vision</h3>
+                        <p>A Michigan where every inventor has the support and resources needed to bring their innovations to market, driving economic growth and improving lives.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Our Impact</h3>
+                        <p>Since our founding, we've helped thousands of inventors connect with mentors, secure funding, and launch successful products that benefit communities across Michigan and beyond.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="get-involved">
+                <h2 class="section-title">Want to Get Involved?</h2>
+                <p>Join our community of innovators, mentors, sponsors, and volunteers who are shaping Michigan's future. Whether you're an inventor looking for support or someone who wants to give back to the innovation ecosystem, there's a place for you at MIC.</p>
+                <p>We're always looking for passionate individuals to volunteer at our events, mentor inventors, or join our committees. Your time and expertise can make a real difference in the lives of Michigan's innovators.</p>
+                <a href="#contact-us" class="btn btn-maize">Volunteer With Us</a>
+            </section>
+        </section>
+        
+        <!-- Event Details Page -->
+        <section id="summit" class="page">
+            <h1 class="section-title">2026 Inventors Summit</h1>
+            <div class="summit-details">
+                <h2 class="summit-date">Thursday, July 9, 2026 | 9:00 AM – 4:00 PM</h2>
+                <p class="summit-location">Kellogg Center, East Lansing, MI</p>
+                <p><strong>Hosted by:</strong> The Michigan Inventors Coalition</p>
+                <p><strong>Supported in part by:</strong> a Michigan State University Regional Economic Innovation grant</p>
+                <p>The Michigan Inventors Coalition Expo captures innovation in motion, creating space for ideas to grow, connect, and take root in support of economic development across Michigan.</p>
+                <p>Join innovators, entrepreneurs, and industry leaders for the 14th year of Michigan's premier event celebrating invention, creativity, and commercialization. The Michigan Inventors Coalition Expo brings together early-stage inventors, startups, and support organizations for a full day of learning, connection, and opportunity.</p>
+            </div>
+            
+            <h2 class="section-subtitle">What to Expect</h2>
+            <div class="expect-grid">
+                <div class="expect-card">
+                    <h3>Inspiring Speaker Panels & Breakout Sessions</h3>
+                    <p>Hear from successful entrepreneurs and industry experts as they share real-world insights on turning ideas into viable businesses, overcoming challenges, and navigating the path to market.</p>
+                    <a href="#programming" class="btn btn-secondary">View Programming</a>
+                </div>
+                <div class="expect-card">
+                    <h3>Exhibit Your Product | Invention Showcase</h3>
+                    <p>Explore innovative products, prototypes, and ideas from inventors across the state. Showcase participants gain exposure, valuable feedback, and potential connections to partners, mentors, and investors.</p>
+                    <a href="#attend" class="btn btn-secondary">Exhibit Information</a>
+                </div>
+                <div class="expect-card">
+                    <h3>Attend | Networking & Resource Connections</h3>
+                    <p>Connect with fellow inventors, entrepreneurs, service providers, and business support organizations offering expertise in funding, legal, manufacturing, and commercialization.</p>
+                    <a href="#attend" class="btn btn-secondary">Attend the Summit</a>
+                </div>
+                <div class="expect-card">
+                    <h3>Live Pitch Competition | Spin, Pitch, & Sell</h3>
+                    <p>Watch inventors compete in our signature pitch competition designed to sharpen communication skills, validate ideas, and highlight promising innovations.</p>
+                    <a href="#pitch-competition" class="btn btn-secondary">Pitch Competition Details</a>
+                </div>
+                <div class="expect-card">
+                    <h3>Reception & Awards Announcement</h3>
+                    <p>Join us for an afternoon reception as winners of the pitch competition are announced and relationships continue to build.</p>
+                    <p>Details to be announced soon!</p>
+                </div>
+                <div class="expect-card">
+                    <h3>Be a Sponsor</h3>
+                    <p>Lend your support to this event and be recognized on social media posts, at the event, and on our website. We offer a variety of sponsorship packages to fit every budget.</p>
+                    <a href="#sponsor" class="btn btn-secondary">Sponsorship Opportunities</a>
+                </div>
+                <div class="expect-card">
+                    <h3>Support & Volunteer</h3>
+                    <p>Lend a hand to spread the word to your networks, help with event prep, or assist on the day of the show. Every contribution helps make this event a success.</p>
+                    <a href="#sponsor" class="btn btn-secondary">Volunteer Opportunities</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <p>Whether you're an aspiring inventor, a startup founder, an experienced business owner, or a professional supporting innovation, the Michigan Inventors Coalition Expo is where ideas gain momentum and connections turn into opportunities.</p>
+                <p style="font-weight: 600; font-size: 1.2rem; margin: 1.5rem 0;">Mark your calendar and be part of Michigan's innovation community!</p>
+                <a href="#attend" class="btn btn-maize">Register to Attend</a>
+            </div>
+        </section>
+        
+        <!-- Know Before You Go Page -->
+        <section id="know" class="page">
+            <h1 class="section-title">Know Before You Go</h1>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.15rem;">
+                Everything you need to know to prepare for the 2026 Inventors Summit at the Kellogg Center in East Lansing.
+            </p>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Map & Parking</h3>
+                    <div class="map-container">
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marked-alt" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+                            <p>Kellogg Center Map & Parking Information</p>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Full map available at the event</p>
+                        </div>
+                    </div>
+                    <p>Parking is available in the Kellogg Center parking structure. Additional parking is available in nearby MSU lots. Carpooling is encouraged.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-hotel"></i>
+                    <h3>Kellogg Hotel Information</h3>
+                    <p>Special room rates are available for summit attendees at the Kellogg Hotel & Conference Center.</p>
+                    <p><strong>Discount Code:</strong> MIC2026invent</p>
+                    <p>Book early to secure your room at the discounted rate. Rooms include access to hotel amenities and are within walking distance of the summit venue.</p>
+                    <a href="https://kelloggcenter.msu.edu" target="_blank" class="btn btn-secondary" style="margin-top: 1rem;">Book Your Room</a>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Breakfast & Lunch Details</h3>
+                    <p>A full breakfast will be served from 8:00 AM to 9:00 AM before the summit begins.</p>
+                    <p>Lunch will be provided for all attendees from 12:00 PM to 1:30 PM in the main ballroom.</p>
+                    <p>Dietary restrictions can be accommodated - please indicate your needs when registering for the event.</p>
+                    <p>Light refreshments and coffee will be available throughout the day.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Programming Page -->
+        <section id="programming" class="page">
+            <h1 class="section-title">Summit Programming</h1>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.15rem;">
+                Our lineup of speakers and breakout sessions features the best innovators and industry experts from across the country. Check back soon for the complete schedule!
+            </p>
+            
+            <div class="coming-soon">
+                <h3>Coming Soon!</h3>
+                <p>Our complete speaker lineup and detailed schedule will be announced in Spring 2026</p>
+            </div>
+            
+            <div class="info-grid" style="margin-top: 3rem;">
+                <div class="info-card">
+                    <i class="fas fa-microphone-alt"></i>
+                    <h3>Speaker List</h3>
+                    <p>We invite the best speakers from across the country to share their expertise and insights with our community of inventors and innovators.</p>
+                    <p>Our speakers include successful entrepreneurs, industry leaders, investors, and experts in commercialization who will share real-world advice and inspiration.</p>
+                    <div class="coming-soon" style="margin-top: 1.5rem; padding: 1.5rem;">
+                        <p style="font-size: 1.3rem; margin: 0;">Full speaker lineup coming soon!</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Breakout Sessions</h3>
+                    <p>Our breakout sessions offer deep dives into specific topics relevant to inventors and entrepreneurs at every stage of development.</p>
+                    <p>Sessions will cover topics including intellectual property protection, funding strategies, manufacturing partnerships, marketing your invention, and more.</p>
+                    <p>Sign-up for breakout sessions will be added to your Eventbrite attendee registration in Spring 2026.</p>
+                    <div class="coming-soon" style="margin-top: 1.5rem; padding: 1.5rem;">
+                        <p style="font-size: 1.3rem; margin: 0;">Session details coming soon!</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-glass-cheers"></i>
+                    <h3>Reception</h3>
+                    <p>Join us for an afternoon reception following the main summit programming. This is a great opportunity to network with fellow inventors, speakers, sponsors, and industry experts.</p>
+                    <p>The reception will include the announcement of the Pitch Competition winners and awards ceremony.</p>
+                    <p>Attendance at the reception is included with your summit ticket.</p>
+                    <a href="#attend" class="btn btn-secondary" style="margin-top: 1.5rem;">Register to Attend</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Attend | Exhibit Page -->
+        <section id="attend" class="page">
+            <h1 class="section-title">Attend | Exhibit</h1>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.15rem;">
+                Connect with fellow inventors, entrepreneurs, service providers, and business support organizations offering expertise in funding, legal, manufacturing, and commercialization.
+            </p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The MIC Summit was a game-changer for my invention. I made connections that led to my first manufacturing partnership and received invaluable feedback on my prototype.</p>
+                    <span class="testimonial-author">Sarah Johnson, Inventor</span>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">As a first-time exhibitor, I was impressed by the quality of attendees and the genuine interest in my product. The resources and contacts I gained were worth far more than the exhibit fee.</p>
+                    <span class="testimonial-author">Michael Chen, Startup Founder</span>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">I've attended the MIC Summit for three years running. Each year I learn something new and make connections that help move my business forward. It's the must-attend event for Michigan inventors.</p>
+                    <span class="testimonial-author">David Williams, Serial Entrepreneur</span>
+                </div>
+            </div>
+            
+            <div class="ticket-buttons">
+                <a href="https://www.eventbrite.com" target="_blank" class="btn btn-maize">
+                    <i class="fas fa-ticket-alt"></i> Register to Attend
+                </a>
+                <a href="https://www.eventbrite.com" target="_blank" class="btn">
+                    <i class="fas fa-booth-curtain"></i> Register to Exhibit
+                </a>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h2 class="section-subtitle">Why Attend?</h2>
+                <p>Whether you're an aspiring inventor, a startup founder, an experienced business owner, or a professional supporting innovation, the Michigan Inventors Coalition Expo is where ideas gain momentum and connections turn into opportunities.</p>
+                <p>Don't miss Michigan's premier event for inventors and innovators!</p>
+            </div>
+        </section>
+        
+        <!-- Pitch Competition Page -->
+        <section id="pitch-competition" class="page">
+            <h1 class="section-title">Pitch Competition</h1>
+            
+            <div class="pitch-info">
+                <h2 class="section-subtitle">Watch the Competition</h2>
+                <p>Watch the event and cheer on your favorite inventor. Join us for a competitive pitch event as inventors vie for cash prizes. Be a part of the action with real-time live audience voting. Attendance for the pitch competition is included with your attendee ticket.</p>
+            </div>
+            
+            <div class="pitch-info">
+                <h2 class="section-subtitle">Apply to Pitch</h2>
+                <p>Are you an inventor who is eager to showcase your product? Apply to pitch and get a chance to win!</p>
+                
+                <div class="criteria-list">
+                    <h3>Application Criteria:</h3>
+                    <ul>
+                        <li>Must have a minimum viable product</li>
+                        <li>Must be available to pitch in person at the 2026 Inventors Summit</li>
+                        <li>Must be a Michigan resident or have a Michigan-based invention</li>
+                        <li>Product must be at a stage where feedback and exposure would be beneficial</li>
+                    </ul>
+                </div>
+                
+                <a href="https://www.velocityapply.com" target="_blank" class="btn btn-maize" style="margin-top: 1.5rem;">
+                    <i class="fas fa-file-alt"></i> Apply to Pitch
+                </a>
+                <p style="margin-top: 1rem; font-style: italic;">Applications chaired by Meghan Hubbs and hosted by Velocity</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h2 class="section-subtitle">Competition Details</h2>
+                <p>Selected inventors will have 5 minutes to pitch their invention to a panel of judges and the live audience. Winners will be selected based on innovation, market potential, presentation quality, and audience votes.</p>
+                <p>Cash prizes will be awarded to the top three inventors, with additional recognition for honorable mentions.</p>
+            </div>
+        </section>
+        
+        <!-- Sponsor | Volunteer Page -->
+        <section id="sponsor" class="page">
+            <h1 class="section-title">Sponsor | Volunteer</h1>
+            
+            <h2 class="section-subtitle">Sponsorship Opportunities</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.15rem;">
+                Support Michigan's innovation ecosystem while gaining visibility for your organization. Contact Joe Finkler for sponsorship details and to secure your package.
+            </p>
+            
+            <div class="sponsorship-grid">
+                <div class="sponsor-card gold">
+                    <h3><i class="fas fa-crown"></i> GOLD Sponsor: $10,000.00</h3>
+                    <div class="availability">1 available</div>
+                    <ul>
+                        <li>1 XL exhibit booth</li>
+                        <li>4 tickets to attend</li>
+                        <li>4 lunch tickets</li>
+                        <li>Recognition on all communications, print & electronic, Website</li>
+                        <li>Swag Bag Co-branded with MIC to be given to every attendee</li>
+                        <li>3 minutes on main stage to air 60-second video about your business, 2 minutes to speak to audience</li>
+                        <li>Your name on every centerpiece</li>
+                    </ul>
+                    <a href="mailto:joe.finkler@example.com" class="btn">Contact for GOLD Sponsorship</a>
+                </div>
+                <div class="sponsor-card silver">
+                    <h3><i class="fas fa-medal"></i> SILVER Sponsor: $5,000.00</h3>
+                    <div class="availability">2 available</div>
+                    <ul>
+                        <li>1 exhibit booth</li>
+                        <li>2 attendee tickets</li>
+                        <li>2 lunch tickets</li>
+                        <li>Recognition on all communications, print & electronic, Website</li>
+                        <li>Swag Bag Inclusion item of your choice co-branded with MIC</li>
+                        <li>Your name on every centerpiece</li>
+                    </ul>
+                    <a href="mailto:joe.finkler@example.com" class="btn">Contact for SILVER Sponsorship</a>
+                </div>
+                <div class="sponsor-card bronze">
+                    <h3><i class="fas fa-star"></i> BRONZE Sponsor: $2,500.00</h3>
+                    <div class="availability">4 available</div>
+                    <ul>
+                        <li>1 exhibit booth</li>
+                        <li>2 attendee tickets</li>
+                        <li>Recognition on all communications, print & electronic, website</li>
+                        <li>Swag Bag Inclusion item of your choice co-branded with MIC</li>
+                        <li>Your name on every centerpiece</li>
+                    </ul>
+                    <a href="mailto:joe.finkler@example.com" class="btn">Contact for BRONZE Sponsorship</a>
+                </div>
+                <div class="sponsor-card">
+                    <h3><i class="fas fa-music"></i> DJ Sponsor: $3,000.00</h3>
+                    <div class="availability">1 available</div>
+                    <ul>
+                        <li>1 exhibit booth</li>
+                        <li>2 attendee tickets</li>
+                        <li>2 lunch tickets</li>
+                        <li>Recognition on all communications, print & electronic, website</li>
+                        <li>Swag Bag Inclusion item of your choice co-branded with MIC</li>
+                        <li>Your name on every centerpiece & at DJ Booth</li>
+                    </ul>
+                    <a href="mailto:joe.finkler@example.com" class="btn">Contact for DJ Sponsorship</a>
+                </div>
+                <div class="sponsor-card">
+                    <h3><i class="fas fa-camera"></i> Photo Booth Sponsor: $3,000.00</h3>
+                    <div class="availability">1 available</div>
+                    <ul>
+                        <li>1 exhibit booth</li>
+                        <li>2 attendee tickets</li>
+                        <li>2 lunch tickets</li>
+                        <li>Recognition on all communications, print & electronic, website</li>
+                        <li>Swag Bag Inclusion item of your choice co-branded with MIC</li>
+                        <li>Your logo on every photo printed at event</li>
+                    </ul>
+                    <a href="mailto:joe.finkler@example.com" class="btn">Contact for Photo Booth Sponsorship</a>
+                </div>
+                <div class="sponsor-card">
+                    <h3><i class="fas fa-coffee"></i> Breakfast Sponsor: $1,000.00</h3>
+                    <div class="availability">4 available</div>
+                    <ul>
+                        <li>1 exhibit booth</li>
+                        <li>2 attendee tickets</li>
+                        <li>2 lunch tickets</li>
+                        <li>Recognition on all communications, print & electronic, website</li>
+                        <li>Swag Bag Inclusion item of your choice co-branded with MIC</li>
+                    </ul>
+                    <a href="mailto:joe.finkler@example.com" class="btn">Contact for Breakfast Sponsorship</a>
+                </div>
+                <div class="sponsor-card">
+                    <h3><i class="fas fa-glass-martini-alt"></i> Reception Sponsor: $1,000.00</h3>
+                    <div class="availability">4 available</div>
+                    <ul>
+                        <li>1 exhibit booth</li>
+                        <li>2 attendee tickets</li>
+                        <li>2 lunch tickets</li>
+                        <li>Recognition on all communications, print & electronic, website</li>
+                        <li>Swag Bag Inclusion item of your choice co-branded with MIC</li>
+                    </ul>
+                    <a href="mailto:joe.finkler@example.com" class="btn">Contact for Reception Sponsorship</a>
+                </div>
+            </div>
+            
+            <div class="volunteer-info">
+                <h2 class="section-subtitle">Volunteer With Us</h2>
+                <p>Michigan Inventors Coalition is seeking volunteers to make the 2026 Inventors Summit a success! It takes a village to put on an event of this size and we can't do it alone.</p>
+                <p>Please consider donating 2-3 hours of your time at the event to help us make it a great day. Volunteer roles include event setup, registration desk support, session monitoring, and breakdown assistance.</p>
+                <a href="https://www.velocityvolunteer.com" target="_blank" class="btn btn-maize" style="margin-top: 1.5rem;">
+                    <i class="fas fa-hands-helping"></i> Sign Up to Volunteer
+                </a>
+                <p style="margin-top: 1rem; font-style: italic;">Volunteer coordination chaired by Katie Nida and hosted by Velocity</p>
+            </div>
+        </section>
+        
+        <!-- Board of Directors Page -->
+        <section id="board" class="page">
+            <h1 class="section-title">Board of Directors</h1>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.15rem;">
+                Meet the dedicated leaders who guide the Michigan Inventors Coalition's mission and vision.
+            </p>
+            
+            <div class="board-grid">
+                <div class="board-member">
+                    <div style="background-color: var(--light-gray); width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; border: 4px solid var(--maize);">
+                        <span style="font-size: 3.5rem; color: var(--blue); font-weight: 300;">JF</span>
+                    </div>
+                    <h3>Joe Finkler</h3>
+                    <span class="title">Board Member</span>
+                </div>
+                <div class="board-member">
+                    <div style="background-color: var(--light-gray); width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; border: 4px solid var(--maize);">
+                        <span style="font-size: 3.5rem; color: var(--blue); font-weight: 300;">DS</span>
+                    </div>
+                    <h3>Dennis Shaver</h3>
+                    <span class="title">Board Member</span>
+                </div>
+                <div class="board-member">
+                    <div style="background-color: var(--light-gray); width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; border: 4px solid var(--maize);">
+                        <span style="font-size: 3.5rem; color: var(--blue); font-weight: 300;">KM</span>
+                    </div>
+                    <h3>Kevin Moran</h3>
+                    <span class="title">Board Member</span>
+                </div>
+                <div class="board-member">
+                    <div style="background-color: var(--light-gray); width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; border: 4px solid var(--maize);">
+                        <span style="font-size: 3.5rem; color: var(--blue); font-weight: 300;">PM</span>
+                    </div>
+                    <h3>Paula Macpherson</h3>
+                    <span class="title">2026 Inventors Summit Event Chair</span>
+                </div>
+                <div class="board-member">
+                    <div style="background-color: var(--light-gray); width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; border: 4px solid var(--maize);">
+                        <span style="font-size: 3.5rem; color: var(--blue); font-weight: 300;">JH</span>
+                    </div>
+                    <h3>John D. Hopkins</h3>
+                    <span class="title">Board Member</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Us Page -->
+        <section id="contact-us" class="page">
+            <h1 class="section-title">Contact Us</h1>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.15rem;">
+                Have questions or want to get involved with the Michigan Inventors Coalition? Reach out to us!
+            </p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Primary Contact</h3>
+                    <p>For general inquiries, partnership opportunities, or questions about the Michigan Inventors Coalition, please contact our board member:</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <strong>Kevin Moran</strong><br>
+                                Board Member, Michigan Inventors Coalition
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <a href="mailto:ontvgrin@gmail.com" style="color: var(--blue); text-decoration: none;">ontvgrin@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <a href="tel:6164024714" style="color: var(--blue); text-decoration: none;">616-402-4714</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 2.5rem;">Event-Specific Contacts</h3>
+                    <div class="contact-details" style="margin-top: 1rem;">
+                        <div class="contact-item">
+                            <i class="fas fa-trophy"></i>
+                            <div>
+                                <strong>Pitch Competition</strong><br>
+                                Meghan Hubbs (Velocity)
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            <div>
+                                <strong>Volunteer Coordination</strong><br>
+                                Katie Nida (Velocity)
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-handshake"></i>
+                            <div>
+                                <strong>Sponsorship Opportunities</strong><br>
+                                Joe Finkler
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="inquiry-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-maize">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Michigan Inventors Coalition</h3>
+                <p>A statewide 501(c)(3) nonprofit dedicated to supporting Michigan's early-stage inventors and innovators as they move ideas toward commercialization.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#summit">2026 Inventors Summit</a></li>
+                    <li><a href="#board">Board of Directors</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Summit Pages</h3>
+                <ul class="footer-links">
+                    <li><a href="#summit">Event Details</a></li>
+                    <li><a href="#know">Know Before You Go</a></li>
+                    <li><a href="#programming">Programming</a></li>
+                    <li><a href="#attend">Attend | Exhibit</a></li>
+                    <li><a href="#pitch-competition">Pitch Competition</a></li>
+                    <li><a href="#sponsor">Sponsor | Volunteer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Michigan Inventors Coalition. All Rights Reserved. | A 501(c)(3) Nonprofit Organization</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Page routing
+            const navLinks = document.querySelectorAll('.nav-link, .dropdown-content a');
+            const pages = document.querySelectorAll('.page');
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-links');
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            
+            // Close mobile menu when clicking a link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    
+                    // Hide all pages and show the target page
+                    pages.forEach(page => {
+                        page.classList.remove('active');
+                    });
+                    document.getElementById(targetId).classList.add('active');
+                    
+                    // Update active nav link
+                    navLinks.forEach(navLink => navLink.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Close mobile menu
+                    navMenu.classList.remove('active');
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                });
+            });
+            
+            // Hamburger menu toggle
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                hamburger.innerHTML = navMenu.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Dropdown toggle on mobile
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const dropdown = this.parentElement;
+                    dropdown.classList.toggle('active');
+                });
+            });
+            
+            // Carousel functionality
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.dot');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentSlide = index;
+            }
+            
+            // Auto-rotate carousel
+            setInterval(() => {
+                let nextSlide = (currentSlide + 1) % slides.length;
+                showSlide(nextSlide);
+            }, 5000);
+            
+            // Dot click functionality
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                });
+            });
+            
+            // Form submission
+            const contactForm = document.getElementById('inquiry-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! We will get back to you soon.');
+                    contactForm.reset();
+                });
+            }
+            
+            // Initialize with home page active
+            showSlide(0);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
