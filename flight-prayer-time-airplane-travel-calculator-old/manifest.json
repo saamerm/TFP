@@ -1,7 +1,7 @@
 {
     "name": "Airplane Prayer Calculator",
     "short_name": "In Flight Prayer Time Calculator",
-    "start_url": "../flight-prayer-time-airplane-travel-calculator/index.html",
+    "start_url": "../flight-prayer-time-airplane-travel-calculator/",
     "display": "standalone",
     "background_color": "#fff",
     "theme_color": "#000",
