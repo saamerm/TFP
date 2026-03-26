@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EveryReturn | Reclaim Your Space & Your Refund</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient { background: linear-gradient(135deg, #f0fdf4 0%, #eef2ff 100%); }
+        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        .accent-green { color: #10b981; }
+        .bg-logistics { background-color: #0f172a; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-tight text-blue-600">Every<span class="text-emerald-500">Return</span></div>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#how-it-works" class="hover:text-blue-600 transition">How it Works</a>
+                <a href="#specialized" class="hover:text-blue-600 transition">Services</a>
+                <a href="#runners" class="hover:text-emerald-600 transition">Become a Runner</a>
+            </div>
+            <a href="#quote" class="bg-blue-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-blue-700 transition">Schedule a Return</a>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section class="hero-gradient overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 pt-16 pb-24 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 space-y-6">
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight text-slate-900">
+                    Do you really <br><span class="text-blue-600">need it?</span>
+                </h1>
+                <p class="text-xl text-slate-600 max-w-lg">
+                    Stop letting unreturned boxes clutter your home and your mind. We pick up your online returns and handle the drop-off for you. You get your money back; we do the driving.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <button class="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg hover:bg-blue-700 transition">Schedule a Return</button>
+                    <button class="bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-xl text-lg font-bold shadow-sm hover:bg-slate-50 transition">Become a Runner</button>
+                </div>
+            </div>
+            <div class="md:w-1/2 mt-12 md:mt-0 relative">
+                <div class="rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+                    <img src="https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?auto=format&fit=crop&w=800&q=80" alt="Runner picking up return" class="w-full h-auto">
+                    <!-- Overlay QR Badge -->
+                    <div class="absolute bottom-6 left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 border border-emerald-100">
+                        <div class="bg-emerald-100 p-3 rounded-lg"><i class="fa-solid fa-qrcode text-emerald-600 text-2xl"></i></div>
+                        <div>
+                            <p class="text-xs font-bold uppercase text-slate-400">Status</p>
+                            <p class="text-sm font-bold text-slate-800">QR Code Matched</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. The Guilt-Free Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">We’ve all been there.</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">"Most people lose $150+ a year in 'ghost returns'—items they bought but never sent back. We charge a fraction of that to put that money back in your bank account."</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-8 rounded-2xl bg-slate-50 card-hover border border-slate-100">
+                    <div class="text-blue-500 mb-4 text-3xl"><i class="fa-solid fa-box-archive"></i></div>
+                    <h3 class="font-bold text-lg mb-2">The "Return Pile"</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">That box in your hallway that’s been staring at you for three weeks.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-slate-50 card-hover border border-slate-100">
+                    <div class="text-red-400 mb-4 text-3xl"><i class="fa-solid fa-calendar-xmark"></i></div>
+                    <h3 class="font-bold text-lg mb-2">The Missed Window</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">You finally have time to go, but the return date passed yesterday.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-slate-50 card-hover border border-slate-100">
+                    <div class="text-orange-400 mb-4 text-3xl"><i class="fa-solid fa-receipt"></i></div>
+                    <h3 class="font-bold text-lg mb-2">The Kohl’s Trap</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Go to return an item, get a coupon, and end up spending $50 more.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-slate-50 card-hover border border-slate-100">
+                    <div class="text-emerald-500 mb-4 text-3xl"><i class="fa-solid fa-print"></i></div>
+                    <h3 class="font-bold text-lg mb-2">The Tech Gap</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Don’t have a printer? Don’t know how to navigate the portal? We’ve got you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. How It Works -->
+    <section id="how-it-works" class="py-24 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-16 text-center">Your return, handled in 3 steps.</h2>
+            <div class="grid md:grid-cols-3 gap-12 relative">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">1</div>
+                    <h3 class="text-xl font-bold mb-3">Upload & Quote</h3>
+                    <p class="text-slate-400">Paste the product URL and store address. Our system calculates the value and fee instantly.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">2</div>
+                    <h3 class="text-xl font-bold mb-3">Share the Code</h3>
+                    <p class="text-slate-400">Upload a screenshot of your Return QR code. No printer? No problem.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">3</div>
+                    <h3 class="text-xl font-bold mb-3">Set it and Forget it</h3>
+                    <p class="text-slate-400">Put the item on your porch. A Runner picks it up, drops it off, and you get your refund.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Specialized Services -->
+    <section id="specialized" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="border border-slate-200 p-8 rounded-3xl hover:border-blue-300 transition shadow-sm">
+                    <h4 class="text-blue-600 font-bold uppercase tracking-wider text-xs mb-2">EveryReturn Tuesdays</h4>
+                    <h3 class="text-xl font-bold mb-4">For Office Buildings</h3>
+                    <p class="text-slate-600">Mass pickups at your office between 10 AM and 1 PM. Clear your desk, clear your mind.</p>
+                </div>
+                <div class="border border-slate-200 p-8 rounded-3xl hover:border-emerald-300 transition shadow-sm">
+                    <h4 class="text-emerald-600 font-bold uppercase tracking-wider text-xs mb-2">Concierge Care</h4>
+                    <h3 class="text-xl font-bold mb-4">For Assisted Living</h3>
+                    <p class="text-slate-600">High-touch service for seniors. We help bridge the gap between online shopping and physical returns.</p>
+                </div>
+                <div class="border border-slate-200 p-8 rounded-3xl hover:border-orange-300 transition shadow-sm">
+                    <h4 class="text-orange-600 font-bold uppercase tracking-wider text-xs mb-2">Earth-First</h4>
+                    <h3 class="text-xl font-bold mb-4">Can't return it?</h3>
+                    <p class="text-slate-600">We’ll take it to a local donation center for you so it doesn't end up in a landfill.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Choose Your Path -->
+    <section id="runners" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Customer Path -->
+                <div class="lg:w-1/2 bg-white p-12 rounded-3xl shadow-xl border border-blue-100">
+                    <h3 class="text-3xl font-bold mb-6">I Have a Return</h3>
+                    <ul class="space-y-4 mb-10 text-slate-600">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-500"></i> Reclaim your space.</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-500"></i> Get your money back faster.</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-500"></i> Pricing based on value and distance.</li>
+                    </ul>
+                    <button class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition">Get Started</button>
+                </div>
+                <!-- Runner Path -->
+                <div class="lg:w-1/2 bg-slate-900 p-12 rounded-3xl shadow-xl text-white">
+                    <h3 class="text-3xl font-bold mb-6">I Want to Drive</h3>
+                    <ul class="space-y-4 mb-10 text-slate-300">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Be your own boss.</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Maximize your commute.</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Proprietary "Scan-to-Match" app.</li>
+                    </ul>
+                    <button class="w-full bg-emerald-500 text-slate-900 py-4 rounded-xl font-bold text-lg hover:bg-emerald-400 transition">Apply to Run</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Pricing Logic / Quote Simulator -->
+    <section id="quote" class="py-24">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Transparent Pricing</h2>
+            <p class="text-slate-500 mb-12">How do we charge? We use the item's value and the Runner’s route to ensure fairness.</p>
+            
+            <div class="bg-white border-2 border-slate-100 p-2 rounded-2xl shadow-lg flex flex-col md:flex-row gap-2">
+                <input type="text" placeholder="Paste Product URL (Amazon, Target, etc.)" class="flex-grow p-4 rounded-xl outline-none focus:bg-slate-50">
+                <button class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition" onclick="alert('Our AI is calculating your value fee...')">Get Quick Quote</button>
+            </div>
+            <p class="mt-4 text-xs text-slate-400 font-medium italic">* Minimum pickup fee applies to ensure our Runners are paid fairly.</p>
+        </div>
+    </section>
+
+    <!-- 7. FAQ Section -->
+    <section class="py-24 bg-white border-t border-slate-100">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">Common Questions</h2>
+            <div class="space-y-6">
+                <details class="group border-b border-slate-200 pb-4">
+                    <summary class="list-none flex justify-between items-center cursor-pointer font-bold text-lg text-slate-800">
+                        How do you know which item is which?
+                        <span class="group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="mt-4 text-slate-600">Our app matches your uploaded photo and QR code to the physical item during the scan-and-match process at pickup.</p>
+                </details>
+                <details class="group border-b border-slate-200 pb-4">
+                    <summary class="list-none flex justify-between items-center cursor-pointer font-bold text-lg text-slate-800">
+                        Is my data safe?
+                        <span class="group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="mt-4 text-slate-600">Yes. We only use your QR code and address for the specific duration of the return transaction.</p>
+                </details>
+                <details class="group border-b border-slate-200 pb-4">
+                    <summary class="list-none flex justify-between items-center cursor-pointer font-bold text-lg text-slate-800">
+                        What if the return window is closed?
+                        <span class="group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="mt-4 text-slate-600">If the vendor won't take it, we can divert the item to one of our partner donation centers so it stays out of the landfill.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-12 border-b border-slate-800 pb-12">
+                <div>
+                    <div class="text-2xl font-bold text-white mb-4">Every<span class="text-emerald-500">Return</span></div>
+                    <p class="max-w-xs italic text-slate-500">Bringing the store back to the store.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h5 class="text-white font-bold mb-4">Company</h5>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#" class="hover:text-emerald-400">About Us</a></li>
+                            <li><a href="#" class="hover:text-emerald-400">Support</a></li>
+                            <li><a href="#" class="hover:text-emerald-400">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="text-white font-bold mb-4">Apps</h5>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#" class="hover:text-emerald-400">Customer App (iOS)</a></li>
+                            <li><a href="#" class="hover:text-emerald-400">Driver App (Android)</a></li>
+                            <li><a href="#" class="hover:text-emerald-400">Merchant Portal</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-xs tracking-widest text-slate-600">
+                &copy; 2023 EVERYRETURN INC. ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
