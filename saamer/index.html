@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saamer Mansoor | Founder • AI Engineer • Accessibility Innovator</title>
+    <meta name="description" content="Personal portfolio of Saamer Mansoor, Founder of ConferenceCaptioning.com & TheFirstPrototype.com. Detroit's premier fractional CTO & enterprise solution architect building local-first AI and accessibility tech.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS & FontAwesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['IBM Plex Mono', 'monospace'],
+                        code: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        darkbg: '#050816',
+                        darkcard: '#0A1023',
+                        cyanAccent: '#00F0FF',
+                        magentaAccent: '#FF007A',
+                        purpleAccent: '#8B5CF6',
+                        tealAccent: '#0D9488',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050816;
+            color: #E2E8F0;
+            overflow-x: hidden;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050816; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #FF007A; }
+
+        /* Perspective Grid Background */
+        .grid-container {
+            perspective: 450px;
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            opacity: 0.15;
+        }
+        .synth-grid {
+            position: absolute;
+            bottom: -50%; left: -50%; width: 200%; height: 200%;
+            background-image: 
+                linear-gradient(to right, #00F0FF 1px, transparent 1px),
+                linear-gradient(to bottom, #00F0FF 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: rotateX(60deg);
+            animation: grid-move 25s linear infinite;
+        }
+        @keyframes grid-move {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 1000px; }
+        }
+
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: rgba(10, 16, 35, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-panel:hover {
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.05);
+        }
+
+        /* Custom Cursor */
+        .custom-cursor {
+            width: 20px; height: 20px;
+            border: 2px solid #00F0FF;
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        .cursor-hover {
+            width: 40px; height: 40px;
+            background-color: rgba(255, 0, 122, 0.2);
+            border-color: #FF007A;
+        }
+
+        /* Glow Text Effect */
+        .glow-text-cyan { text-shadow: 0 0 10px rgba(0, 240, 255, 0.6); }
+        .glow-text-magenta { text-shadow: 0 0 10px rgba(255, 0, 122, 0.6); }
+
+        /* Particle Stars Canvas */
+        #particles {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;
+        }
+    </style>
+</head>
+<body x-data="portfolioState()" @mousemove="updateCursor($event)" @keydown="handleKonami($event.key)" class="font-sans antialiased selection:bg-magentaAccent selection:text-white">
+
+    <!-- Custom Cursor -->
+    <div id="cursor" class="custom-cursor hidden md:block" :class="{'cursor-hover': isHovered}"></div>
+
+    <!-- Background Grid & Elements -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="grid-container">
+            <div class="synth-grid"></div>
+        </div>
+        <canvas id="particles"></canvas>
+        <!-- Soft background ambient glows -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purpleAccent/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-cyanAccent/5 rounded-full blur-[150px]"></div>
+    </div>
+
+    <!-- Floating Celebration Banner (Easter Egg State) -->
+    <div x-show="celebrate" x-transition class="fixed inset-0 z-50 flex items-center justify-center bg-darkbg/90 backdrop-blur-md text-center p-6">
+        <div class="max-w-md glass-panel p-8 rounded-2xl border border-cyanAccent">
+            <i class="fa-solid px-4 py-2 fa-circle-check text-5xl text-cyanAccent mb-4 animate-bounce"></i>
+            <h3 class="font-display text-3xl text-white mb-2">SUCCESS: System Recompiled</h3>
+            <p class="font-mono text-xs text-tealAccent mb-6">"sudo make world accessible" execution target achieved.</p>
+            <p class="text-sm text-gray-400 mb-6">Saamer's AI ecosystem architecture has been maximized for human inclusion across all metrics.</p>
+            <button @click="celebrate = false" class="px-6 py-2 bg-gradient-to-r from-cyanAccent to-purpleAccent text-darkbg font-mono font-bold rounded hover:opacity-90">Return to Grid</button>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-white/5 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="font-display font-bold text-xl tracking-wider text-white flex items-center gap-2" @mouseenter="isHovered = true" @mouseleave="isHovered = false">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyanAccent to-magentaAccent">S.MANSOOR</span>
+                <span class="font-mono text-[10px] bg-white/10 px-2 py-0.5 rounded text-gray-400">CTO</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 font-mono text-xs text-gray-400">
+                <a href="#about" class="hover:text-cyanAccent transition-colors">/about</a>
+                <a href="#projects" class="hover:text-cyanAccent transition-colors">/core-product</a>
+                <a href="#expertise" class="hover:text-cyanAccent transition-colors">/stack</a>
+                <a href="#timeline" class="hover:text-cyanAccent transition-colors">/milestones</a>
+                <a href="#terminal" class="hover:text-cyanAccent transition-colors">/terminal</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="#contact" class="hidden sm:inline-flex font-mono text-xs text-darkbg bg-cyanAccent px-4 py-2.5 rounded font-semibold border border-cyanAccent hover:bg-transparent hover:text-cyanAccent transition-all" @mouseenter="isHovered = true" @mouseleave="isHovered = false">
+                    Connect Console
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[calc(100vh-80px)] flex flex-col justify-center items-center px-6 py-12 z-10 overflow-hidden">
+        <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Hero Typography -->
+            <div class="lg:col-span-7 flex flex-col space-y-6">
+                <div class="inline-flex items-center gap-2 font-mono text-xs text-magentaAccent bg-magentaAccent/10 px-3 py-1.5 rounded-full w-fit border border-magentaAccent/20">
+                    <span class="w-1.5 h-1.5 bg-magentaAccent rounded-full animate-ping"></span> Live from Detroit: Fractional CTO Ecosystem
+                </div>
+                
+                <h1 class="font-display text-4xl sm:text-6xl font-bold tracking-tight text-white leading-none">
+                    Building AI that makes <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyanAccent via-purpleAccent to-magentaAccent">conversations accessible.</span>
+                </h1>
+                
+                <p class="text-lg text-gray-400 max-w-xl font-sans leading-relaxed">
+                    Founder of <span class="text-white font-medium underline decoration-cyanAccent">ConferenceCaptioning.com</span> & <span class="text-white font-medium">TheFirstPrototype.com</span>. Engineering local-first, low-latency offline AI transcription, streaming multi-language translation, and premium accessibility infrastructure.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-4 font-mono text-xs">
+                    <a href="#projects" class="px-6 py-3 bg-gradient-to-r from-cyanAccent to-purpleAccent text-darkbg font-bold rounded-lg shadow-lg shadow-cyanAccent/20 hover:opacity-90 transition-all flex items-center gap-2" @mouseenter="isHovered = true" @mouseleave="isHovered = false">
+                        View Projects <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#terminal" class="px-6 py-3 glass-panel text-white font-medium rounded-lg hover:bg-white/5 transition-all flex items-center gap-2" @mouseenter="isHovered = true" @mouseleave="isHovered = false">
+                        <i class="fa-solid fa-terminal text-cyanAccent"></i> Launch Terminal
+                    </a>
+                </div>
+
+                <div class="flex flex-wrap gap-6 pt-8 border-t border-white/5 text-gray-500 font-mono text-xs">
+                    <div><span class="text-white font-bold block text-sm">Founder</span> Ecosystem & Strategy</div>
+                    <div><span class="text-white font-bold block text-sm">AI Engineer</span> Deep Edge Systems</div>
+                    <div><span class="text-white font-bold block text-sm">Accessibility</span> Core Mission Integrity</div>
+                </div>
+            </div>
+
+            <!-- Floating Automated Code Editor View / Mockup -->
+            <div class="lg:col-span-5 relative w-full h-[420px] glass-panel rounded-xl border border-white/10 shadow-2xl p-4 font-code text-xs overflow-hidden bg-darkcard/90">
+                <div class="flex items-center justify-between border-b border-white/5 pb-3 mb-3">
+                    <div class="flex items-center gap-1.5">
+                        <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+                        <span class="text-gray-500 ml-2 text-[11px]">ConferenceCaptioningEngine.swift</span>
+                    </div>
+                    <span class="text-[10px] text-cyanAccent bg-cyanAccent/10 px-2 py-0.5 rounded">CoreML + Whisper</span>
+                </div>
+                <pre class="text-gray-400 select-none overflow-hidden h-full space-y-1 text-[11px] leading-relaxed">
+<span class="text-magentaAccent">import</span> Foundation
+<span class="text-magentaAccent">import</span> CoreML
+<span class="text-magentaAccent">import</span> WhisperKit
+
+<span class="text-purpleAccent">final class</span> <span class="text-cyanAccent">TranscriptionEngine</span> {
+    <span class="text-purpleAccent">private let</span> whisperPipeline: WhisperPipeline
+    <span class="text-purpleAccent">private let</span> latencyThreshold = <span class="text-tealAccent">0.18</span> <span class="text-gray-600">// 180ms</span>
+
+    <span class="text-purpleAccent">init</span>() <span class="text-purpleAccent">async throws</span> {
+        <span class="text-purpleAccent">let</span> config = ModelConfiguration(spec: .localEdgeSecure)
+        <span class="text-purpleAccent">self</span>.whisperPipeline = <span class="text-purpleAccent">try await</span> WhisperKit.load(config)
+    }
+
+    <span class="text-purpleAccent">public func</span> <span class="text-cyanAccent">streamAudio</span>(_ stream: AsyncStream&lt;AudioBuffer&gt;) <span class="text-purpleAccent">async</span> {
+        <span class="text-purpleAccent">for await</span> segment <span class="text-purpleAccent">in</span> stream {
+            <span class="text-purpleAccent">let</span> result = <span class="text-purpleAccent">try? await</span> whisperPipeline.transcribe(segment)
+            <span class="text-purpleAccent">await</span> BroadcastManager.shared.push(result.text, latency: latencyThreshold)
+            <span class="text-gray-600">// Output: Sub-second latency processing achieved</span>
+        }
+    }
+}</pre>
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-darkcard to-transparent h-20 pointer-events-none"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT / CARD MATRIX SECTION -->
+    <section id="about" class="py-24 max-w-7xl mx-auto px-6 relative z-10">
+        <div class="text-center md:text-left mb-16">
+            <h2 class="font-display text-xs font-bold tracking-widest text-cyanAccent uppercase mb-2">// Interconnected Profiles</h2>
+            <p class="font-display text-3xl font-bold text-white">Architecting High-Yield Technical Products</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Card 1 -->
+            <div class="glass-panel p-6 rounded-xl border border-white/5 flex flex-col justify-between group transition-all duration-300 hover:-translate-y-2">
+                <div>
+                    <div class="w-10 h-10 rounded-lg bg-cyanAccent/10 border border-cyanAccent/20 flex items-center justify-center text-cyanAccent mb-6">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-white mb-2 group-hover:text-cyanAccent transition-colors">🧠 AI Engineer</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed font-sans">Specialized in local-first, on-device generative systems, optimized CoreML weights, and edge execution pipelines avoiding vendor cloud lock-ins.</p>
+                </div>
+                <div class="mt-6 font-mono text-[10px] text-gray-500 uppercase tracking-widest">WhisperKit • Embedded ML</div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="glass-panel p-6 rounded-xl border border-white/5 flex flex-col justify-between group transition-all duration-300 hover:-translate-y-2">
+                <div>
+                    <div class="w-10 h-10 rounded-lg bg-magentaAccent/10 border border-magentaAccent/20 flex items-center justify-center text-magentaAccent mb-6">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-white mb-2 group-hover:text-magentaAccent transition-colors">⚡ Startup Founder</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed font-sans">Founder of ConferenceCaptioning.com. Transforming strict corporate accessibility constraints into dynamic growth-oriented SaaS solutions.</p>
+                </div>
+                <div class="mt-6 font-mono text-[10px] text-gray-500 uppercase tracking-widest">B2B Enterprise • Bootstrap</div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="glass-panel p-6 rounded-xl border border-white/5 flex flex-col justify-between group transition-all duration-300 hover:-translate-y-2">
+                <div>
+                    <div class="w-10 h-10 rounded-lg bg-purpleAccent/10 border border-purpleAccent/20 flex items-center justify-center text-purpleAccent mb-6">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-white mb-2 group-hover:text-purpleAccent transition-colors">🎤 Public Speaker</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed font-sans">Delivering intensive real-time demonstrations across global accessibility conferences, tech hubs, and venture panels.</p>
+                </div>
+                <div class="mt-6 font-mono text-[10px] text-gray-500 uppercase tracking-widest">Live Demos • Apple Hubs</div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="glass-panel p-6 rounded-xl border border-white/5 flex flex-col justify-between group transition-all duration-300 hover:-translate-y-2">
+                <div>
+                    <div class="w-10 h-10 rounded-lg bg-tealAccent/10 border border-tealAccent/20 flex items-center justify-center text-tealAccent mb-6">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-white mb-2 group-hover:text-tealAccent transition-colors">🚀 Product Builder</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed font-sans">Shipped dozens of deep ecosystem instances covering iOS, iPadOS, macOS, Android platforms, cloud-native endpoints, and embedded models.</p>
+                </div>
+                <div class="mt-6 font-mono text-[10px] text-gray-500 uppercase tracking-widest">60+ Production Nodes</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FLAGSHIP FEATURED PROJECT: CONFERENCE CAPTIONING -->
+    <section id="projects" class="py-24 bg-darkcard/40 border-y border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 flex flex-col space-y-6">
+                    <span class="font-mono text-xs text-cyanAccent uppercase tracking-widest block">// Core Production Banner</span>
+                    <h2 class="font-display text-4xl font-bold text-white tracking-tight">ConferenceCaptioning.com</h2>
+                    
+                    <p class="text-gray-400 leading-relaxed">
+                        A flagship architecture engineered to solve real-time mass event localization and situational accessibility. It empowers enterprise conferences to stream secure, low-latency captions and parallel translations instantaneously.
+                    </p>
+
+                    <!-- Feature Matrix Specs -->
+                    <div class="grid grid-cols-2 gap-4 pt-4 font-mono text-xs text-gray-300">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-bolt text-magentaAccent"></i> Sub-second Latency</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-globe text-cyanAccent"></i> 25+ Live Translations</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-purpleAccent"></i> Complete Offline AI Option</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-qrcode text-tealAccent"></i> Instant QR Broadcast</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-laptop-code text-white"></i> Native Mac & iOS Apps</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-sliders text-cyanAccent"></i> Pro AV Desk Integration</div>
+                    </div>
+
+                    <div class="pt-6 flex gap-4">
+                        <a href="https://conferencecaptioning.com" target="_blank" class="px-5 py-2.5 bg-white text-darkbg font-mono text-xs font-bold rounded hover:bg-transparent hover:text-white border border-white transition-all" @mouseenter="isHovered = true" @mouseleave="isHovered = false">
+                            Launch Main Website <i class="fa-solid fa-external-link ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Dashboard Mockup Visual Matrix -->
+                <div class="lg:col-span-7 grid grid-cols-12 gap-4 relative">
+                    <!-- Main Platform Window -->
+                    <div class="col-span-12 glass-panel border border-white/10 rounded-xl shadow-2xl p-5 bg-darkbg/80">
+                        <div class="flex items-center justify-between border-b border-white/5 pb-3 mb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2.5 h-2.5 rounded-full bg-cyanAccent animate-pulse"></span>
+                                <span class="font-mono text-xs text-white">Live Presenter Stream Dashboard</span>
+                            </div>
+                            <span class="font-mono text-[11px] text-magentaAccent">Node: Active</span>
+                        </div>
+                        
+                        <!-- Streaming Text Animation Mockup -->
+                        <div class="space-y-4 font-sans py-4">
+                            <div class="p-4 rounded bg-white/5 border-l-2 border-cyanAccent">
+                                <span class="font-mono text-[10px] block text-cyanAccent uppercase tracking-wider mb-1">Detected Audio (English)</span>
+                                <p class="text-white font-medium text-base">"Welcome back to the main stage. Our edge computing framework relies completely on local speech processing arrays..."</p>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <div class="p-3 rounded bg-white/5 border-l-2 border-purpleAccent">
+                                    <span class="font-mono text-[10px] block text-purpleAccent uppercase tracking-wider mb-1">Live Translation (Español)</span>
+                                    <p class="text-gray-300 text-sm">"Bienvenidos de nuevo al escenario principal. Nuestro marco de computación en el borde..."</p>
+                                </div>
+                                <div class="p-3 rounded bg-white/5 border-l-2 border-magentaAccent">
+                                    <span class="font-mono text-[10px] block text-magentaAccent uppercase tracking-wider mb-1">Live Translation (日本語)</span>
+                                    <p class="text-gray-300 text-sm">"メインステージへようこそ。当社のエッジコンピューティングフレームワークは..."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE TECHNICAL EXPERTISE GRAPH / GRID -->
+    <section id="expertise" class="py-24 max-w-7xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+            <h2 class="font-display text-xs font-bold tracking-widest text-magentaAccent uppercase mb-2">// Full Engine Architecture Capabilities</h2>
+            <p class="font-display text-3xl font-bold text-white">The Technical Core Vector</p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 font-mono text-xs">
+            <template x-for="skill in skills" :key="skill.name">
+                <div class="glass-panel p-4 rounded-lg border border-white/5 flex flex-col justify-between items-start transition-all duration-200 cursor-default hover:border-cyanAccent hover:shadow-[0_0_15px_rgba(0,240,255,0.15)] group">
+                    <span class="text-gray-400 group-hover:text-white transition-colors" x-text="skill.name"></span>
+                    <span class="text-[9px] text-gray-600 group-hover:text-cyanAccent uppercase mt-4 block" x-text="skill.category"></span>
+                </div>
+            </template>
+        </div>
+    </section>
+
+    <!-- OTHER PROJECTS SECTION -->
+    <section class="py-24 bg-darkcard/20 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
+                <div>
+                    <h2 class="font-display text-xs font-bold tracking-widest text-tealAccent uppercase mb-2">// Supplementary Systems</h2>
+                    <p class="font-display text-3xl font-bold text-white">Other Core Ventures & Prototypes</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Project Card A -->
+                <div class="glass-panel p-6 rounded-xl border border-white/5 flex flex-col justify-between">
+                    <div>
+                        <div class="text-2xl text-cyanAccent mb-4"><i class="fa-solid fa-heart-pulse"></i></div>
+                        <h3 class="font-display text-xl font-bold text-white mb-2">BeAware</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed font-sans">
+                            Deaf and Hard of Hearing accessibility tools designed specifically for critical situational notification awareness and active local detection mechanics.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-white/5 flex items-center justify-between font-mono text-[11px] text-gray-500">
+                        <span>iOS / Native Accessibility</span>
+                        <span class="text-cyanAccent">Shipped</span>
+                    </div>
+                </div>
+
+                <!-- Project Card B -->
+                <div class="glass-panel p-6 rounded-xl border border-white/5 flex flex-col justify-between">
+                    <div>
+                        <div class="text-2xl text-magentaAccent mb-4"><i class="fa-solid fa-file-medical"></i></div>
+                        <h3 class="font-display text-xl font-bold text-white mb-2">HealthScribe</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed font-sans">
+                            Secure local-first technical platform assisting healthcare practitioners with automated session records via micro-transcription models.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-white/5 flex items-center justify-between font-mono text-[11px] text-gray-500">
+                        <span>Whisper / HIPAA Guarded</span>
+                        <span class="text-magentaAccent">Active Matrix</span>
+                    </div>
+                </div>
+
+                <!-- Project Card C -->
+                <div class="glass-panel p-6 rounded-xl border border-white/5 flex flex-col justify-between">
+                    <div>
+                        <div class="text-2xl text-purpleAccent mb-4"><i class="fa-solid fa-cubes"></i></div>
+                        <h3 class="font-display text-xl font-bold text-white mb-2">Open Source Labs</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed font-sans">
+                            A rolling ledger of experimental hackathon utilities, streaming translation middleware, and system architecture orchestration modules.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-white/5 flex items-center justify-between font-mono text-[11px] text-gray-500">
+                        <span>GitHub Ecosystem</span>
+                        <span class="text-purpleAccent">Public Core</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE VERTICAL TIMELINE -->
+    <section id="timeline" class="py-24 max-w-4xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+            <h2 class="font-display text-xs font-bold tracking-widest text-purpleAccent uppercase mb-2">// Proven Vector Milestones</h2>
+            <p class="font-display text-3xl font-bold text-white">Ecosystem Progression & Strategy</p>
+        </div>
+
+        <div class="relative border-l border-white/10 ml-4 md:ml-32 space-y-12">
+            <template x-for="item in timelineItems" :key="item.title">
+                <div class="relative pl-8 group">
+                    <!-- Dot marker -->
+                    <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-darkbg border-2 border-cyanAccent group-hover:bg-magentaAccent transition-colors"></div>
+                    <!-- Absolute Date Node -->
+                    <div class="md:absolute md:-left-36 md:top-0 font-mono text-xs text-gray-500 group-hover:text-cyanAccent transition-colors" x-text="item.date"></div>
+                    
+                    <h3 class="font-display text-lg font-bold text-white" x-text="item.title"></h3>
+                    <p class="text-sm text-gray-400 mt-1 leading-relaxed font-sans" x-text="item.description"></p>
+                </div>
+            </template>
+        </div>
+    </section>
+
+    <!-- TECHNICAL RECOGNITION & PRESS MEDIA MODULE -->
+    <section class="py-20 border-t border-white/5 bg-darkcard/10 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="font-mono text-xs text-tealAccent uppercase tracking-widest">// Validated Ecosystem Engagements</span>
+                <h3 class="font-display text-2xl font-bold text-white mt-1">Enterprise Validation & Features</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="https://apple.com/newsroom/2026/05/detroits-rising-developers-are-supported-by-the-apple-developer-academy/" target="_blank" class="glass-panel p-6 rounded-xl border border-white/5 flex flex-col justify-between hover:scale-[1.01] transition-transform">
+                    <div>
+                        <div class="text-white text-xs font-mono mb-2 uppercase tracking-wider text-magentaAccent">Featured by Apple Newsroom</div>
+                        <p class="text-sm text-gray-300 font-sans">Recognized among Detroit's rising ecosystem builders, supported comprehensively via the Apple Developer Academy infrastructure vectors.</p>
+                    </div>
+                    <span class="font-mono text-[10px] text-gray-500 mt-4 block">Apple Newsroom 2026 <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></span>
+                </a>
+                
+                <a href="https://devblogs.microsoft.com/xamarin/android-in-app-reviews/" target="_blank" class="glass-panel p-6 rounded-xl border border-white/5 flex flex-col justify-between hover:scale-[1.01] transition-transform">
+                    <div>
+                        <div class="text-white text-xs font-mono mb-2 uppercase tracking-wider text-cyanAccent">Published by Microsoft</div>
+                        <p class="text-sm text-gray-300 font-sans">Author of intensive, production-grade Android integration review guidelines published directly on official Microsoft developer portals.</p>
+                    </div>
+                    <span class="font-mono text-[10px] text-gray-500 mt-4 block">Microsoft DevBlogs <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></span>
+                </a>
+
+                <a href="https://techtowndetroit.org/team/saamer-mansoor/" target="_blank" class="glass-panel p-6 rounded-xl border border-white/5 flex flex-col justify-between hover:scale-[1.01] transition-transform">
+                    <div>
+                        <div class="text-white text-xs font-mono mb-2 uppercase tracking-wider text-purpleAccent">Detroit Startup Community Expert</div>
+                        <p class="text-sm text-gray-300 font-sans">Active ecosystem advisor providing critical architectural solutions, fractional CTO insight, and tech stack scaling models via TechTown Detroit.</p>
+                    </div>
+                    <span class="font-mono text-[10px] text-gray-500 mt-4 block">TechTown Registry <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECHNICAL BLOG INDEX FEED -->
+    <section class="py-24 max-w-7xl mx-auto px-6 relative z-10">
+        <div class="mb-16">
+            <span class="font-mono text-xs text-cyanAccent uppercase tracking-widest block">// Terminal Thought Ledgers</span>
+            <h2 class="font-display text-3xl font-bold text-white">Selected Engineering Logs</h2>
+        </div>
+
+        <div class="space-y-6">
+            <!-- Article 1 -->
+            <div class="glass-panel p-6 rounded-xl border border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-white/20 transition-all">
+                <div>
+                    <div class="flex items-center gap-3 font-mono text-[11px] text-gray-500 mb-2">
+                        <span class="text-cyanAccent">#Accessibility</span>
+                        <span>•</span>
+                        <span>4 min read</span>
+                        <span>•</span>
+                        <span>CoreML / Whisper</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white hover:text-cyanAccent transition-colors cursor-pointer">Deploying Low-Latency Local Whisper Models to Edge Devices</h3>
+                </div>
+                <span class="font-mono text-xs text-gray-600 whitespace-nowrap">June 2026</span>
+            </div>
+
+            <!-- Article 2 -->
+            <div class="glass-panel p-6 rounded-xl border border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-white/20 transition-all">
+                <div>
+                    <div class="flex items-center gap-3 font-mono text-[11px] text-gray-500 mb-2">
+                        <span class="text-magentaAccent">#Swift</span>
+                        <span>•</span>
+                        <span>7 min read</span>
+                        <span>•</span>
+                        <span>AVFoundation</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white hover:text-magentaAccent transition-colors cursor-pointer">Real-time Buffer Wrangling in SwiftUI Multi-stream Contexts</h3>
+                </div>
+                <span class="font-mono text-xs text-gray-600 whitespace-nowrap">May 2026</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FUN INTERACTIVE TERMINAL WINDOW SECTION -->
+    <section id="terminal" class="py-24 max-w-4xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-8">
+            <h2 class="font-display text-xs font-bold tracking-widest text-cyanAccent uppercase mb-2">// Direct System Subshell</h2>
+            <p class="font-display text-2xl font-bold text-white">Interactive Matrix Kernel</p>
+        </div>
+
+        <div class="w-full glass-panel border border-white/10 rounded-xl overflow-hidden shadow-2xl bg-darkbg/90 font-code text-xs">
+            <!-- Terminal Header -->
+            <div class="bg-darkcard px-4 py-3 border-b border-white/5 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                    <span class="ml-2 text-gray-400 font-mono text-[11px]">saamer@ecosystem:~$</span>
+                </div>
+                <span class="text-gray-600 text-[11px]">Konami Ready</span>
+            </div>
+
+            <!-- Terminal Output -->
+            <div class="p-5 font-mono text-xs leading-relaxed min-h-[260px] bg-darkbg/60 relative" x-html="terminalOutput">
+            </div>
+
+            <!-- Terminal Input Line -->
+            <div class="px-4 pb-4 pt-0 flex items-center border-t border-white/5">
+                <span class="text-cyanAccent mr-2">$</span>
+                <input type="text" id="terminalInput" @keydown.enter="processCommand($event)" 
+                       class="w-full bg-transparent border-none outline-none text-gray-200 font-code text-xs placeholder-gray-600" 
+                       placeholder="type help, about, projects, skills, contact, whoami, conferencecaptioning, apple, sudo make world accessible" 
+                       autofocus>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT CONSOLE SECTION -->
+    <section id="contact" class="py-24 max-w-7xl mx-auto px-6 relative z-10 border-t border-white/5">
+        <div class="text-center max-w-3xl mx-auto">
+            <span class="font-mono text-xs text-magentaAccent uppercase tracking-widest">// Ecosystem Connectivity</span>
+            <h2 class="font-display text-3xl font-bold text-white mb-8">Command Console Access</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-sm text-left">
+                <div class="glass-panel p-5 rounded-xl border border-white/5 flex items-center gap-4 hover:border-cyanAccent/30 transition-all">
+                    <i class="fa-brands fa-github text-2xl text-white"></i>
+                    <div><div class="text-gray-400">GitHub</div><a href="https://github.com/saamerm" target="_blank" class="text-cyanAccent hover:underline">github.com/saamer</a></div>
+                </div>
+                <div class="glass-panel p-5 rounded-xl border border-white/5 flex items-center gap-4 hover:border-cyanAccent/30 transition-all">
+                    <i class="fa-brands fa-linkedin-in text-2xl text-white"></i>
+                    <div><div class="text-gray-400">LinkedIn</div><a href="https://linkedin.com/in/saamer" target="_blank" class="text-cyanAccent hover:underline">linkedin.com/in/saamer</a></div>
+                </div>
+                <div class="glass-panel p-5 rounded-xl border border-white/5 flex items-center gap-4 hover:border-cyanAccent/30 transition-all">
+                    <i class="fa-regular fa-envelope text-2xl text-white"></i>
+                    <div><div class="text-gray-400">Email</div><a href="mailto:i@saamer.me" class="text-cyanAccent hover:underline">i@saamer.me</a></div>
+                </div>
+                <div class="glass-panel p-5 rounded-xl border border-white/5 flex items-center gap-4 hover:border-cyanAccent/30 transition-all">
+                    <i class="fa-regular fa-calendar text-2xl text-white"></i>
+                    <div><div class="text-gray-400">Calendly</div><a href="https://calendly.com/confcap" target="_blank" class="text-cyanAccent hover:underline">calendly.com/confcap</a></div>
+                </div>
+                <div class="sm:col-span-2 glass-panel p-5 rounded-xl border border-white/5 flex items-center gap-4 hover:border-cyanAccent/30 transition-all">
+                    <i class="fa-solid fa-globe text-2xl text-white"></i>
+                    <div><div class="text-gray-400">Flagship</div><a href="https://conferencecaptioning.com" target="_blank" class="text-cyanAccent hover:underline">ConferenceCaptioning.com</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 py-8 text-center text-gray-600 font-mono text-xs z-10 relative">
+        <p class="mb-1">© 2026 Saamer Mansoor · Fractional CTO · Accessibility Core</p>
+        <p class="text-[10px] tracking-widest">Detroit’s Rising Developer Ecosystem</p>
+    </footer>
+
+    <script>
+        // Alpine.js State
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('portfolioState', () => ({
+                isHovered: false,
+                celebrate: false,
+                terminalOutput: `<span class="text-cyanAccent">❯</span> Welcome to the Saamer Mansoor ecosystem. <br> <span class="text-gray-400">Type 'help' to reveal available commands.</span>`,
+                skills: [
+                    { name: 'Swift', category: 'iOS' },
+                    { name: 'SwiftUI', category: 'iOS' },
+                    { name: 'CoreML', category: 'AI' },
+                    { name: 'Whisper', category: 'AI' },
+                    { name: 'Python', category: 'Backend' },
+                    { name: 'C# / .NET', category: 'Backend' },
+                    { name: 'Firebase', category: 'BaaS' },
+                    { name: 'Node.js', category: 'Server' },
+                    { name: 'TypeScript', category: 'Frontend' },
+                    { name: 'React', category: 'Frontend' },
+                    { name: 'Azure', category: 'Cloud' },
+                    { name: 'AWS', category: 'Cloud' },
+                    { name: 'Accessibility', category: 'Core' },
+                    { name: 'ML Systems', category: 'AI' },
+                    { name: 'Streaming APIs', category: 'Network' },
+                    { name: 'Offline AI', category: 'Edge' },
+                    { name: 'AVFoundation', category: 'Media' },
+                    { name: 'Speech Recognition', category: 'AI' },
+                ],
+                timelineItems: [
+                    { date: '2019', title: 'Started Building Accessibility Products', description: 'Initial exploration of speech-to-text and real-time captioning for event ecosystems.' },
+                    { date: '2020', title: 'BeAware & ConferenceCaptioning Founded', description: 'Developed core tooling and product foundation for enterprise-level accessibility infrastructure.' },
+                    { date: '2021', title: 'Offline AI & Multilingual Launched', description: 'Completed local-first Whisper integration, unlocking sub-second, private transcription globally.' },
+                    { date: '2022', title: 'Accelerator & Apple Developer Academy', description: 'Selected for premier startup accelerators and active collaboration with Apple’s developer ecosystem.' },
+                    { date: '2023', title: 'Enterprise Solution Architect', description: 'Strategic fractional CTO engagement, scaling ConferenceCaptioning across international conferences and global enterprises.' },
+                    { date: '2026', title: 'Global Ecosystem Expansion', description: 'Growing the matrix of offline AI, streaming translations, and enterprise-grade accessibility for major global events.' },
+                ],
+                updateCursor(e) {
+                    const cursor = document.getElementById('cursor');
+                    if (window.innerWidth > 768) {
+                        cursor.style.left = e.clientX + 'px';
+                        cursor.style.top = e.clientY + 'px';
+                    }
+                },
+                handleKonami(key) {
+                    const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+                    if (!window._konamiIndex) window._konamiIndex = 0;
+                    
+                    if (key === konamiSequence[window._konamiIndex]) {
+                        window._konamiIndex++;
+                        if (window._konamiIndex === konamiSequence.length) {
+                            document.body.style.background = '#1a0a2e';
+                            document.body.style.transition = 'background 0.3s';
+                            this.celebrate = true;
+                            window._konamiIndex = 0;
+                        }
+                    } else {
+                        window._konamiIndex = 0;
+                    }
+                },
+                processCommand(event) {
+                    const input = event.target;
+                    const command = input.value.trim().toLowerCase();
+                    input.value = '';
+                    
+                    let response = `<span class="text-gray-400">$ ${command}</span><br>`;
+                    
+                    switch(command) {
+                        case 'help':
+                            response += `<span class="text-cyanAccent">Available commands:</span> about, projects, skills, contact, whoami, conferencecaptioning, apple, resume, help, sudo make world accessible`;
+                            break;
+                        case 'about':
+                            response += `Saamer Mansoor · AI Engineer · Founder of ConferenceCaptioning.com & TheFirstPrototype.com. Fractional CTO and accessibility system architect.`;
+                            break;
+                        case 'projects':
+                            response += `ConferenceCaptioning.com, BeAware, HealthScribe, plus 60+ open-source and enterprise AI prototypes.`;
+                            break;
+                        case 'skills':
+                            response += `Swift, CoreML, Whisper, Python, C#, .NET, Firebase, Node.js, TypeScript, React, Azure, AWS, Accessibility, ML Systems, Streaming APIs, Offline AI.`;
+                            break;
+                        case 'contact':
+                            response += `GitHub: github.com/saamer · LinkedIn: linkedin.com/in/saamer · Email: i@saamer.me · Calendly: calendly.com/confcap`;
+                            break;
+                        case 'whoami':
+                            response += `Building the future of accessible AI. Founder, engineer, and public speaker. Based in Detroit.`;
+                            break;
+                        case 'conferencecaptioning':
+                            response += `🏆 Flagship product: offline AI, 25+ languages, sub-second latency, QR broadcasting. Enterprise-ready.`;
+                            break;
+                        case 'apple':
+                            response += `🍎 Featured by Apple Newsroom, Apple Developer Academy mentor, and active ecosystem contributor.`;
+                            break;
+                        case 'resume':
+                            response += `Enterprise Solution Architect · Apple Developer Academy · Microsoft DevBlogs author · TechTown Detroit advisor.`;
+                            break;
+                        case 'sudo make world accessible':
+                            response += `<span class="text-magentaAccent">🎉 ACCESSIBILITY REVOLUTION INITIATED.</span> All systems aligned. Global inclusion protocols active.`;
+                            this.celebrate = true;
+                            break;
+                        default:
+                            response += `<span class="text-gray-500">Command not recognized. Try 'help'.</span>`;
+                    }
+                    
+                    this.terminalOutput += `<br>${response}<br>`;
+                    // Keep scroll to latest
+                    this.$nextTick(() => {
+                        const terminalContainer = document.querySelector('#terminal .font-mono');
+                        if (terminalContainer) terminalContainer.scrollTop = terminalContainer.scrollHeight;
+                    });
+                }
+            }));
+        });
+
+        // Particle animation (background canvas)
+        (function initParticles() {
+            const canvas = document.getElementById('particles');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            const particles = [];
+            
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+            
+            for (let i = 0; i < 160; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    r: Math.random() * 1.4 + 0.4,
+                    dx: (Math.random() - 0.5) * 0.25,
+                    dy: (Math.random() - 0.5) * 0.25,
+                });
+            }
+            
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                for (let p of particles) {
+                    p.x += p.dx;
+                    p.y += p.dy;
+                    if (p.x < 0) p.x = width;
+                    if (p.x > width) p.x = 0;
+                    if (p.y < 0) p.y = height;
+                    if (p.y > height) p.y = 0;
+                    
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(180, 210, 255, 0.25)';
+                    ctx.shadowColor = 'rgba(0, 240, 255, 0.2)';
+                    ctx.shadowBlur = 6;
+                    ctx.fill();
+                }
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+    </script>
+</body>
+</html>
