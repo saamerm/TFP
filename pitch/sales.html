@@ -6,14 +6,14 @@
   <title>ConferenceCaptioning.com | Enterprise Sales Deck</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================================
        DESIGN SYSTEM & VARIABLES
        ========================================================================== */
     :root {
-      --brand-navy-dark: #0f2438;
+      --brand-navy-dark: #0a1726;
       --brand-navy: #193C5D;
       --brand-navy-light: #244e77;
       --brand-accent: #38bdf8;
@@ -21,8 +21,8 @@
       --brand-emerald: #10b981;
       --brand-amber: #f59e0b;
       
-      --bg-dark: #0d1a29;
-      --bg-surface: rgba(25, 60, 93, 0.45);
+      --bg-dark: #0c1824;
+      --bg-surface: rgba(25, 60, 93, 0.42);
       --bg-surface-hover: rgba(36, 78, 119, 0.55);
       --border-subtle: rgba(255, 255, 255, 0.12);
       --border-focus: rgba(56, 189, 248, 0.5);
@@ -34,7 +34,7 @@
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
-      --slide-transition: 450ms cubic-bezier(0.16, 1, 0.3, 1);
+      --slide-transition: 400ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * {
@@ -55,7 +55,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* 16:9 Presentation Stage Wrapper */
+    /* 16:9 Presentation Stage */
     .deck-container {
       position: relative;
       width: 100vw;
@@ -63,7 +63,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at 50% 20%, #1c456b 0%, var(--bg-dark) 75%);
+      background: radial-gradient(circle at 50% 18%, #1c456b 0%, var(--bg-dark) 80%);
       overflow: hidden;
     }
 
@@ -74,13 +74,13 @@
       left: 0;
       width: 100%;
       height: 100%;
-      padding: 4.5vh 6vw 6.5vh 6vw;
+      padding: 4vh 5.5vw 6vh 5.5vw;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       opacity: 0;
       visibility: hidden;
-      transform: translateX(40px) scale(0.98);
+      transform: translateX(40px) scale(0.985);
       transition: opacity var(--slide-transition), transform var(--slide-transition), visibility var(--slide-transition);
       z-index: 1;
       pointer-events: none;
@@ -95,7 +95,7 @@
     }
 
     .slide.prev {
-      transform: translateX(-40px) scale(0.98);
+      transform: translateX(-40px) scale(0.985);
     }
 
     /* Standard Slide Header */
@@ -103,11 +103,11 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 2.5vh;
+      margin-bottom: 2vh;
     }
 
     .header-content {
-      max-width: 80%;
+      max-width: 82%;
     }
 
     .slide-eyebrow {
@@ -115,64 +115,62 @@
       align-items: center;
       gap: 0.5rem;
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       color: var(--brand-accent);
-      margin-bottom: 0.6vh;
+      margin-bottom: 0.5vh;
     }
 
     .slide-title {
-      font-size: clamp(1.8rem, 3.2vw, 3rem);
+      font-size: clamp(1.7rem, 2.9vw, 2.7rem);
       font-weight: 700;
       letter-spacing: -0.03em;
-      line-height: 1.15;
+      line-height: 1.16;
       color: #fff;
     }
 
     .slide-subtitle {
-      font-size: clamp(0.95rem, 1.3vw, 1.25rem);
+      font-size: clamp(0.9rem, 1.2vw, 1.15rem);
       color: var(--text-muted);
-      margin-top: 0.8vh;
+      margin-top: 0.6vh;
       font-weight: 400;
-      max-width: 850px;
+      max-width: 900px;
       line-height: 1.45;
     }
 
     .slide-logo-badge img {
-      height: 28px;
-      opacity: 0.85;
+      height: 26px;
+      opacity: 0.9;
     }
 
     /* Core Card Components */
     .glass-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 2.5vh 2vw;
+      border-radius: 14px;
+      padding: 2.2vh 1.8vw;
       backdrop-filter: blur(16px);
-      box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.4);
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 10px 28px -8px rgba(0, 0, 0, 0.45);
+      transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
     .glass-card:hover {
       border-color: var(--border-focus);
-      transform: translateY(-2px);
-      box-shadow: 0 18px 36px -10px rgba(56, 189, 248, 0.15);
     }
 
     .card-title {
-      font-size: clamp(1.05rem, 1.4vw, 1.35rem);
+      font-size: clamp(1rem, 1.3vw, 1.25rem);
       font-weight: 600;
       color: #fff;
-      margin-bottom: 0.8vh;
+      margin-bottom: 0.7vh;
       display: flex;
       align-items: center;
       gap: 0.6rem;
     }
 
     .card-text {
-      font-size: clamp(0.85rem, 1vw, 1rem);
+      font-size: clamp(0.82rem, 0.95vw, 0.95rem);
       color: var(--text-muted);
       line-height: 1.45;
     }
@@ -180,24 +178,38 @@
     .highlight-badge {
       display: inline-flex;
       align-items: center;
-      padding: 4px 10px;
+      padding: 3px 10px;
       border-radius: 999px;
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.3);
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
       color: var(--brand-accent);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.04em;
     }
 
+    .event-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34d399;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
     .bottom-statement {
       margin-top: auto;
-      padding-top: 1.5vh;
+      padding-top: 1.2vh;
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
-      font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+      font-size: clamp(0.85rem, 1vw, 1rem);
       color: var(--text-muted);
     }
 
@@ -205,350 +217,260 @@
       color: #fff;
     }
 
-    /* ==========================================================================
-       SPECIFIC SLIDE LAYOUTS
-       ========================================================================== */
-
-    /* Slide 1: Hero */
-    .hero-layout {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 4vw;
-      align-items: center;
-      height: 72vh;
-    }
-
-    .hero-text-area {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 6px 14px;
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 999px;
-      font-size: 0.85rem;
-      color: var(--brand-accent);
-      font-weight: 600;
-      width: fit-content;
-      margin-bottom: 2vh;
-    }
-
-    .hero-title {
-      font-size: clamp(2.4rem, 4.2vw, 4rem);
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      line-height: 1.08;
-      margin-bottom: 2vh;
-    }
-
-    .hero-title span {
-      color: var(--brand-accent);
-      background: linear-gradient(135deg, #38bdf8 0%, #a5f3fc 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-desc {
-      font-size: clamp(1.05rem, 1.4vw, 1.35rem);
-      color: #cbd5e1;
-      line-height: 1.5;
-      max-width: 580px;
-      margin-bottom: 3.5vh;
-    }
-
-    .hero-visual {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .stage-mockup {
-      width: 100%;
-      height: 48vh;
-      background: linear-gradient(180deg, #16334f 0%, #0d1e30 100%);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      position: relative;
+    /* Media Embed Containers */
+    .media-box {
+      border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 2.5vh 2vw;
+      border: 1px solid var(--border-subtle);
+      background: #000;
+      position: relative;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
     }
 
-    .stage-banner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .media-box img, .media-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    .stage-pill {
-      font-size: 0.75rem;
-      background: rgba(0,0,0,0.3);
+    .media-overlay-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 10;
+      background: rgba(10, 23, 38, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       padding: 4px 10px;
       border-radius: 6px;
-      color: var(--text-muted);
+      font-size: 0.75rem;
+      color: #fff;
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
-    .stage-pill .live-dot {
-      width: 8px;
-      height: 8px;
+    .live-indicator {
+      width: 7px;
+      height: 7px;
       background: #ef4444;
       border-radius: 50%;
-      animation: pulse 1.5s infinite;
+      animation: pulseDot 1.4s infinite;
     }
 
-    .floating-phone-preview {
-      position: absolute;
-      right: 5%;
-      bottom: -4%;
-      width: 250px;
-      background: #09131d;
-      border: 2px solid var(--border-focus);
-      border-radius: 24px;
-      padding: 14px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
-      animation: floatSlow 4s ease-in-out infinite;
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
     }
 
-    @keyframes floatSlow {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+    /* ==========================================================================
+       SLIDE-SPECIFIC STYLES
+       ========================================================================== */
+
+    /* Slide 1: Hero */
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 3.5vw;
+      align-items: center;
+      height: 72vh;
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+    .hero-title {
+      font-size: clamp(2.3rem, 3.8vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      margin-bottom: 2vh;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #38bdf8 0%, #a5f3fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .video-frame-container {
+      width: 100%;
+      height: 48vh;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.15);
+      position: relative;
+      background: #000;
+    }
+
+    .video-frame-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none; /* Avoid catching presenter clicks */
     }
 
     /* Slide 2: Problem Grid */
     .problem-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.8vw;
-      margin-top: 2vh;
-      margin-bottom: 2vh;
+      gap: 1.6vw;
+      margin: 2vh 0;
     }
 
     .problem-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
-      border-radius: 18px;
-      padding: 3vh 2vw;
+      border-radius: 16px;
+      padding: 2.8vh 1.8vw;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
-      position: relative;
     }
 
     .problem-tag {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       color: var(--brand-accent);
-      margin-bottom: 1.5vh;
+      margin-bottom: 1.2vh;
     }
 
-    .problem-header {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 1.5vh;
-    }
-
-    /* Slide 3: Workflow Horizontal */
+    /* Slide 3: Workflow */
     .workflow-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1vw;
-      margin: 4vh 0;
-      position: relative;
+      margin: 3.5vh 0;
     }
 
     .workflow-step {
       flex: 1;
       background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 3vh 1.6vw;
+      border-radius: 14px;
+      padding: 2.5vh 1.4vw;
       text-align: center;
-      position: relative;
-      z-index: 2;
     }
 
     .step-number {
       display: inline-block;
       font-family: var(--font-mono);
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 700;
       color: var(--brand-accent);
-      background: rgba(56, 189, 248, 0.1);
-      padding: 4px 12px;
-      border-radius: 8px;
-      margin-bottom: 1.5vh;
+      background: rgba(56, 189, 248, 0.12);
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-bottom: 1.2vh;
     }
 
     .workflow-connector {
-      flex: 0 0 30px;
+      flex: 0 0 24px;
       height: 2px;
-      background: linear-gradient(90deg, rgba(56, 189, 248, 0.4), rgba(56, 189, 248, 1));
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.3), rgba(56, 189, 248, 1));
       position: relative;
     }
 
     .workflow-connector::after {
       content: '▶';
       position: absolute;
-      right: -4px;
+      right: -3px;
       top: -6px;
-      font-size: 10px;
+      font-size: 9px;
       color: var(--brand-accent);
     }
 
-    /* Slide 4: Interactive Phone Demo */
-    .demo-stage {
+    /* Slide 4: Attendee Demo with Real Video */
+    .demo-split {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 0.95fr 1.05fr;
       gap: 3vw;
       align-items: center;
       height: 68vh;
     }
 
-    .phone-wrapper {
-      display: flex;
-      justify-content: center;
-    }
-
-    .phone-mockup {
-      width: 320px;
+    .phone-housing {
+      width: 270px;
       height: 520px;
-      background: #0a1420;
-      border: 3px solid #334d67;
-      border-radius: 36px;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.6), 0 0 20px rgba(56, 189, 248, 0.2);
+      margin: 0 auto;
+      background: #000;
+      border: 4px solid #334d67;
+      border-radius: 38px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 25px rgba(56, 189, 248, 0.25);
+      position: relative;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      padding: 18px 16px;
-      position: relative;
     }
 
     .phone-notch {
-      width: 110px;
-      height: 18px;
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 14px;
       background: #193c5d;
-      border-radius: 10px;
-      align-self: center;
-      margin-bottom: 15px;
-    }
-
-    .phone-header-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 14px;
-    }
-
-    .lang-dropdown {
-      background: #193C5D;
-      border: 1px solid var(--border-focus);
-      color: #fff;
-      padding: 6px 12px;
       border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      outline: none;
+      z-index: 20;
     }
 
-    .captions-stream {
-      flex: 1;
+    .phone-video-stream {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .phone-fallback-box {
+      width: 100%;
+      height: 100%;
+      background: #0c1824;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      gap: 12px;
-      font-size: 1.05rem;
-      line-height: 1.45;
-    }
-
-    .caption-previous {
-      color: var(--text-subtle);
-      font-size: 0.9rem;
-    }
-
-    .caption-live {
-      color: #38bdf8;
-      font-weight: 500;
-      background: rgba(56, 189, 248, 0.08);
-      padding: 12px;
-      border-radius: 10px;
-      border-left: 3px solid var(--brand-accent);
-      min-height: 80px;
-    }
-
-    .qr-demo-pane {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 20px;
-      padding: 3vh 2.5vw;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      padding: 20px;
+      text-align: center;
     }
 
-    .qr-code-svg {
-      width: 150px;
-      height: 150px;
-      background: #fff;
-      padding: 10px;
-      border-radius: 12px;
-      margin: 1.5vh 0;
+    /* Slide 5: Built for AV + english.gif */
+    .av-slide-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2.5vw;
+      align-items: center;
+      margin-top: 1vh;
     }
 
-    /* Slide 5: AV Workflow Signal Flow */
     .signal-flow {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(15, 36, 56, 0.7);
+      background: rgba(15, 36, 56, 0.8);
       border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 2.2vh 2vw;
-      margin-bottom: 2.8vh;
+      border-radius: 12px;
+      padding: 1.5vh 1.4vw;
+      margin-bottom: 2vh;
     }
 
     .signal-node {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.4vh;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
     }
 
     .signal-node strong {
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       color: #fff;
     }
 
     .signal-node.highlight-node {
       background: var(--brand-navy-light);
-      padding: 10px 18px;
-      border-radius: 12px;
+      padding: 6px 12px;
+      border-radius: 8px;
       border: 1px solid var(--brand-accent);
     }
 
@@ -559,76 +481,68 @@
     .grid-2x2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.6vw;
+      gap: 1.2vw;
     }
 
-    /* Slide 6: Reliability Grid */
+    /* Slide 6: Grid 3x2 */
     .grid-3x2 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5vw;
+      gap: 1.4vw;
       margin-top: 1.5vh;
     }
 
-    /* Slide 8: Business Opportunity */
+    /* Slide 7: Multilingual Proof + multilingual.gif */
+    .multilingual-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2.5vw;
+      align-items: center;
+      margin-top: 1vh;
+    }
+
+    /* Slide 8: Business */
     .biz-diagram {
       display: flex;
       align-items: center;
       justify-content: space-around;
       background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 2.5vh 2vw;
-      margin-bottom: 2.8vh;
-    }
-
-    .biz-node {
-      text-align: center;
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-
-    .biz-arrow {
-      font-size: 1.5rem;
-      color: var(--brand-accent);
+      border-radius: 14px;
+      padding: 2vh 1.8vw;
+      margin-bottom: 2.5vh;
     }
 
     /* Slide 9: CTA 4-Step */
     .steps-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.5vw;
-      margin: 3.5vh 0;
+      gap: 1.4vw;
+      margin: 3vh 0;
     }
 
     .step-box {
       background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 2.5vh 1.5vw;
+      border-radius: 14px;
+      padding: 2.2vh 1.4vw;
     }
 
     .step-box .num {
       font-family: var(--font-mono);
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 800;
       color: var(--brand-accent);
-      margin-bottom: 1vh;
-    }
-
-    .cta-actions {
-      display: flex;
-      gap: 1.2rem;
-      margin-top: 2vh;
+      margin-bottom: 0.8vh;
     }
 
     .btn-primary {
       background: #38bdf8;
-      color: #0b1a29;
+      color: #081421;
       font-weight: 700;
-      font-size: 1rem;
-      padding: 14px 28px;
-      border-radius: 10px;
+      font-size: 0.95rem;
+      padding: 13px 26px;
+      border-radius: 9px;
       border: none;
       cursor: pointer;
       transition: background 0.2s, transform 0.2s;
@@ -643,58 +557,28 @@
       background: rgba(255, 255, 255, 0.08);
       color: #fff;
       font-weight: 600;
-      font-size: 1rem;
-      padding: 14px 28px;
-      border-radius: 10px;
+      font-size: 0.95rem;
+      padding: 13px 26px;
+      border-radius: 9px;
       border: 1px solid var(--border-subtle);
       cursor: pointer;
-      transition: background 0.2s, border-color 0.2s;
     }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    /* ==========================================================================
-       PRESENTATION CHROME / HUD CONTROLS
-       ========================================================================== */
+    /* HUD */
     .deck-hud {
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 48px;
+      height: 44px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 2vw;
-      background: rgba(13, 26, 41, 0.85);
+      background: rgba(10, 23, 38, 0.9);
       backdrop-filter: blur(8px);
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       z-index: 100;
-      transition: opacity 0.3s ease;
-    }
-
-    .deck-hud.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .hud-left {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .hud-logo {
-      height: 20px;
-    }
-
-    .slide-counter {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--text-muted);
     }
 
     .hud-controls {
@@ -705,35 +589,19 @@
 
     .nav-btn {
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       color: #fff;
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 0.8rem;
-      transition: background 0.2s;
     }
 
     .nav-btn:hover {
       background: rgba(255, 255, 255, 0.2);
-    }
-
-    .fullscreen-btn {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      cursor: pointer;
-      font-size: 0.8rem;
-      padding: 4px 8px;
-      border-radius: 4px;
-    }
-
-    .fullscreen-btn:hover {
-      color: #fff;
     }
 
     .progress-bar-container {
@@ -750,23 +618,7 @@
       height: 100%;
       width: 11.11%;
       background: linear-gradient(90deg, #193c5d, #38bdf8);
-      transition: width 0.3s ease;
-    }
-
-    /* Live caption typing demo */
-    .typing-cursor {
-      display: inline-block;
-      width: 2px;
-      height: 1.1em;
-      background-color: var(--brand-accent);
-      margin-left: 2px;
-      vertical-align: text-bottom;
-      animation: blink 0.8s infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
+      transition: width 0.35s ease;
     }
   </style>
 </head>
@@ -775,56 +627,51 @@
   <div class="deck-container" id="deckContainer">
 
     <!-- ==========================================
-         SLIDE 1: HERO
+         SLIDE 1: HERO (With Live Speed Video Embed)
          ========================================== -->
     <!-- SPEAKER NOTES:
-    Start the meeting by setting clear expectations: We are not here to sell you a complex software ecosystem that disrupts your production flow. ConferenceCaptioning adds real-time multilingual captions and accessibility with zero friction to the AV setup and zero friction to attendees.
+    Open the meeting: Direct attention immediately to the live video on the right. Point out the sub-second speed of the captions and live translation. This is real-time AI running live.
     -->
     <section class="slide active" data-slide="1">
       <div class="slide-header">
         <div class="header-content">
-          <div class="slide-eyebrow">Enterprise Live Event Technology</div>
+          <div class="slide-eyebrow">Enterprise Live Event Infrastructure</div>
         </div>
         <div class="slide-logo-badge">
-          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 40\' fill=\'white\'><text x=\'0\' y=\'25\' font-size=\'18\' font-weight=\'bold\'>ConferenceCaptioning</text></svg>'">
+          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo" onerror="this.style.display='none'">
         </div>
       </div>
 
       <div class="hero-layout">
         <div class="hero-text-area">
-          <div class="hero-tag">
-            <span>●</span> 25+ Languages · No App Download · Real-Time AI
+          <div class="highlight-badge" style="margin-bottom: 1.8vh;">
+            25+ Languages · No App Download · Real-Time AI
           </div>
           <h1 class="hero-title">
             Live captions & translation.<br/>
             <span>Built for live events.</span>
           </h1>
-          <p class="hero-desc">
+          <p class="card-text" style="font-size: 1.2rem; line-height: 1.5; color: #cbd5e1; margin-bottom: 2.5vh;">
             Add real-time captions and 25+ language translations to your event — without adding complexity to your AV setup.
           </p>
+          <div style="display: flex; gap: 1rem; align-items: center;">
+            <span class="event-tag">● Live Benchmark</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Zero-lag speech transcription & translation engine</span>
+          </div>
         </div>
 
         <div class="hero-visual">
-          <div class="stage-mockup">
-            <div class="stage-banner">
-              <span class="stage-pill"><span class="live-dot"></span> LIVE STAGE FEED</span>
-              <span class="stage-pill">DIRECT DANTE / XLR / USB FEED</span>
+          <div class="video-frame-container">
+            <div class="media-overlay-badge">
+              <span class="live-indicator"></span> LIVE BENCHMARK SPEED
             </div>
-            
-            <div style="text-align: center; margin: auto;">
-              <div style="font-size: 2.8rem; margin-bottom: 8px;">🎙️ ➔ ⚡ ➔ 📱</div>
-              <div style="font-size: 1rem; color: var(--text-muted);">Real-Time Multilingual Pipeline</div>
-            </div>
-
-            <div class="floating-phone-preview">
-              <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-muted); margin-bottom: 8px;">
-                <span>EN ➔ ES (Spanish)</span>
-                <span style="color: var(--brand-accent);">● LIVE</span>
-              </div>
-              <div style="font-size: 0.85rem; color: #fff; font-weight: 500;">
-                "Bienvenidos a la sesión plenaria sobre innovación tecnológica..."
-              </div>
-            </div>
+            <!-- YouTube Autoplay Video (Muted, Loop) -->
+            <iframe 
+              src="https://www.youtube-nocookie.com/embed/gF1GJmRAGzM?autoplay=1&mute=1&controls=0&loop=1&playlist=gF1GJmRAGzM&playsinline=1&modestbranding=1&rel=0" 
+              title="ConferenceCaptioning Live Latency Demo" 
+              allow="autoplay; encrypted-media" 
+              allowfullscreen>
+            </iframe>
           </div>
         </div>
       </div>
@@ -839,58 +686,58 @@
          SLIDE 2: THE PROBLEM
          ========================================== -->
     <!-- SPEAKER NOTES:
-    Acknowledge the stress of live events. AV teams already balance signal chains, feedback, timing, and recording. Organizers face legal and DEI expectations for accessibility. Attendees hate downloading proprietary event apps.
+    Acknowledge the stress of production. AV engineers don't want risky software crashes. Organizers have ADA and DEI compliance requirements. Attendees will not download apps.
     -->
     <section class="slide" data-slide="2">
       <div class="slide-header">
         <div class="header-content">
           <div class="slide-eyebrow">The Live Event Reality</div>
           <h2 class="slide-title">Your event already has enough moving parts.</h2>
-          <p class="slide-subtitle">Adding captions and multilingual translation shouldn't require additional staff, fragile software, or attendee friction.</p>
+          <p class="slide-subtitle">Adding captions and multilingual translation shouldn't require additional crew, complex networking, or attendee friction.</p>
         </div>
         <div class="slide-logo-badge">
-          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo">
+          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo" onerror="this.style.display='none'">
         </div>
       </div>
 
       <div class="problem-grid">
         <div class="problem-card">
-          <span class="problem-tag">FOR THE AV TEAM</span>
-          <h3 class="problem-header">Reliable Production</h3>
+          <span class="problem-tag">AV TEAM</span>
+          <h3 class="card-title">Reliable Production</h3>
           <p class="card-text">
-            You cannot afford complex secondary computer networks, laggy cloud roundtrips, or software that risks system crashes during a keynote presentation.
+            Don't add another complicated system to the signal chain. You need standard audio connections, local reliability, and zero risk to FOH sound.
           </p>
-          <div style="margin-top: 2vh; padding: 12px; background: rgba(0,0,0,0.25); border-radius: 8px; font-size: 0.85rem; color: #cbd5e1;">
-            ⚠️ <strong>Risk:</strong> Complicated AV setups create single points of failure.
+          <div style="margin-top: auto; padding-top: 1.5vh; font-size: 0.8rem; color: #ef4444;">
+            ✕ Avoid fragile cloud dependencies
           </div>
         </div>
 
         <div class="problem-card">
-          <span class="problem-tag">FOR THE EVENT ORGANIZER</span>
-          <h3 class="problem-header">Accessible & Multilingual</h3>
+          <span class="problem-tag">EVENT ORGANIZER</span>
+          <h3 class="card-title">Accessible + Multilingual</h3>
           <p class="card-text">
-            Mandates for deaf and hard-of-hearing accessibility are strict. Meanwhile, international attendees struggle when presentations are English-only.
+            Serve deaf, hard-of-hearing, and international attendees simultaneously without spending thousands on manual stenographers.
           </p>
-          <div style="margin-top: 2vh; padding: 12px; background: rgba(0,0,0,0.25); border-radius: 8px; font-size: 0.85rem; color: #cbd5e1;">
-            ⚠️ <strong>Risk:</strong> Traditional human CART stenographers cost $150+/hr per stage and require weeks of advance booking.
+          <div style="margin-top: auto; padding-top: 1.5vh; font-size: 0.8rem; color: #38bdf8;">
+            ✓ Comprehensive ADA & DEI coverage
           </div>
         </div>
 
         <div class="problem-card">
-          <span class="problem-tag">FOR THE ATTENDEE</span>
-          <h3 class="problem-header">Frictionless Participation</h3>
+          <span class="problem-tag">ATTENDEE</span>
+          <h3 class="card-title">Just Scan and Participate</h3>
           <p class="card-text">
-            Attendees will not download dedicated apps, create accounts, or connect cumbersome proprietary translation receiver headsets.
+            No app download. No account creation. No hardware checkout lines. Open camera, scan QR code, and read instantly in their native language.
           </p>
-          <div style="margin-top: 2vh; padding: 12px; background: rgba(0,0,0,0.25); border-radius: 8px; font-size: 0.85rem; color: #cbd5e1;">
-            ⚠️ <strong>Risk:</strong> Friction leads to low attendee adoption and poor satisfaction.
+          <div style="margin-top: auto; padding-top: 1.5vh; font-size: 0.8rem; color: #10b981;">
+            ✓ 100% web browser native
           </div>
         </div>
       </div>
 
       <div class="bottom-statement">
-        <span><strong>Bottom line:</strong> Accessibility shouldn't become another production problem.</span>
-        <span>Simplicity is a reliability feature.</span>
+        <span><strong>Accessibility shouldn't become another production problem.</strong></span>
+        <span>Simplicity is the greatest reliability feature.</span>
       </div>
     </section>
 
@@ -898,17 +745,17 @@
          SLIDE 3: THE SOLUTION
          ========================================== -->
     <!-- SPEAKER NOTES:
-    Walk through the 4 steps. Highlight that step 1 uses the existing audio mixer feed (Aux out, Dante, or USB interface). The AI handles instant transcription + translation, attendees scan the QR code and are reading immediately.
+    Walk through the 4-step chain: Microphones -> AI Server -> QR Code -> Attendee. Highlight how clean this is.
     -->
     <section class="slide" data-slide="3">
       <div class="slide-header">
         <div class="header-content">
-          <div class="slide-eyebrow">End-to-End Simplicity</div>
+          <div class="slide-eyebrow">End-to-End Workflow</div>
           <h2 class="slide-title">From microphone to attendee in seconds.</h2>
-          <p class="slide-subtitle">A clean 4-stage pipeline that operates alongside your current setup with zero configuration overhead.</p>
+          <p class="slide-subtitle">A straightforward 4-stage pipeline that works alongside your existing sound setup.</p>
         </div>
         <div class="slide-logo-badge">
-          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo">
+          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo" onerror="this.style.display='none'">
         </div>
       </div>
 
@@ -916,7 +763,7 @@
         <div class="workflow-step">
           <div class="step-number">01</div>
           <h3 class="card-title" style="justify-content: center;">AUDIO</h3>
-          <p class="card-text">Connect your existing event audio feed (Aux, USB, Dante, or mic).</p>
+          <p class="card-text">Existing event audio feed (Aux, USB interface, Dante, NDI).</p>
         </div>
 
         <div class="workflow-connector"></div>
@@ -924,7 +771,7 @@
         <div class="workflow-step">
           <div class="step-number">02</div>
           <h3 class="card-title" style="justify-content: center;">AI ENGINE</h3>
-          <p class="card-text">Real-time local/edge transcription and 25+ language translation.</p>
+          <p class="card-text">Local/on-device transcription & 25+ language translation.</p>
         </div>
 
         <div class="workflow-connector"></div>
@@ -932,7 +779,7 @@
         <div class="workflow-step">
           <div class="step-number">03</div>
           <h3 class="card-title" style="justify-content: center;">QR CODE</h3>
-          <p class="card-text">Display QR code on venue screens, badges, or table tents.</p>
+          <p class="card-text">Display on venue stage screens, badges, or table cards.</p>
         </div>
 
         <div class="workflow-connector"></div>
@@ -940,136 +787,122 @@
         <div class="workflow-step">
           <div class="step-number">04</div>
           <h3 class="card-title" style="justify-content: center;">ATTENDEE</h3>
-          <p class="card-text">Scan → Read in real time → Choose preferred language.</p>
+          <p class="card-text">Scan → Read in real time → Select preferred language.</p>
         </div>
       </div>
 
-      <div class="glass-card" style="text-align: center; background: rgba(56, 189, 248, 0.06); border-color: rgba(56, 189, 248, 0.25);">
+      <div class="glass-card" style="text-align: center; background: rgba(56, 189, 248, 0.08); border-color: rgba(56, 189, 248, 0.3);">
         <div style="font-size: 1.15rem; font-weight: 600; color: #fff;">
-          ⚡ No app download · No attendee account · No hardware distribution
+          No app download. No attendee account. No complicated setup.
         </div>
       </div>
 
       <div class="bottom-statement">
-        <span>The fastest path from soundboard to attendee screen.</span>
-        <span>Sub-second transmission latency</span>
+        <span>From audio console to individual attendee screen in under 300 milliseconds.</span>
+        <span>Scales to 10,000+ simultaneous viewers</span>
       </div>
     </section>
 
     <!-- ==========================================
-         SLIDE 4: PRODUCT DEMO
+         SLIDE 4: PRODUCT DEMO (With attendee.mp4)
          ========================================== -->
     <!-- SPEAKER NOTES:
-    Live interactive moment! Click the language dropdown on the phone right now to demonstrate how Spanish, French, Arabic, or Korean dynamically render the translated caption in real-time.
+    Point to the attendee video: This is actual footage from Wayne State University's 'Toast of the Town' event in Detroit. Notice the attendee's phone receiving real-time Spanish translation directly through the web page without downloading any app.
     -->
     <section class="slide" data-slide="4">
       <div class="slide-header">
         <div class="header-content">
-          <div class="slide-eyebrow">Interactive Attendee Experience</div>
+          <div class="slide-eyebrow">Real-World Attendee Experience</div>
           <h2 class="slide-title">This is what your attendee sees.</h2>
-          <p class="slide-subtitle">Clean, responsive web interface tailored for low battery consumption and instant legibility.</p>
+          <p class="slide-subtitle">Actual footage of an attendee following a live presentation with real-time Spanish translation on their personal device.</p>
         </div>
         <div class="slide-logo-badge">
-          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo">
+          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo" onerror="this.style.display='none'">
         </div>
       </div>
 
-      <div class="demo-stage">
-        <!-- Interactive Phone UI -->
-        <div class="phone-wrapper">
-          <div class="phone-mockup">
-            <div class="phone-notch"></div>
-            
-            <div class="phone-header-bar">
-              <span style="font-size: 0.75rem; font-weight: 700; color: #94a3b8; letter-spacing: 0.05em;">MAIN AUDITORIUM</span>
-              <select class="lang-dropdown" id="demoLangSelect" aria-label="Select caption language">
-                <option value="en">English (Original)</option>
-                <option value="es">Español (Spanish)</option>
-                <option value="fr">Français (French)</option>
-                <option value="ar">العربية (Arabic)</option>
-                <option value="ko">한국어 (Korean)</option>
-              </select>
+      <div class="demo-split">
+        <!-- Smartphone bezel with real attendee.mp4 -->
+        <div class="phone-housing">
+          <div class="phone-notch"></div>
+          <video class="phone-video-stream" src="attendee.mp4" autoplay loop muted playsinline>
+            <!-- Fallback if video is missing in same directory -->
+            <div class="phone-fallback-box">
+              <span class="event-tag" style="margin-bottom: 10px;">Wayne State University</span>
+              <p style="font-size: 0.9rem; color: #fff;">Live attendee translation in Spanish ("Toast of the Town" - Detroit)</p>
             </div>
-
-            <div class="captions-stream">
-              <div class="caption-previous" id="demoPrevCaption">
-                Speaker: "Welcome everyone to today's keynote presentation."
-              </div>
-              <div class="caption-live">
-                <span id="demoLiveCaption">Welcome everyone to today's conference.</span>
-                <span class="typing-cursor"></span>
-              </div>
-            </div>
-
-            <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-subtle);">
-              <span>⚡ Live stream (120ms)</span>
-              <span>Font size: A A+</span>
-            </div>
-          </div>
+          </video>
         </div>
 
-        <!-- QR Code and Callout -->
-        <div class="qr-demo-pane">
-          <h3 style="font-size: 1.3rem; margin-bottom: 0.5vh;">Scan to Test Live</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted);">Point camera to open instant caption stream</p>
-          
-          <!-- Authentic SVG QR Code Representation -->
-          <svg class="qr-code-svg" viewBox="0 0 100 100" fill="#0f172a">
-            <!-- QR Pattern -->
-            <rect x="0" y="0" width="100" height="100" fill="white" rx="4"/>
-            <!-- Corners -->
-            <rect x="10" y="10" width="24" height="24" fill="#0f2438"/>
-            <rect x="14" y="14" width="16" height="16" fill="white"/>
-            <rect x="18" y="18" width="8" height="8" fill="#0f2438"/>
+        <!-- Explanatory Panel & QR Integration -->
+        <div>
+          <div class="glass-card" style="margin-bottom: 2vh;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1vh;">
+              <span class="event-tag">Case Study · Detroit, MI</span>
+              <span class="highlight-badge">LIVE TRANSLATION</span>
+            </div>
+            <h3 class="card-title">Wayne State University "Toast of the Town"</h3>
+            <p class="card-text" style="font-size: 1rem; margin-bottom: 1.5vh;">
+              Attendees simply scanned the room QR code and were immediately able to follow the English stage speakers in Spanish with zero latency.
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.85rem; color: #cbd5e1;">
+              <div>✓ Instant language switching</div>
+              <div>✓ Dynamic font scaling</div>
+              <div>✓ Extremely low battery drain</div>
+              <div>✓ High-contrast dark mode</div>
+            </div>
+          </div>
 
-            <rect x="66" y="10" width="24" height="24" fill="#0f2438"/>
-            <rect x="70" y="14" width="16" height="16" fill="white"/>
-            <rect x="74" y="18" width="8" height="8" fill="#0f2438"/>
-
-            <rect x="10" y="66" width="24" height="24" fill="#0f2438"/>
-            <rect x="14" y="70" width="16" height="16" fill="white"/>
-            <rect x="18" y="74" width="8" height="8" fill="#0f2438"/>
-            <!-- Center Dots -->
-            <rect x="42" y="14" width="6" height="6" fill="#0f2438"/>
-            <rect x="52" y="22" width="6" height="6" fill="#0f2438"/>
-            <rect x="42" y="42" width="16" height="16" fill="#0f2438"/>
-            <rect x="66" y="42" width="6" height="14" fill="#0f2438"/>
-            <rect x="22" y="42" width="12" height="6" fill="#0f2438"/>
-            <rect x="42" y="66" width="8" height="18" fill="#0f2438"/>
-            <rect x="66" y="66" width="18" height="8" fill="#0f2438"/>
-            <rect x="76" y="78" width="8" height="8" fill="#0f2438"/>
-          </svg>
-
-          <span class="highlight-badge">NO APP REQUIRED</span>
-          <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1vh;">Works on iOS Safari, Android Chrome, tablet, and laptop browsers.</p>
+          <div class="glass-card" style="display: flex; align-items: center; gap: 1.5vw; padding: 1.8vh 1.5vw;">
+            <!-- Authentic SVG QR Code -->
+            <svg style="width: 75px; height: 75px; background: #fff; padding: 6px; border-radius: 8px; flex-shrink: 0;" viewBox="0 0 100 100" fill="#0f2438">
+              <rect x="0" y="0" width="100" height="100" fill="white"/>
+              <rect x="10" y="10" width="24" height="24" fill="#0f2438"/>
+              <rect x="14" y="14" width="16" height="16" fill="white"/>
+              <rect x="18" y="18" width="8" height="8" fill="#0f2438"/>
+              <rect x="66" y="10" width="24" height="24" fill="#0f2438"/>
+              <rect x="70" y="14" width="16" height="16" fill="white"/>
+              <rect x="74" y="18" width="8" height="8" fill="#0f2438"/>
+              <rect x="10" y="66" width="24" height="24" fill="#0f2438"/>
+              <rect x="14" y="70" width="16" height="16" fill="white"/>
+              <rect x="18" y="74" width="8" height="8" fill="#0f2438"/>
+              <rect x="42" y="14" width="6" height="6" fill="#0f2438"/>
+              <rect x="42" y="42" width="16" height="16" fill="#0f2438"/>
+              <rect x="66" y="66" width="18" height="8" fill="#0f2438"/>
+            </svg>
+            <div>
+              <div style="font-weight: 700; font-size: 1rem; color: #fff;">Scan to test live interface</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Works on Safari, Chrome, Edge & Firefox without installs.</div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="bottom-statement">
-        <span>Try changing the language selector above to see dynamic translation in action.</span>
-        <span>Supports RTL (Arabic, Hebrew) automatically</span>
+        <span>Tested across thousands of concurrent mobile browser sessions.</span>
+        <span>Zero app permissions required</span>
       </div>
     </section>
 
     <!-- ==========================================
-         SLIDE 5: BUILT FOR AV
+         SLIDE 5: BUILT FOR AV (With english.gif)
          ========================================== -->
     <!-- SPEAKER NOTES:
-    Speak directly to the AV engineer. Explain that ConferenceCaptioning does not replace any mixer, DSP, or switcher. It simply takes an audio feed (analog, USB, or IP) and creates the accessibility layer. Offline AI processing ensures rock-solid uptime even if conference Wi-Fi fluctuates.
+    Speak to the AV engineer: Look at english.gif on the right. This is from the NJEA Convention in New Jersey (August 2026). A single laptop was generating real-time offline AI captions, acting as the local server, and feeding the video switcher to overlay captions directly on top of the live camera feed.
     -->
     <section class="slide" data-slide="5">
       <div class="slide-header">
         <div class="header-content">
           <div class="slide-eyebrow">AV Production Integration</div>
           <h2 class="slide-title">Designed around your existing production workflow.</h2>
-          <p class="slide-subtitle">ConferenceCaptioning acts as the non-invasive accessibility layer — not a replacement for your audio infrastructure.</p>
+          <p class="slide-subtitle">ConferenceCaptioning acts as your non-invasive accessibility layer — not a replacement for your audio/video gear.</p>
         </div>
         <div class="slide-logo-badge">
-          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo">
+          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo" onerror="this.style.display='none'">
         </div>
       </div>
 
-      <!-- AV Signal Flow Diagram -->
+      <!-- Signal Flow Banner -->
       <div class="signal-flow">
         <div class="signal-node">
           <span>SOURCE</span>
@@ -1077,48 +910,59 @@
         </div>
         <span style="color: var(--brand-accent);">➔</span>
         <div class="signal-node">
-          <span>HARDWARE</span>
+          <span>CONSOLE</span>
           <strong>Mixer / DSP</strong>
         </div>
         <span style="color: var(--brand-accent);">➔</span>
         <div class="signal-node highlight-node">
           <span>ACCESSIBILITY LAYER</span>
-          <strong>ConferenceCaptioning</strong>
+          <strong>ConferenceCaptioning (Offline Server)</strong>
         </div>
         <span style="color: var(--brand-accent);">➔</span>
         <div class="signal-node">
-          <span>OUTPUT</span>
-          <strong>Live Captions & Translations</strong>
+          <span>OVERLAY</span>
+          <strong>Video Switcher / ATEM</strong>
         </div>
         <span style="color: var(--brand-accent);">➔</span>
         <div class="signal-node">
           <span>ENDPOINTS</span>
-          <strong>Attendee Phones / Video Walls</strong>
+          <strong>Screens & Mobile</strong>
         </div>
       </div>
 
-      <div class="grid-2x2">
-        <div class="glass-card">
-          <h3 class="card-title">⚡ Ultra-Low Latency</h3>
-          <p class="card-text">Live speech appears on attendee screens in near real time, eliminating the awkward delay between speaker delivery and caption rendering.</p>
+      <div class="av-slide-layout">
+        <!-- Feature Cards Grid -->
+        <div class="grid-2x2">
+          <div class="glass-card">
+            <h3 class="card-title">⚡ Ultra-Low Latency</h3>
+            <p class="card-text">Live speech appears in near real time, eliminating awkward delays between spoken words and caption rendering.</p>
+          </div>
+          <div class="glass-card">
+            <h3 class="card-title">💻 1-Computer AI Server</h3>
+            <p class="card-text">One machine does the AI transcription and hosts the live server locally for venue attendees.</p>
+          </div>
+          <div class="glass-card">
+            <h3 class="card-title">🛡️ 100% Offline Capable</h3>
+            <p class="card-text">Zero dependence on venue internet. Operate entirely on local audio feeds and local Wi-Fi.</p>
+          </div>
+          <div class="glass-card">
+            <h3 class="card-title">🎛️ Video Switcher Overlay</h3>
+            <p class="card-text">Downstream key (DSK) / overlay captions directly over live camera feeds into projectors and broadcast.</p>
+          </div>
         </div>
-        <div class="glass-card">
-          <h3 class="card-title">🔒 On-Device AI Processing</h3>
-          <p class="card-text">AI transcription models can run locally on the organizer's hardware, reducing external bandwidth demand and eliminating cloud bottlenecks.</p>
-        </div>
-        <div class="glass-card">
-          <h3 class="card-title">🛡️ Offline Resilient</h3>
-          <p class="card-text">Core captioning operates seamlessly even in venue environments with congested or unreliable public Wi-Fi networks.</p>
-        </div>
-        <div class="glass-card">
-          <h3 class="card-title">🔌 Plug-and-Play Deployment</h3>
-          <p class="card-text">Connect via standard USB audio interfaces, 3.5mm/XLR line-in, or virtual soundcards (Dante / NDI). Generate a QR code and you are live.</p>
+
+        <!-- Real Media: english.gif (NJEA Convention) -->
+        <div class="media-box" style="height: 38vh;">
+          <div class="media-overlay-badge">
+            <span class="live-indicator"></span> NJEA CONVENTION · AUGUST 2026
+          </div>
+          <img src="english.gif" alt="NJEA Convention offline live captioning video switcher overlay" onerror="this.parentNode.innerHTML='<div style=\'padding:30px;text-align:center;color:#fff;\'><strong>NJEA Convention (August 2026)</strong><br><span style=\'color:var(--text-muted);font-size:0.85rem;\'>1 computer offline AI server + Video Switcher overlay demo</span></div>'">
         </div>
       </div>
 
       <div class="bottom-statement">
         <span><strong>You control the audio. We handle the accessibility layer.</strong></span>
-        <span>Zero latency impact on FOH or broadcast mixes</span>
+        <span>Compatible with Blackmagic ATEM, Roland, Tricaster, Dante & NDI</span>
       </div>
     </section>
 
@@ -1126,105 +970,107 @@
          SLIDE 6: RELIABILITY + PRIVACY
          ========================================== -->
     <!-- SPEAKER NOTES:
-    Reinforce that in live events, failure is not an option. Emphasize privacy for confidential corporate keynotes, pharmaceutical symposiums, and defense/legal conferences where data cannot leave the building.
+    Reinforce live event realities: No second chances. On-device processing eliminates privacy risks for proprietary corporate keynotes, pharmaceutical symposia, and legal gatherings.
     -->
     <section class="slide" data-slide="6">
       <div class="slide-header">
         <div class="header-content">
-          <div class="slide-eyebrow">Enterprise Reliability & Governance</div>
+          <div class="slide-eyebrow">Enterprise Reliability & Privacy</div>
           <h2 class="slide-title">Built for the reality of live events.</h2>
-          <p class="slide-subtitle">Engineered specifically for high-stakes environments where "there is no try-again button."</p>
+          <p class="slide-subtitle">Engineered specifically for high-stakes environments where failure is not an option.</p>
         </div>
         <div class="slide-logo-badge">
-          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo">
+          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo" onerror="this.style.display='none'">
         </div>
       </div>
 
       <div class="grid-3x2">
         <div class="glass-card">
           <h3 class="card-title">🌐 No Attendee App</h3>
-          <p class="card-text">Runs completely in standard mobile web browsers. Zero app store friction or permission hurdles.</p>
+          <p class="card-text">Attendees use standard mobile browsers. Zero app store friction or permission hurdles.</p>
         </div>
 
         <div class="glass-card">
           <h3 class="card-title">🗣️ 25+ Languages</h3>
-          <p class="card-text">Simultaneous multilingual broadcast. Attendees in the same room can read in different languages at once.</p>
+          <p class="card-text">Live multilingual captions and translations broadcast simultaneously to all connected devices.</p>
         </div>
 
         <div class="glass-card">
-          <h3 class="card-title">⚡ Real-Time Latency</h3>
-          <p class="card-text">Optimized streaming protocols engineered specifically for live speaker pacing and stage presentations.</p>
+          <h3 class="card-title">⚡ Low Latency</h3>
+          <p class="card-text">Designed for real-time stage pacing and multi-speaker panel discussions.</p>
         </div>
 
         <div class="glass-card">
-          <h3 class="card-title">🛡️ Privacy-First AI</h3>
-          <p class="card-text">Audio does not need to be retained or used for external model training. Strict adherence to enterprise confidentiality.</p>
+          <h3 class="card-title">🔒 Privacy-First</h3>
+          <p class="card-text">On-device AI processing options keep sensitive executive keynotes and proprietary data secure.</p>
         </div>
 
         <div class="glass-card">
           <h3 class="card-title">🎛️ Minimal Hardware</h3>
-          <p class="card-text">Runs on a single standard laptop or Mac mini connected to your existing audio console.</p>
+          <p class="card-text">Designed to work seamlessly with existing event AV infrastructure and laptops.</p>
         </div>
 
         <div class="glass-card">
-          <h3 class="card-title">⏱️ 3-Minute Setup</h3>
-          <p class="card-text">Create an event room in seconds, print or project the QR code, and start capturing speech immediately.</p>
+          <h3 class="card-title">⏱️ Fast Deployment</h3>
+          <p class="card-text">Set up an event room in under 3 minutes, project the QR code, and go live.</p>
         </div>
       </div>
 
       <div class="bottom-statement">
-        <span><strong>"There is no 'try again' button during a live event."</strong></span>
-        <span>Redundant local + cloud fallback modes available</span>
+        <span><strong>There is no “try again” button during a live event.</strong></span>
+        <span>Battle-tested across arena keynotes and breakout rooms</span>
       </div>
     </section>
 
     <!-- ==========================================
-         SLIDE 7: ORGANIZER VALUE
+         SLIDE 7: ORGANIZER VALUE (With multilingual.gif)
          ========================================== -->
     <!-- SPEAKER NOTES:
-    Focus on the event organizer's perspective: expanding attendance value, satisfying legal/DEI standards (ADA compliance), and engaging non-native speakers or attendees in noisy exhibition halls.
+    Point to multilingual.gif on the right: This is from an international summit in Bali, Indonesia. One speaker in English, and 4 stage screens live-translating simultaneously into Chinese, Bahasa Indonesia, English captions, and Thai — completely offline with no internet connection!
     -->
     <section class="slide" data-slide="7">
       <div class="slide-header">
         <div class="header-content">
-          <div class="slide-eyebrow">Attendee & Organizer Impact</div>
+          <div class="slide-eyebrow">Multilingual Scale & Audience Impact</div>
           <h2 class="slide-title">Give every attendee a way to participate.</h2>
-          <p class="slide-subtitle">Solve multiple compliance and engagement challenges through one unified platform.</p>
+          <p class="slide-subtitle">Proven multi-screen stage translation for global summits with zero internet dependency.</p>
         </div>
         <div class="slide-logo-badge">
-          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo">
+          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo" onerror="this.style.display='none'">
         </div>
       </div>
 
-      <div class="problem-grid">
-        <div class="problem-card">
-          <div style="font-size: 2rem; margin-bottom: 1vh;">🦻</div>
-          <h3 class="problem-header">Accessibility & Compliance</h3>
-          <p class="card-text">
-            Provide ADA/accessibility accommodations for deaf and hard-of-hearing attendees with high-accuracy live transcription on personal devices or main screens.
-          </p>
+      <div class="multilingual-layout">
+        <!-- Value Pillars -->
+        <div style="display: flex; flex-direction: column; gap: 1.5vh;">
+          <div class="glass-card" style="border-left: 3px solid #38bdf8;">
+            <h3 class="card-title">🦻 Accessibility (ADA & DEI)</h3>
+            <p class="card-text">Help deaf and hard-of-hearing attendees follow fast-paced presentations and panel discussions effortlessly.</p>
+          </div>
+
+          <div class="glass-card" style="border-left: 3px solid #34d399;">
+            <h3 class="card-title">🌍 Multi-Screen Global Summits</h3>
+            <p class="card-text">Simultaneously drive multiple stage displays and mobile feeds in Chinese, Bahasa, Thai, Spanish, and 20+ other languages.</p>
+          </div>
+
+          <div class="glass-card" style="border-left: 3px solid #f59e0b;">
+            <h3 class="card-title">📈 Superior Audience Engagement</h3>
+            <p class="card-text">Empower attendees to follow technical terminology and accented speakers even in large, echoey auditoriums.</p>
+          </div>
         </div>
 
-        <div class="problem-card">
-          <div style="font-size: 2rem; margin-bottom: 1vh;">🌍</div>
-          <h3 class="problem-header">Multilingual Reach</h3>
-          <p class="card-text">
-            Eliminate language barriers for international delegates, global summits, and academic symposiums with instant translation into 25+ languages.
-          </p>
-        </div>
-
-        <div class="problem-card">
-          <div style="font-size: 2rem; margin-bottom: 1vh;">📈</div>
-          <h3 class="problem-header">Better Comprehension</h3>
-          <p class="card-text">
-            Help attendees follow rapid presenters, complex industry jargon, and multi-speaker panels even in venues with noisy room acoustics.
-          </p>
+        <!-- Real Media: multilingual.gif (Bali Summit) -->
+        <div class="media-box" style="height: 46vh;">
+          <div class="media-overlay-badge">
+            <span class="live-indicator"></span> BALI SUMMIT · 4-SCREEN TRANSLATION (OFFLINE)
+          </div>
+          <img src="multilingual.gif" alt="Bali Summit 4-screen live translation offline" onerror="this.parentNode.innerHTML='<div style=\'padding:40px;text-align:center;color:#fff;\'><strong>Bali Summit, Indonesia</strong><br><span style=\'color:var(--text-muted);font-size:0.85rem;\'>4 screens (Chinese, Bahasa, English, Thai) with zero internet</span></div>'">
         </div>
       </div>
 
       <div class="bottom-statement">
         <span><strong>One platform. Multiple accessibility needs.</strong></span>
-        <span>Transcript export available instantly after sessions</span>
+        <span>Simultaneous multi-display stage and mobile broadcast</span>
       </div>
     </section>
 
@@ -1232,66 +1078,66 @@
          SLIDE 8: AV BUSINESS OPPORTUNITY
          ========================================== -->
     <!-- SPEAKER NOTES:
-    Direct value proposition for the AV company: You already sell video, lighting, microphones, and staging. By packaging ConferenceCaptioning, you create an incremental high-margin revenue line without adding additional crew members.
+    For the AV company: You already have the sound board, video switcher, and client relationship. Packaging ConferenceCaptioning gives you a high-margin add-on line item for every proposal.
     -->
     <section class="slide" data-slide="8">
       <div class="slide-header">
         <div class="header-content">
           <div class="slide-eyebrow">AV Commercial Opportunity</div>
           <h2 class="slide-title">Turn accessibility into a service you can sell.</h2>
-          <p class="slide-subtitle">Expand your billable AV package scope without adding labor headcount or logistical risk.</p>
+          <p class="slide-subtitle">Add ConferenceCaptioning to your existing production quotes with zero extra crew overhead.</p>
         </div>
         <div class="slide-logo-badge">
-          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo">
+          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo" onerror="this.style.display='none'">
         </div>
       </div>
 
       <div class="biz-diagram">
-        <div class="biz-node">
-          <span style="color: var(--brand-accent); font-size: 0.8rem; font-family: var(--font-mono);">YOU</span><br/>
-          AV COMPANY
+        <div style="text-align:center;">
+          <span style="color: var(--brand-accent); font-size: 0.75rem; font-family: var(--font-mono);">YOU</span><br/>
+          <strong>AV COMPANY</strong>
         </div>
-        <div class="biz-arrow">➔</div>
-        <div class="biz-node" style="background: rgba(56, 189, 248, 0.15); padding: 8px 16px; border-radius: 8px; border: 1px solid var(--brand-accent);">
-          <span style="color: var(--brand-accent); font-size: 0.8rem; font-family: var(--font-mono);">PLATFORM</span><br/>
-          ConferenceCaptioning
+        <div style="font-size: 1.5rem; color: var(--brand-accent);">➔</div>
+        <div style="background: rgba(56, 189, 248, 0.15); padding: 8px 18px; border-radius: 8px; border: 1px solid var(--brand-accent); text-align:center;">
+          <span style="color: var(--brand-accent); font-size: 0.75rem; font-family: var(--font-mono);">SOFTWARE LAYER</span><br/>
+          <strong>ConferenceCaptioning</strong>
         </div>
-        <div class="biz-arrow">➔</div>
-        <div class="biz-node">
-          <span style="color: var(--brand-accent); font-size: 0.8rem; font-family: var(--font-mono);">CLIENT</span><br/>
-          EVENT ORGANIZER
+        <div style="font-size: 1.5rem; color: var(--brand-accent);">➔</div>
+        <div style="text-align:center;">
+          <span style="color: var(--brand-accent); font-size: 0.75rem; font-family: var(--font-mono);">CLIENT</span><br/>
+          <strong>EVENT ORGANIZER</strong>
         </div>
-        <div class="biz-arrow">➔</div>
-        <div class="biz-node">
-          <span style="color: var(--brand-accent); font-size: 0.8rem; font-family: var(--font-mono);">END USERS</span><br/>
-          ATTENDEES
+        <div style="font-size: 1.5rem; color: var(--brand-accent);">➔</div>
+        <div style="text-align:center;">
+          <span style="color: var(--brand-accent); font-size: 0.75rem; font-family: var(--font-mono);">END USERS</span><br/>
+          <strong>ATTENDEES</strong>
         </div>
       </div>
 
       <div class="glass-card" style="border-left: 4px solid var(--brand-accent);">
-        <h3 class="card-title">💼 New High-Margin Revenue Stream</h3>
-        <p class="card-text" style="font-size: 1.05rem; margin-bottom: 1vh;">
-          Offer high-value line items directly on your AV proposals:
+        <h3 class="card-title">💼 New High-Margin Revenue Opportunity</h3>
+        <p class="card-text" style="font-size: 1.05rem; margin-bottom: 1.5vh;">
+          Offer turnkey accessibility and translation packages right on your AV bid:
         </p>
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; margin-top: 1vh;">
-          <div style="background: rgba(0,0,0,0.25); padding: 10px; border-radius: 6px; font-size: 0.9rem; text-align: center;">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2vw;">
+          <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; font-size: 0.88rem; text-align: center;">
             ✓ Live Stage Captions
           </div>
-          <div style="background: rgba(0,0,0,0.25); padding: 10px; border-radius: 6px; font-size: 0.9rem; text-align: center;">
-            ✓ 25+ Language Feeds
+          <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; font-size: 0.88rem; text-align: center;">
+            ✓ Multilingual Feeds
           </div>
-          <div style="background: rgba(0,0,0,0.25); padding: 10px; border-radius: 6px; font-size: 0.9rem; text-align: center;">
-            ✓ ADA Compliance Package
+          <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; font-size: 0.88rem; text-align: center;">
+            ✓ Accessibility Compliance
           </div>
-          <div style="background: rgba(0,0,0,0.25); padding: 10px; border-radius: 6px; font-size: 0.9rem; text-align: center;">
-            ✓ Post-Event Transcripts
+          <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; font-size: 0.88rem; text-align: center;">
+            ✓ Inclusive Tech Package
           </div>
         </div>
       </div>
 
       <div class="bottom-statement">
         <span><strong>You already own the event production relationship. We make accessibility easier to deliver.</strong></span>
-        <span>AV Partner reseller programs available</span>
+        <span>AV partner discounts and reseller margins</span>
       </div>
     </section>
 
@@ -1299,76 +1145,75 @@
          SLIDE 9: CALL TO ACTION
          ========================================== -->
     <!-- SPEAKER NOTES:
-    Close the pitch. Suggest running a zero-risk pilot test on their next upcoming conference or rehearsal day.
+    Close the demo: Let's run a test during your next tech rehearsal or set up a pilot room on your next conference.
     -->
     <section class="slide" data-slide="9">
       <div class="slide-header">
         <div class="header-content">
           <div class="slide-eyebrow">Next Steps</div>
           <h2 class="slide-title">Let's make your next event accessible.</h2>
-          <p class="slide-subtitle">Deploying real-time multilingual captions takes four straightforward steps.</p>
+          <p class="slide-subtitle">Ready to deploy in four simple steps on your next production.</p>
         </div>
         <div class="slide-logo-badge">
-          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo">
+          <img src="https://conferencecaptioning.com/images/logo-white.svg" alt="ConferenceCaptioning Logo" onerror="this.style.display='none'">
         </div>
       </div>
 
       <div class="steps-row">
         <div class="step-box">
           <div class="num">01</div>
-          <h4 style="color:#fff; margin-bottom: 0.5vh;">Connect Audio</h4>
-          <p class="card-text">Route master or aux output into the system.</p>
+          <h4 style="color:#fff; margin-bottom: 0.4vh;">Connect Audio</h4>
+          <p class="card-text">Route existing mixer feed via USB, line-in, or Dante.</p>
         </div>
         <div class="step-box">
           <div class="num">02</div>
-          <h4 style="color:#fff; margin-bottom: 0.5vh;">Create Event</h4>
-          <p class="card-text">Set your stage name and select target languages.</p>
+          <h4 style="color:#fff; margin-bottom: 0.4vh;">Create Event</h4>
+          <p class="card-text">Select stage name and target translation languages.</p>
         </div>
         <div class="step-box">
           <div class="num">03</div>
-          <h4 style="color:#fff; margin-bottom: 0.5vh;">Display QR Code</h4>
-          <p class="card-text">Project on screens or place on attendee tables.</p>
+          <h4 style="color:#fff; margin-bottom: 0.4vh;">Display QR Code</h4>
+          <p class="card-text">Show on stage screens, table cards, or signage.</p>
         </div>
         <div class="step-box">
           <div class="num">04</div>
-          <h4 style="color:#fff; margin-bottom: 0.5vh;">Go Live</h4>
-          <p class="card-text">Captions stream continuously with zero intervention.</p>
+          <h4 style="color:#fff; margin-bottom: 0.4vh;">Go Live</h4>
+          <p class="card-text">Deliver instant captions and multilingual streams.</p>
         </div>
       </div>
 
-      <div style="margin-top: 1vh;">
+      <div style="margin-top: 0.5vh;">
         <h3 style="font-size: 1.6rem; font-weight: 700; color: #fff; margin-bottom: 1.5vh;">
           "Every voice finds a stage."
         </h3>
-        <div class="cta-actions">
-          <button class="btn-primary" onclick="alert('Demo scheduler simulated: Ready to book your live pilot.')">Schedule a Technical Demo</button>
-          <button class="btn-secondary" onclick="alert('Pilot requested: Ready to configure your next event.')">Start an Event Pilot</button>
+        <div style="display: flex; gap: 1rem;">
+          <button class="btn-primary" onclick="alert('Technical demo scheduler ready.')">Schedule a Technical Demo</button>
+          <button class="btn-secondary" onclick="alert('Pilot configuration initiated.')">Start a Pilot</button>
         </div>
       </div>
 
       <div class="bottom-statement">
         <span><strong>ConferenceCaptioning.com</strong> · sales@conferencecaptioning.com</span>
-        <span>Enterprise Support & AV Partner Program</span>
+        <span>Dedicated AV support & hardware recommendations</span>
       </div>
     </section>
 
     <!-- ==========================================
-         PRESENTATION HUD & NAVIGATION CONTROLS
+         PRESENTATION HUD
          ========================================== -->
     <div class="deck-hud" id="deckHud">
-      <div class="hud-left">
-        <img class="hud-logo" src="https://conferencecaptioning.com/images/logo-white.svg" alt="Logo">
-        <span class="slide-counter" id="slideCounter">01 / 09</span>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);" id="slideCounter">01 / 09</span>
       </div>
 
       <div class="hud-controls">
         <button class="nav-btn" id="prevBtn" title="Previous Slide (Left Arrow)">◀</button>
         <button class="nav-btn" id="nextBtn" title="Next Slide (Right Arrow / Space)">▶</button>
-        <button class="fullscreen-btn" id="fullscreenToggle" title="Presentation Fullscreen Mode (F)">⛶ Fullscreen</button>
+        <button class="nav-btn" id="fullscreenToggle" title="Toggle Presentation Fullscreen (F)" style="width: auto; padding: 0 10px; font-size: 0.75rem;">⛶ Fullscreen</button>
       </div>
     </div>
 
-    <!-- Progress Bar Indicator -->
+    <!-- Progress Bar -->
     <div class="progress-bar-container">
       <div class="progress-bar-fill" id="progressBar"></div>
     </div>
@@ -1390,9 +1235,7 @@
       const prevBtn = document.getElementById('prevBtn');
       const nextBtn = document.getElementById('nextBtn');
       const fullscreenToggle = document.getElementById('fullscreenToggle');
-      const deckHud = document.getElementById('deckHud');
 
-      // Update slide display
       function showSlide(index) {
         if (index < 0) index = 0;
         if (index >= totalSlides) index = totalSlides - 1;
@@ -1408,31 +1251,23 @@
 
         currentSlideIndex = index;
 
-        // Update Counter
+        // Update counter & progress bar
         const currentFormatted = String(currentSlideIndex + 1).padStart(2, '0');
         const totalFormatted = String(totalSlides).padStart(2, '0');
         slideCounter.textContent = `${currentFormatted} / ${totalFormatted}`;
-
-        // Update Progress Bar
-        const progressPct = ((currentSlideIndex + 1) / totalSlides) * 100;
-        progressBar.style.width = `${progressPct}%`;
+        progressBar.style.width = `${((currentSlideIndex + 1) / totalSlides) * 100}%`;
       }
 
       function nextSlide() {
-        if (currentSlideIndex < totalSlides - 1) {
-          showSlide(currentSlideIndex + 1);
-        }
+        if (currentSlideIndex < totalSlides - 1) showSlide(currentSlideIndex + 1);
       }
 
       function prevSlide() {
-        if (currentSlideIndex > 0) {
-          showSlide(currentSlideIndex - 1);
-        }
+        if (currentSlideIndex > 0) showSlide(currentSlideIndex - 1);
       }
 
-      // Keyboard Controls
+      // Keyboard navigation
       window.addEventListener('keydown', (e) => {
-        // Prevent default page scrolling on space
         if (e.code === 'Space') {
           e.preventDefault();
           nextSlide();
@@ -1459,7 +1294,6 @@
             toggleFullScreen();
             break;
           default:
-            // Number key jump (1-9)
             const num = parseInt(e.key, 10);
             if (!isNaN(num) && num >= 1 && num <= totalSlides) {
               showSlide(num - 1);
@@ -1468,26 +1302,20 @@
         }
       });
 
-      // Navigation button listeners
       nextBtn.addEventListener('click', nextSlide);
       prevBtn.addEventListener('click', prevSlide);
 
-      // Fullscreen presentation mode toggle
       function toggleFullScreen() {
         if (!document.fullscreenElement) {
-          document.documentElement.requestFullscreen().catch(err => {
-            console.warn(`Fullscreen error: ${err.message}`);
-          });
+          document.documentElement.requestFullscreen().catch(() => {});
         } else {
-          if (document.exitFullscreen) {
-            document.exitFullscreen();
-          }
+          if (document.exitFullscreen) document.exitFullscreen();
         }
       }
 
       fullscreenToggle.addEventListener('click', toggleFullScreen);
 
-      // Touch / Swipe support
+      // Touch / Swipe Navigation
       let touchStartX = 0;
       let touchEndX = 0;
 
@@ -1497,76 +1325,11 @@
 
       window.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
+        const threshold = 45;
+        if (touchEndX < touchStartX - threshold) nextSlide();
+        else if (touchEndX > touchStartX + threshold) prevSlide();
       }, { passive: true });
 
-      function handleSwipe() {
-        const threshold = 50;
-        if (touchEndX < touchStartX - threshold) {
-          nextSlide();
-        } else if (touchEndX > touchStartX + threshold) {
-          prevSlide();
-        }
-      }
-
-      // ==========================================
-      // Interactive Demo Translations (Slide 4)
-      // ==========================================
-      const demoTranslations = {
-        en: {
-          prev: "Speaker: \"Welcome everyone to today's keynote presentation.\"",
-          live: "Welcome everyone to today's conference."
-        },
-        es: {
-          prev: "Orador: \"Bienvenidos a la presentación principal de hoy.\"",
-          live: "Bienvenidos todos a la conferencia de hoy."
-        },
-        fr: {
-          prev: "Intervenant : « Bienvenue à tous à la présentation d'aujourd'hui. »",
-          live: "Bienvenue à tous à la conférence d'aujourd'hui."
-        },
-        ar: {
-          prev: "المتحدث: \"أهلاً بالجميع في العرض التقديمي اليوم.\"",
-          live: "مرحباً بكم جميعاً في مؤتمر اليوم."
-        },
-        ko: {
-          prev: "연사: \"오늘 기조 연설에 오신 모든 분들을 환영합니다.\"",
-          live: "오늘 컨퍼런스에 오신 여러분을 환영합니다."
-        }
-      };
-
-      const langSelect = document.getElementById('demoLangSelect');
-      const demoPrevCaption = document.getElementById('demoPrevCaption');
-      const demoLiveCaption = document.getElementById('demoLiveCaption');
-
-      if (langSelect) {
-        langSelect.addEventListener('change', (e) => {
-          const selected = e.target.value;
-          const data = demoTranslations[selected] || demoTranslations.en;
-          
-          demoPrevCaption.style.opacity = '0';
-          demoLiveCaption.style.opacity = '0';
-
-          setTimeout(() => {
-            demoPrevCaption.textContent = data.prev;
-            demoLiveCaption.textContent = data.live;
-            
-            // Handle RTL for Arabic
-            if (selected === 'ar') {
-              demoPrevCaption.style.direction = 'rtl';
-              demoLiveCaption.style.direction = 'rtl';
-            } else {
-              demoPrevCaption.style.direction = 'ltr';
-              demoLiveCaption.style.direction = 'ltr';
-            }
-
-            demoPrevCaption.style.opacity = '1';
-            demoLiveCaption.style.opacity = '1';
-          }, 150);
-        });
-      }
-
-      // Initialize
       showSlide(0);
     })();
   </script>
