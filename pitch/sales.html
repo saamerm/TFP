@@ -22,9 +22,9 @@
       --brand-amber: #f59e0b;
       
       --bg-dark: #0c1824;
-      --bg-surface: rgba(25, 60, 93, 0.42);
-      --bg-surface-hover: rgba(36, 78, 119, 0.55);
-      --border-subtle: rgba(255, 255, 255, 0.12);
+      --bg-surface: rgba(25, 60, 93, 0.48);
+      --bg-surface-hover: rgba(36, 78, 119, 0.6);
+      --border-subtle: rgba(255, 255, 255, 0.14);
       --border-focus: rgba(56, 189, 248, 0.5);
 
       --text-white: #ffffff;
@@ -84,6 +84,9 @@
       transition: opacity var(--slide-transition), transform var(--slide-transition), visibility var(--slide-transition);
       z-index: 1;
       pointer-events: none;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
 
     .slide.active {
@@ -98,12 +101,30 @@
       transform: translateX(-40px) scale(0.985);
     }
 
+    /* Dynamic Slide Image Backdrops */
+    .slide-bg-22 {
+      background: linear-gradient(180deg, rgba(12, 24, 36, 0.84) 0%, rgba(10, 20, 32, 0.94) 100%),
+                  url('https://conferencecaptioning.com/images/full-width-images/section-bg-22.jpg') center/cover no-repeat;
+    }
+
+    .slide-bg-18 {
+      background: linear-gradient(180deg, rgba(12, 24, 36, 0.86) 0%, rgba(10, 20, 32, 0.95) 100%),
+                  url('https://conferencecaptioning.com/images/full-width-images/section-bg-18.jpg') center/cover no-repeat;
+    }
+
+    .slide-bg-15 {
+      background: linear-gradient(180deg, rgba(12, 24, 36, 0.85) 0%, rgba(10, 20, 32, 0.96) 100%),
+                  url('https://conferencecaptioning.com/images/full-width-images/section-bg-15.jpg') center/cover no-repeat;
+    }
+
     /* Standard Slide Header */
     .slide-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       margin-bottom: 1.8vh;
+      position: relative;
+      z-index: 2;
     }
 
     .header-content {
@@ -150,9 +171,12 @@
       border: 1px solid var(--border-subtle);
       border-radius: 14px;
       padding: 2vh 1.6vw;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 10px 28px -8px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.5);
       transition: transform 0.25s ease, border-color 0.25s ease;
+      position: relative;
+      z-index: 2;
     }
 
     .glass-card:hover {
@@ -208,16 +232,18 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       font-size: clamp(0.82rem, 0.95vw, 0.95rem);
       color: var(--text-muted);
+      position: relative;
+      z-index: 2;
     }
 
     .bottom-statement strong {
       color: #fff;
     }
 
-    /* Media Embed Containers */
+    /* Media Containers */
     .media-box {
       border-radius: 14px;
       overflow: hidden;
@@ -265,7 +291,7 @@
     }
 
     /* ==========================================================================
-       LOGO SLIDER / MARQUEE TICKER
+       LOGO TICKER & GRID
        ========================================================================== */
     .logo-ticker-wrap {
       width: 100%;
@@ -291,7 +317,7 @@
       height: 32px;
       max-width: 130px;
       object-fit: contain;
-      opacity: 0.72;
+      opacity: 0.75;
       transition: opacity 0.2s, transform 0.2s;
       filter: grayscale(20%) brightness(1.1);
     }
@@ -313,7 +339,8 @@
       justify-content: center;
       gap: 1.6vw;
       padding: 1.2vh 1vw;
-      background: rgba(10, 23, 38, 0.45);
+      background: rgba(10, 23, 38, 0.55);
+      backdrop-filter: blur(12px);
       border-radius: 12px;
       border: 1px solid var(--border-subtle);
     }
@@ -322,7 +349,7 @@
       height: 28px;
       max-width: 110px;
       object-fit: contain;
-      opacity: 0.68;
+      opacity: 0.72;
       transition: opacity 0.2s;
     }
 
@@ -331,7 +358,7 @@
     }
 
     /* ==========================================================================
-       SLIDE-SPECIFIC STYLES
+       LAYOUTS
        ========================================================================== */
 
     /* Slide 1: Hero */
@@ -384,7 +411,9 @@
     }
 
     .problem-card {
-      background: var(--bg-surface);
+      background: rgba(15, 36, 56, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--border-subtle);
       border-radius: 14px;
       padding: 2.5vh 1.6vw;
@@ -447,7 +476,7 @@
       color: var(--brand-accent);
     }
 
-    /* Slide 4: Attendee Demo with attendee.mp4 */
+    /* Slide 4: Attendee Demo */
     .demo-split {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
@@ -488,7 +517,7 @@
       object-fit: cover;
     }
 
-    /* Slide 5: Built for AV + english.gif */
+    /* Slide 5: Built for AV */
     .av-slide-layout {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
@@ -501,7 +530,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(15, 36, 56, 0.8);
+      background: rgba(15, 36, 56, 0.85);
       border: 1px solid var(--border-subtle);
       border-radius: 12px;
       padding: 1.2vh 1.2vw;
@@ -547,7 +576,7 @@
       margin-bottom: 1.2vh;
     }
 
-    /* Slide 7: Multilingual Proof + multilingual.gif */
+    /* Slide 7: Multilingual Proof */
     .multilingual-layout {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
@@ -577,7 +606,8 @@
     }
 
     .step-box {
-      background: var(--bg-surface);
+      background: rgba(15, 36, 56, 0.7);
+      backdrop-filter: blur(16px);
       border: 1px solid var(--border-subtle);
       border-radius: 12px;
       padding: 1.8vh 1.2vw;
@@ -676,7 +706,7 @@
   <div class="deck-container" id="deckContainer">
 
     <!-- ==========================================
-         SLIDE 1: HERO (With Live Speed Video + Logo Ticker)
+         SLIDE 1: HERO
          ========================================== -->
     <section class="slide active" data-slide="1">
       <div class="slide-header">
@@ -711,7 +741,6 @@
             <div class="media-overlay-badge">
               <span class="live-indicator"></span> LIVE BENCHMARK SPEED
             </div>
-            <!-- YouTube Autoplay Video (Muted, Loop) -->
             <iframe 
               src="https://www.youtube-nocookie.com/embed/gF1GJmRAGzM?autoplay=1&mute=1&controls=0&loop=1&playlist=gF1GJmRAGzM&playsinline=1&modestbranding=1&rel=0" 
               title="ConferenceCaptioning Live Latency Demo" 
@@ -729,7 +758,6 @@
         </div>
         <div class="logo-ticker-wrap">
           <div class="logo-ticker-track">
-            <!-- First loop of 14 logos -->
             <img class="ticker-logo-item" src="https://conferencecaptioning.com/images/slider/unnamed.png" alt="Client Logo" onerror="this.style.display='none'">
             <img class="ticker-logo-item" src="https://conferencecaptioning.com/images/slider/unnamed-1.png" alt="Client Logo" onerror="this.style.display='none'">
             <img class="ticker-logo-item" src="https://conferencecaptioning.com/images/slider/unnamed-2.png" alt="Client Logo" onerror="this.style.display='none'">
@@ -744,7 +772,7 @@
             <img class="ticker-logo-item" src="https://conferencecaptioning.com/images/slider/unnamed-11.png" alt="Client Logo" onerror="this.style.display='none'">
             <img class="ticker-logo-item" src="https://conferencecaptioning.com/images/slider/unnamed-12.png" alt="Client Logo" onerror="this.style.display='none'">
             <img class="ticker-logo-item" src="https://conferencecaptioning.com/images/slider/unnamed-13.png" alt="Client Logo" onerror="this.style.display='none'">
-            <!-- Duplicate loop for seamless infinite scroll -->
+            <!-- Loop Duplicate -->
             <img class="ticker-logo-item" src="https://conferencecaptioning.com/images/slider/unnamed.png" alt="Client Logo" onerror="this.style.display='none'">
             <img class="ticker-logo-item" src="https://conferencecaptioning.com/images/slider/unnamed-1.png" alt="Client Logo" onerror="this.style.display='none'">
             <img class="ticker-logo-item" src="https://conferencecaptioning.com/images/slider/unnamed-2.png" alt="Client Logo" onerror="this.style.display='none'">
@@ -770,9 +798,9 @@
     </section>
 
     <!-- ==========================================
-         SLIDE 2: THE PROBLEM
+         SLIDE 2: THE PROBLEM (With section-bg-22.jpg)
          ========================================== -->
-    <section class="slide" data-slide="2">
+    <section class="slide slide-bg-22" data-slide="2">
       <div class="slide-header">
         <div class="header-content">
           <div class="slide-eyebrow">The Live Event Reality</div>
@@ -973,7 +1001,6 @@
         </div>
       </div>
 
-      <!-- Signal Flow Banner -->
       <div class="signal-flow">
         <div class="signal-node">
           <span>SOURCE</span>
@@ -1036,9 +1063,9 @@
     </section>
 
     <!-- ==========================================
-         SLIDE 6: RELIABILITY + PRIVACY (With Logos)
+         SLIDE 6: RELIABILITY + PRIVACY (With section-bg-18.jpg)
          ========================================== -->
-    <section class="slide" data-slide="6">
+    <section class="slide slide-bg-18" data-slide="6">
       <div class="slide-header">
         <div class="header-content">
           <div class="slide-eyebrow">Enterprise Reliability & Governance</div>
@@ -1212,9 +1239,9 @@
     </section>
 
     <!-- ==========================================
-         SLIDE 9: CALL TO ACTION (With Logos & Blog Link)
+         SLIDE 9: CALL TO ACTION (With section-bg-15.jpg)
          ========================================== -->
-    <section class="slide" data-slide="9">
+    <section class="slide slide-bg-15" data-slide="9">
       <div class="slide-header">
         <div class="header-content">
           <div class="slide-eyebrow">Next Steps</div>
