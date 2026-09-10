@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Technical analysis of the algorithms used to calculate Islamic prayer times at 35,000 feet, accounting for horizon dip, geodesic paths, and solar relative velocity.">
+    <meta name="author" content="The First Prototype">
+    <title>The Mathematics of Calculating Prayer Times at 35,000 Feet | Methodology</title>
+
+    <!-- Google Fonts for Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- <script src="../js/tailwind.js"></script> -->
+    <!-- <link rel="stylesheet" href="../css/all.min.css"> -->
+    <!-- Custom Using a Local Copy of CSS -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        .loader {     border: 3px solid #f3f3f3;     border-top: 3px solid #3b82f6;     border-radius: 50%;     width: 16px;     height: 16px;     animation: spin 1s linear infinite;     display: inline-block; } 
+        @keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+        .toggle-checkbox:checked{right:0;border-color:#3b82f6}
+        .toggle-checkbox:checked+.toggle-label{background-color:#3b82f6}
+        body,button,div,h1,h2,h3,h4,i,input,p,span{transition:background-color .3s ease,color .3s ease,border-color .3s ease}
+    </style>
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'media',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                        darkInput: '#334155',
+                        darkBorder: '#475569'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #0f172a; /* Slate 900 */
+            --accent-color: #3b82f6; /* Blue 500 */
+            --text-main: #334155; /* Slate 700 */
+            --text-heading: #1e293b; /* Slate 800 */
+            --bg-light: #f8fafc;
+            --code-bg: #f1f5f9;
+        }
+
+        body {
+            font-family: 'Merriweather', serif; /* Serif for reading body text */
+            line-height: 1.8;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3, .nav-link, .btn {
+            font-family: 'Inter', sans-serif; /* Sans-serif for UI and Headings */
+            color: var(--text-heading);
+        }
+
+        /* Header / Nav */
+        header {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .btn-back {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .btn-back:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Main Article Styling */
+        article {
+            background: white;
+            padding: 3rem 0;
+            margin-top: 2rem;
+            margin-bottom: 4rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-header {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 2rem;
+        }
+
+        .kicker {
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 0 0 1rem 0;
+        }
+
+        .meta {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        h2 {
+            margin-top: 2.5rem;
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        /* Formula Box */
+        .formula-box {
+            background-color: var(--code-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            color: var(--primary-color);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .formula-label {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-section h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .btn-cta {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .btn-cta:hover {
+            background-color: #2563eb;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .formula-box { padding: 1rem; font-size: 0.9rem; }
+        }
+    </style>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container nav-flex">
+            <a href="/" class="brand">The First Prototype</a>
+            <a href="https://thefirstprototype.com/flight-prayer-time-airplane-travel-calculator/" class="btn-back">← Back to Calculator</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <article style="padding:2rem;">
+            <div class="article-header">
+                <span class="kicker">Technical Methodology</span>
+                <h1>The Mathematics of Calculating Prayer Times at 35,000 Feet</h1>
+                <div class="meta">By Saamer Mansoor • Calculation Algorithm v2.1</div>
+            </div>
+
+            <p>Calculating prayer times on the ground is a solved problem of static trigonometry. Calculating prayer times in the air, however, is a dynamic problem involving spherical geometry, altitude adjustments, and relative velocity. This document outlines the three core variables our algorithm processes to deliver accurate results.</p>
+
+            <h2>1. The Dip of the Horizon (Altitude Adjustment)</h2>
+            <p>The most critical factor in aviation prayer times is altitude. On the ground, the horizon is effectively at eye level (0 degrees). However, as an aircraft ascends to cruising altitude (approx. 35,000–40,000 ft), the observer can see much further over the curvature of the Earth.</p>
+            <p>This creates a phenomenon known as the <strong>Dip of the Horizon</strong>. Practically, this means the sun sets <em>later</em> and rises <em>earlier</em> than it does for a person on the ground directly below the plane.</p>
+            
+            <div class="formula-box">
+                <span class="formula-label">The Solar Depression Angle Formula</span>
+                θ = 0.0347 × √h<br>
+                <small>Where <em>θ</em> is the dip angle in degrees and <em>h</em> is altitude in meters.</small>
+            </div>
+
+            <p>Our calculator dynamically adjusts the standard Maghrib (Sunset) and Fajr (Sunrise) angles based on the flight's projected altitude curve, ensuring you do not break your fast prematurely.</p>
+
+            <h2>2. Geodesic Paths (Great Circles)</h2>
+            <p>A common misconception is that planes fly in straight lines on a map. In reality, aircraft follow <strong>Geodesic paths</strong> (Great Circles), which appear as curved arcs on 2D projections. This is the shortest distance between two points on a sphere.</p>
+            <p>Because of this, a flight from New York to Dubai flies far North over Europe, not in a straight line across the Atlantic. Our algorithm maps the flight coordinates along this arc to determine the exact latitude and longitude of the aircraft at every minute of the journey.</p>
+
+            <h2>3. Relative Velocity Calculation</h2>
+            <p>Finally, the speed of the aircraft affects the length of the "day." If you are flying West (chasing the sun), you are effectively extending the daylight hours. If the plane flies fast enough, it can "freeze" the time of Maghrib.</p>
+            <p>Conversely, flying East (towards the sunrise) compresses the night significantly. Our tool calculates the <strong>Time at Position</strong> by interpolating the aircraft's velocity against the rotation of the Earth, providing a precise window for when prayer times enter and exit.</p>
+
+        </article>
+    </main>
+
+    <!-- Call to Action Footer -->
+    <section class="cta-section">
+        <div class="container">
+            <h3>Plan Your In-Flight Prayers</h3>
+            <p>Use our algorithm to generate a precise prayer schedule for your next trip.</p>
+            <a href="https://thefirstprototype.com/flight-prayer-time-airplane-travel-calculator/" class="btn-cta">Launch Calculator</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; color: #64748b; font-size: 0.8rem;">
+        &copy; 2026 The First Prototype. All rights reserved. <br>
+        <a href="https://thefirstprototype.com" style="color: inherit;">Home</a> | <a href="https://thefirstprototype.com/privacy-policy.html" style="color: inherit;">Privacy Policy</a>
+    </footer>
+    <!-- Structured Data: TechArticle Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "The Mathematics of Calculating Prayer Times at 35,000 Feet",
+      "alternativeHeadline": "Methodology for In-Flight Islamic Prayer Calculation",
+      "image": "https://thefirstprototype.com/images/methodology-cover.png",
+      "author": {
+        "@type": "Organization",
+        "name": "The First Prototype",
+        "url": "https://thefirstprototype.com"
+      },
+      "genre": "Software Engineering",
+      "keywords": "great circle navigation, solar depression angle, islamic prayer algorithms, altitude adjustment, dip of horizon",
+      "wordcount": "420",
+      "proficiencyLevel": "Expert",
+      "publisher": {
+        "@type": "Organization",
+        "name": "The First Prototype",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://thefirstprototype.com/images/logo.png"
+        }
+      },
+      "datePublished": "2026-01-30T08:00:00+05:00",
+      "description": "An analysis of the algorithms used to determine accurate Salah times for moving aircraft, accounting for time zone shifts and horizon dip.",
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "Flight Prayer Time Calculator",
+        "url": "http://thefirstprototype.com/flight-prayer-time-airplane-travel-calculator/",
+        "operatingSystem": "All",
+        "applicationCategory": "TravelApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+      }
+    }
+    </script>    
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+</body>
+</html>

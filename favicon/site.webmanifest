@@ -4,30 +4,33 @@
     "start_url": ".",
     "display": "standalone",
     "background_color": "#fff",
+    "theme_color": "#000",
     "description": "iOS & Android App Development",
     "icons": [{
-      "src": "https://thefirstprototype.com/assets/touch/homescreen48.png",
+      "src": "./favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    }, {
+      "src": "./favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }, {
+      "src": "./favicon.ico",
       "sizes": "48x48",
+      "type": "image/ico"
+    }, {
+      "src": "./apple-touch-icon.png",
+      "sizes": "180x180",
       "type": "image/png"
     }, {
-      "src": "https://thefirstprototype.com/assets/touch/homescreen72.png",
-      "sizes": "72x72",
-      "type": "image/png"
-    }, {
-      "src": "https://thefirstprototype.com/assets/touch/homescreen96.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    }, {
-      "src": "https://thefirstprototype.com/assets/touch/homescreen144.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    }, {
-      "src": "https://thefirstprototype.com/assets/touch/homescreen168.png",
-      "sizes": "168x168",
-      "type": "image/png"
-    }, {
-      "src": "https://thefirstprototype.com/assets/touch/homescreen192.png",
+      "src": "./android-chrome-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
+    }, {
+      "src": "./android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }]
   }

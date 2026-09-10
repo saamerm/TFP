@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+  <meta charset="UTF-8">
+  <title>Flight Prayer Time Airplane Travel Calculator</title>
+    <!-- Google / Search Engine Tags -->
+    <!-- Schema.org structured data -->
+    <!-- <meta itemscope itemtype="https://schema.org/Product">
+    <meta itemprop="name" content="Flight prayer time airplane travel Calculator">
+    <meta itemprop="description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer">
+    <meta itemprop="image" content="https://thefirstprototype.com/images/author.png">   -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css'>
+  <!-- <link rel="stylesheet" href="./style.css"> -->
+  <!-- https://stackoverflow.com/questions/42640820/google-oauth-for-websites-in-embedded-browsers/43834244#43834244 -->
+  <meta name="apple-mobile-web-app-capable" content="no"/>
+  <meta name="theme-color" content="#111111">  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style-responsive.css">
+  <!--<link rel="stylesheet" href="css/animate.min.css">-->
+  <link rel="stylesheet" href="../css/vertical-rhythm.min.css">
+  <link rel="stylesheet" href="../css/owl.carousel.css">
+  <link rel="stylesheet" href="../css/magnific-popup.css">  
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />        
+  
+  <meta name="description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer" />
+  <meta name="keywords" content="Flight, prayer, time, airplane, travel, Calculator, Muslim, Islam, Website" />
+
+  <meta property="og:site_name" content="Flight prayer time airplane travel Calculator">
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Flight prayer time airplane travel Calculator">
+  <meta name="twitter:description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer">
+  <meta name="twitter:image" content="https://thefirstprototype.com/images/author.png">
+  <!-- Facebook Open Graph -->
+  <meta property="og:url" content="https://thefirstprototype.com/flight-prayer-time-airplane-travel-calculator/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Flight prayer time airplane travel Calculator">
+  <meta property="og:description" content="Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer">
+  <meta property="og:image" content="https://thefirstprototype.com/images/author.png">
+  <meta name="robots" content="noodp,noydir">
+    <!-- Facebook Open Graph end -->
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://thefirstprototype.com/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://thefirstprototype.com/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://thefirstprototype.com/favicon/favicon-16x16.png">
+  <link rel="manifest" href="./manifest.json">
+
+  <meta name="author" content="Saamer Mansoor">
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+  
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="https://thefirstprototype.com/images/logo-footer.png">
+
+  </head>
+  <body class="blur background-tint appear-animate">
+    <div class="page" id="top">
+
+    <!-- Navigation panel -->
+    
+      <nav class="main-nav dark transparent stick-fixed">
+        <div class="full-wrapper relative clearfix">
+            <!-- Logo ( * your text or image into link tag *) -->
+            <div class="nav-logo-wrap local-scroll">
+                <a href="../index.html" class="logo">
+                    <img src="../images/logo-white.webp" alt="Company logo" />
+                </a>
+            </div>
+            <div class="mobile-nav" role="button" tabindex="0">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Menu</span>
+            </div>
+            <!-- Main Menu -->
+            <div class="inner-nav desktop-nav">
+                <ul class="clearlist scroll-nav local-scroll">
+                    <li><a href="../index.html#about">About Us</a></li>
+                    <li><a href="#calculator2">Calculator</a></li>
+                    <li><a href="#explanation">How To Use</a></li>                                        
+                </ul>
+            </div>
+        </div>
+      </nav>
+      <main id="main">
+      <!-- End Navigation panel -->  
+        <section class="home-section bg-dark" id="calculator">
+          <div class="container" style="padding-top: 60px;" >
+            <div class="home-content">
+              <div class="home-text">
+                <h1 class="hs-line-11 font-alt mb-50 mb-xs-30">Flight prayer time airplane travel Calculator</h1>
+                <h2 class="hs-line-8 font-alt mb-50 mb-xs-30">Enter flight departure and arrival time, along with the Azan times at origin and destination to get the time of prayer</h2>
+                <h3 class="hs-line-10 font-alt mb-50 mb-xs-30">Simply get the salat times online (you can use islamicfinder.com) and the flight times from your boarding pass, and input them using the time zone they belong. If you are fasting, you can use this to find the time of sunset
+                </h3>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Calculator 1 Section -->
+        <section class="page-section" id="calculator2">          
+          <div class="container relative">
+            <h3>Calculator: List of Prayers & Times to be Prayed</h3>
+            <p>
+              <span class="hs-line-8 font-alt mb-50 mb-xs-30">
+                <b>Flight time:</b>
+              </span>
+              </br>
+              <span class="hs-line-8 font-alt mb-50 mb-xs-30">
+              Departure
+              </span>
+              <input type="text" id="departureTime2" class="pickr" name="date">
+              <span class="hs-line-8 font-alt mb-50 mb-xs-30">
+              Arrival
+              </span>
+              <input type="text" id="arrivalTime2" class="pickr" name="date">
+              </br>
+            </p>
+            <p>
+              <span class="hs-line-8 font-alt mb-50 mb-xs-30">
+                <b>City, Country:</b>
+              </span>
+              </br>
+              <span class="hs-line-8 font-alt mb-50 mb-xs-30">
+              Origin
+              </span>
+              <input type="text" id="originCity" value="New York, USA" placeholder="Eg: London, United Kingdom">
+              <span class="hs-line-8 font-alt mb-50 mb-xs-30">
+              Destination
+              </span>
+              <input type="text" id="destinationCity" value="Los Angeles, USA" placeholder="Eg: Dubai, UAE">
+            </p>
+  
+            <button class="btn btn-mod btn-gray btn-round" onclick="CalculateList()">Calculate List of Prayer times</button>
+            <div id="calculationList" class = "result section-text">Please verify the values. Make sure you enter the departure time in the timezone of the origin & arrival time in the timezone of the destination (as mentioned in your boarding pass). Ramadan Kareem & make dua for my family</div>
+          </div>
+        </section>                
+        <hr class="mt-0 mb-0 "/>
+        <!-- Explanation Section -->
+        <section class="page-section pt-0 pb-0 banner-section bg-dark"  id="explanation">
+          <div class="container relative">
+
+           </br>
+          <div>
+            <span class="hs-line-8 font-alt mb-50 mb-xs-30">
+              <h3>Notes:</h3>
+            </span>
+             
+            <ul class = "banner-decription">
+              <li>
+                Hi! I'm Saamer from Detroit, the Founder of <a href="https://khutbahcaptioning.com">Khutbah Live Captioning</a>! Add live-captions for the Deaf & Live Translations for your masjids in seconds. <a href="https://conferencecaptioning.com">Get started for free!</a>
+              </li>
+              <li>Currently this tool loops through each minute of the flight and checking when the time and prayer time at the location match (or when time is safely higher by 1 minute)</li><li>
+                For prayer times, dont use values that are lower than the flight time, or higher than the arrival time. 
+              </li>
+              <li>Dev Note:
+                The code is open-source, so feel free to contribute with design or logic by <a href="https://github.com/saamerm/TFP/tree/prod/flight-prayer-time-airplane-travel-calculator/">submitting a Pull Request to the code</a>. To increase accuracy to the second, you just have to reduce the step counter of the for-loop
+              </li>
+              <li>
+                If you have any feedback, comments or questions, feel free to get in touch with me on <a href="https://linkedin.com/in/saamer">LinkedIn</a> or <a href="https://twitter.com/saamer">Twitter</a>
+              </li>
+              <li>
+                The problem is challenging because the prayer time changes as the time/distance also changes.
+              </li>
+            </ul>
+            
+          </div>
+
+          <div>
+            <span class="hs-line-8 font-alt mb-50 mb-xs-30">
+              <h3>How to use this if you are flying from London, UK to Sylhet, Bangladesh:</h3>
+            </span>
+            <ul class = "banner-decription">
+              <li>Your departure time is 6 20 PM August 19 UK time. Flight Time Departure = "19 Aug 2023 18:20"</li>
+              <li>Your arrival time is 9 20 AM August 20 Bangladesh time. Flight Time Arrival = "20 Aug 2023 09:20"</li>
+              <li>Pressing calculate shows that you have to pray at "Sat Aug 19 2023 20:08:00", these times are based on the origin time zone</li>
+              <li>The calculator was made possible by <a href="https://aladhan.com"/>AlAdhan.com</a>'s API run by the <a href="https://islamic.network"/>Islamic.Network</a> & using the ISNA calculation method & the Shafii school</li>
+            </ul>
+          </div>
+        </div>
+      </section>        
+      <!-- Calculator 2 Section -->
+      
+      <hr class="mt-0 mb-0 "/>      
+    </main>
+    <!-- Foter -->
+    <footer class="page-section bg-gray-lighter footer pb-60">
+      <div class="container">
+          
+          <!-- Footer Logo -->
+          <div class="local-scroll mb-30 wow fadeInUp" data-wow-duration="1.2s">
+              <a href="#top"><img src="../images/logo-footer.webp" width="78" height="36" alt="Company logo" /><span class="sr-only">Scroll to the top of the page</span></a>
+          </div>
+          <!-- End Footer Logo -->
+          
+          <!-- Social Links -->
+          <div class="footer-social-links mb-110 mb-xs-60">
+              <a id="launch_facebook" href="https://www.facebook.com/prototypemakers" title="Facebook" target="Facebook"><i class="fa fa-facebook"></i> <span class="sr-only">Facebook profile</span></a>
+              <a id="launch_twitter" href="https://twitter.com/prototypemakers" title="Twitter" target="Twitter"><i class="fa fa-twitter"></i> <span class="sr-only">Twitter profile</span></a>
+              <a id="launch_linkedin" href="https://www.linkedin.com/company/10621304/" title="LinkedIn" target="LinkedIn"><i class="fa fa-linkedin"></i> <span class="sr-only">LinkedIn+ profile</span></a>
+              <a id="launch_instagram" href="https://www.instagram.com/prototypemakers/" title="Instagram" target="Instagram"><i class="fa fa-instagram"></i> <span class="sr-only">Instagram</span></a>
+              <a id="launch_youtube" href="https://www.youtube.com/channel/UCgiZLb7cRDGsxOsGf8peXjw" title="Youtube" target="Youtube"><i class="fa fa-youtube"></i> <span class="sr-only">Youtube</span></a>
+          </div>
+          <!-- End Social Links -->
+          
+          <!-- Footer Text -->
+          <div class="footer-text">
+              
+              <!-- Copyright -->
+              <div class="footer-copy font-alt">
+                  <a href="https://thefirstprototype.com" target="_blank">© The First Prototype <script>document.write(new Date().getFullYear());</script></br> All Rights Reserved</a>.
+              </div>
+              <!-- End Copyright -->
+              
+              <div class="footer-made">
+                  Check out our <a href="https://deafassistant.com">apps for the Deaf!</a>
+              </div>
+              
+          </div>
+          <!-- End Footer Text --> 
+          
+      </div>
+      
+      
+      <!-- Top Link -->
+      <div class="local-scroll">
+          <a href="#top" class="link-to-top"><i class="fa fa-caret-up"></i></a>
+      </div>
+      <!-- End Top Link -->
+      
+    </footer>
+    <!-- End Foter -->
+  </div>
+  <!-- https://trends.google.com/trends/explore?date=now%201-d&q=flight%20prayer%20time,prayer%20time%20travel,airplane%20prayer%20time,air%20prayer%20time,in-flight%20prayer%20time&hl=en Told me what name to use -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js'></script>
+  <script src="./script.js"></script>
+  <script src='https://momentjs.com/downloads/moment.js'></script>
+  <script src='https://momentjs.com/downloads/moment-timezone.js'></script>
+  <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+  <script src="https://momentjs.com/downloads/moment-timezone-with-data.js"></script>  
+   
+  <script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="../js/jquery-migrate-1.4.1.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>        
+  <script type="text/javascript" src="../js/SmoothScroll.js"></script>
+  <script type="text/javascript" src="../js/jquery.scrollTo.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.localScroll.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.viewport.mini.js"></script>
+  <script type="text/javascript" src="../js/jquery.countTo.js"></script>
+  <script type="text/javascript" src="../js/jquery.appear.js"></script>
+  <script type="text/javascript" src="../js/jquery.sticky.js"></script>
+  <script type="text/javascript" src="../js/jquery.parallax-1.1.3.js"></script>
+  <script type="text/javascript" src="../js/jquery.fitvids.js"></script>
+  <script type="text/javascript" src="../js/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="../js/isotope.pkgd.min.js"></script>
+  <script type="text/javascript" src="../js/imagesloaded.pkgd.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.magnific-popup.min.js"></script>
+  <script type="text/javascript" src="../js/wow.min.js"></script>
+  <script type="text/javascript" src="../js/masonry.pkgd.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.simple-text-rotator.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.lazyload.min.js"></script>
+  <script type="text/javascript" src="../js/all.js"></script>
+  <script type="text/javascript" src="../js/contact-form.js"></script>
+  <script type="text/javascript" src="../js/jquery.ajaxchimp.min.js"></script>      
+  <script type="text/javascript" src="../js/jquery.backgroundvideo.min.js"></script>   
+  <script type="text/javascript" src="https://deafassistant.com/js/analytics.js"></script>       
+  <script type="application/ld+json">
+{
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": "Flight prayer time airplane travel Calculator",
+    "description": "Enter flight departure and arrival time, along with the prayer times at origin and destination to get the time of prayer",
+    "brand": {
+        "@type": "Thing",
+        "name": "Flight prayer time airplane travel Calculator"
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "134"
+    },
+    "image": "https://thefirstprototype.com/images/author.png"
+}
+
+  </script>             
+  </body>
+</html>

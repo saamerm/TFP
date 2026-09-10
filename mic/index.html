@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Michigan Inventors Collective</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michigan Inventors Coalition Expo 2026</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-dark: #003179; /* Deep Navy */
+            --primary-blue: #003179; /* Vibrant Blue */
+            --accent-gold: #ffb700;  /* Gold */
+            --text-dark: #333;
+            --text-light: #f4f4f4;
+            --white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --shadow-soft: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.2);
+            --gradient-blue: linear-gradient(135deg, #000428 0%, #004e92 100%);
+            --gradient-gold: linear-gradient(135deg, #ffb700 0%, #ff8c00 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- UTILITY ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- NAVIGATION (Glassmorphism) --- */
+        header {
+            background: #003179;
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .logo span { color: var(--accent-gold); }
+
+        nav ul { display: flex; gap: 30px; align-items: center; }
+        nav a { 
+            color: var(--white); 
+            font-weight: 600; 
+            font-size: 0.9rem;
+            position: relative;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-gold);
+            transition: width 0.3s;
+        }
+        nav a:hover::after { width: 100%; }
+
+        .btn-nav {
+            background: var(--gradient-gold);
+            color: var(--primary-dark);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 183, 0, 0.3);
+        }
+        .btn-nav:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 20px rgba(255, 183, 0, 0.5);
+        }
+        .btn-nav::after { display: none; } /* Remove underline from button */
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            background: var(--primary-dark);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
+            opacity: 0.4;
+            animation: zoomBg 20s infinite alternate;
+        }
+
+        @keyframes zoomBg {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            animation: slideDown 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideUp 1s ease-out 0.5s backwards;
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-gold);
+            color: var(--primary-dark);
+            box-shadow: 0 5px 15px rgba(255, 183, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 183, 0, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.8);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* --- ANIMATION KEYFRAMES --- */
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* --- COUNTDOWN --- */
+        .countdown-container {
+            background: linear-gradient(90deg, #111, #222);
+            color: var(--accent-gold);
+            padding: 15px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* --- SECTION STYLES --- */
+        .section-padding { padding: 100px 5%; }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 4px;
+            background: var(--accent-gold);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- CARDS GRID --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        /* --- EXHIBITOR SECTION --- */
+        .exhibitor-section { background: white; }
+
+        .feature-box {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s;
+            border-top: 5px solid transparent;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-top: 5px solid var(--primary-blue);
+        }
+
+        .feature-box i {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        /* PRICING */
+        .pricing-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            width: 350px;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            transition: 0.3s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .price-card.premium {
+            border: 2px solid var(--accent-gold);
+            background: linear-gradient(to bottom, #fff, #fffbf0);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 20px; right: -35px;
+            background: var(--accent-gold);
+            color: #000;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .price-header h3 { font-size: 1.5rem; color: var(--primary-dark); }
+        .price-amount { font-size: 3rem; font-weight: 800; color: var(--primary-blue); margin: 20px 0; }
+        .price-amount span { font-size: 1rem; color: #777; font-weight: 400; }
+
+        .price-features { margin: 20px 0; flex-grow: 1; text-align: left; }
+        .price-features li { margin-bottom: 12px; color: #555; display: flex; align-items: center; }
+        .price-features li i { color: #28a745; margin-right: 10px; }
+
+        .btn-full { width: 100%; display: block; text-align: center; margin-top: auto; }
+
+        /* --- ATTENDEE SECTION --- */
+        .attendee-section {
+            background: var(--primary-dark);
+            color: white;
+            position: relative;
+        }
+        
+        .attendee-section .section-header h2 { color: white; }
+        
+        .ticket-wrapper {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .ticket-info h3 { font-size: 2rem; margin-bottom: 15px; color: var(--accent-gold); }
+        .ticket-price { font-size: 4rem; font-weight: 800; line-height: 1; margin-bottom: 10px; }
+        
+        /* --- FOOTER --- */
+        footer {
+            background: linear-gradient(90deg, #111, #222);
+            color: #8892b0;
+            padding: 60px 5% 30px;
+            text-align: center;
+        }
+        
+        .footer-logo { font-size: 2rem; font-weight: 800; color: white; margin-bottom: 20px; display: inline-block;}
+        .social-icons { margin: 20px 0; }
+        .social-icons a {
+            color: #8892b0;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover { color: var(--accent-gold); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .ticket-wrapper { flex-direction: column; text-align: center; }
+            nav ul { display: none; } /* Simplified for single file demo */
+            .logo { font-size: 1.2rem; }
+            .btn-group { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <header>
+        <!-- <img src="1.png" alt="MIC Logo" style="height:40px; margin-right:10px;"> -->
+        <img src="2.png" alt="MIC Logo Text" style="height:40px; margin-right:10px;">
+        <a href="#" class="logo">MIC <span>EXPO '26</span></a>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#exhibit">Exhibitors</a></li>
+                <li><a href="#attend">Attendees</a></li>
+                <li><a href="#" class="btn-nav">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- COUNTDOWN -->
+    <div class="countdown-container" id="countdown">
+        <i class="fas fa-clock"></i> Loading Countdown...
+    </div>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Where Ideas <br>Meet Industry</h1>
+            <p>Join the Michigan Inventors Coalition for the ultimate innovation showcase.</p>
+            <p style="font-size: 1.2rem; margin-top: -20px; color: var(--accent-gold); font-weight: bold;">July 9, 2026 • Lansing, MI</p>
+            
+            <div class="btn-group">
+                <a href="#exhibit" class="btn btn-primary">Book a Booth</a>
+                <a href="#attend" class="btn btn-outline">Buy Tickets</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXHIBITOR SECTION -->
+    <section id="exhibit" class="section-padding exhibitor-section">
+        <div class="section-header reveal">
+            <h2>Why Exhibit?</h2>
+            <p style="margin-top: 15px; color: #666; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Don't leave your invention in the garage. Connect with the partners who can take you to market.
+            </p>
+        </div>
+
+        <div class="grid-container">
+            <div class="feature-box reveal">
+                <i class="fas fa-search-dollar"></i>
+                <h3>Find Investors</h3>
+                <p>Pitch your product directly to VCs and Angels scouting for Michigan's next unicorn.</p>
+            </div>
+            <div class="feature-box reveal">
+                <i class="fas fa-cogs"></i>
+                <h3>Manufacturing</h3>
+                <p>Meet local prototypers, molders, and engineers who can build your product at scale.</p>
+            </div>
+            <div class="feature-box reveal">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Media Exposure</h3>
+                <p>Get featured in local press coverage and our massive social media campaign.</p>
+            </div>
+        </div>
+
+        <!-- PRICING -->
+        <div class="pricing-wrapper">
+            <!-- Standard -->
+            <div class="price-card reveal">
+                <div class="price-header">
+                    <h3>Standard Booth</h3>
+                    <div class="price-amount">$199</div>
+                </div>
+                <ul class="price-features">
+                    <li><i class="fas fa-check"></i> 10x10 Exhibition Space</li>
+                    <li><i class="fas fa-check"></i> 1 Table + 2 Chairs</li>
+                    <li><i class="fas fa-check"></i> 2 Exhibitor Passes</li>
+                    <li><i class="fas fa-check"></i> Directory Listing</li>
+                </ul>
+                <button class="btn btn-outline" style="border-color: var(--primary-blue); color: var(--primary-blue);" onclick="alert('Proceeding to Exhibitor Form...')">Reserve Space</button>
+            </div>
+
+            <!-- Premium -->
+            <div class="price-card premium reveal">
+                <div class="popular-badge">BEST VALUE</div>
+                <div class="price-header">
+                    <h3>Premium Booth</h3>
+                    <div class="price-amount">$349</div>
+                </div>
+                <ul class="price-features">
+                    <li><i class="fas fa-check"></i> <strong>Corner High-Traffic Spot</strong></li>
+                    <li><i class="fas fa-check"></i> Electricity Included</li>
+                    <li><i class="fas fa-check"></i> 4 Exhibitor Passes</li>
+                    <li><i class="fas fa-check"></i> Pitch Competition Entry</li>
+                    <li><i class="fas fa-check"></i> Website Feature</li>
+                </ul>
+                <button class="btn btn-primary btn-full" onclick="alert('Proceeding to Exhibitor Form...')">Reserve Premium</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ATTENDEE SECTION -->
+    <section id="attend" class="section-padding attendee-section">
+        <div class="section-header reveal">
+            <h2>Witness the Future</h2>
+            <p style="color: #ccc;">Be the first to see products before they hit the shelves.</p>
+        </div>
+
+        <div class="ticket-wrapper reveal">
+            <div class="ticket-info">
+                <h3>General Admission</h3>
+                <p>Full access to the Expo floor, keynote speakers, and the "Inventor's Shark Tank" live stage event.</p>
+                <ul style="margin-top: 20px; list-style: none;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-star" style="color: var(--accent-gold); margin-right: 10px;"></i> See 50+ Inventions</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-star" style="color: var(--accent-gold); margin-right: 10px;"></i> Vote for People's Choice</li>
+                    <li><i class="fas fa-star" style="color: var(--accent-gold); margin-right: 10px;"></i> Network with Creators</li>
+                </ul>
+            </div>
+            <div class="ticket-action" style="text-align: center;">
+                <div class="ticket-price">$25</div>
+                <div style="margin-bottom: 20px; opacity: 0.8;">Early Bird Price</div>
+                <button class="btn btn-primary" onclick="alert('Proceeding to Ticket Checkout...')">Get Tickets</button>
+                <p style="font-size: 0.8rem; margin-top: 15px; opacity: 0.6;">Kids under 12 Free</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <a href="#" class="footer-logo">MIC</a>
+        <p>Connecting Michigan's Creative Minds Since 2013.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p style="font-size: 0.8rem; opacity: 0.5;">&copy; 2026 Michigan Inventors Coalition. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JAVASCRIPT ANIMATIONS -->
+    <script>
+        // --- COUNTDOWN TIMER ---
+        const countDownDate = new Date("July 9, 2026 09:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            const timerElement = document.getElementById("countdown");
+            if(timerElement) {
+                timerElement.innerHTML = `<i class="fas fa-fire"></i> HYPE METER: ${days}d ${hours}h ${minutes}m until kickoff!`;
+                
+                if (distance < 0) {
+                    clearInterval(x);
+                    timerElement.innerHTML = "EVENT IS LIVE!";
+                }
+            }
+        }, 1000);
+
+        // --- SCROLL ANIMATION (INTERSECTION OBSERVER) ---
+        // This detects when elements enter the screen and adds the 'active' class
+        const observerOptions = {
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        // Target all elements with class 'reveal'
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>

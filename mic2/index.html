@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michigan Inventors Coalition - Supporting Michigan's Innovators</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --michigan-blue: #00274C;
+            --michigan-maize: #FFCB05;
+            --light-blue: #e6edf5;
+            --light-gray: #f8f9fa;
+            --dark-gray: #333;
+            --medium-gray: #666;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--michigan-blue);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .logo-text {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            position: relative;
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+            padding: 8px 0;
+            display: block;
+        }
+
+        .nav-links a:hover {
+            color: var(--michigan-maize);
+        }
+
+        .nav-links .active {
+            color: var(--michigan-maize);
+            border-bottom: 2px solid var(--michigan-maize);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 220px;
+            box-shadow: var(--shadow);
+            z-index: 1;
+            border-radius: 5px;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: var(--michigan-blue);
+            padding: 12px 16px;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--light-blue);
+            color: var(--michigan-blue);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Carousel */
+        .hero {
+            background-color: var(--light-blue);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .carousel-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 39, 76, 0.85);
+            color: var(--white);
+            padding: 20px;
+            text-align: left;
+        }
+
+        .carousel-caption h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--michigan-maize);
+        }
+
+        .carousel-caption p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .carousel-btn {
+            background-color: var(--michigan-maize);
+            color: var(--michigan-blue);
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .carousel-btn:hover {
+            background-color: #f0b800;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: var(--michigan-blue);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h1, h2, h3 {
+            color: var(--michigan-blue);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            border-bottom: 3px solid var(--michigan-maize);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        h2 {
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--michigan-maize);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 25px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .intro {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .highlight {
+            background-color: var(--light-blue);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-left: 5px solid var(--michigan-maize);
+        }
+
+        .cta-section {
+            background-color: var(--michigan-blue);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .cta-section h2 {
+            color: var(--michigan-maize);
+        }
+
+        .cta-section h2:after {
+            background-color: var(--white);
+        }
+
+        .cta-btn {
+            background-color: var(--michigan-maize);
+            color: var(--michigan-blue);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .cta-btn:hover {
+            background-color: #f0b800;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Board of Directors */
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .board-member {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .board-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .board-member h3 {
+            color: var(--michigan-blue);
+            margin-bottom: 10px;
+        }
+
+        .board-member p {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Page */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .contact-info {
+            background-color: var(--light-blue);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .contact-info h3 {
+            color: var(--michigan-blue);
+            margin-top: 0;
+        }
+
+        .contact-info i {
+            color: var(--michigan-maize);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .contact-form {
+            background-color: var(--light-gray);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--michigan-blue);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        /* Event Details */
+        .event-details {
+            background-color: var(--light-blue);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .event-info {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .event-info i {
+            color: var(--michigan-maize);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            width: 30px;
+        }
+
+        /* Sponsor Packages */
+        .sponsor-packages {
+            margin-top: 40px;
+        }
+
+        .sponsor-card {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--michigan-maize);
+        }
+
+        .sponsor-card.gold {
+            border-left-color: gold;
+        }
+
+        .sponsor-card.silver {
+            border-left-color: silver;
+        }
+
+        .sponsor-card.bronze {
+            border-left-color: #cd7f32;
+        }
+
+        .sponsor-card h3 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0;
+        }
+
+        .price {
+            background-color: var(--michigan-blue);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--michigan-blue);
+            color: var(--white);
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            color: var(--michigan-maize);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--michigan-maize);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--michigan-blue);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background-color: rgba(255, 255, 255, 0.1);
+                margin-top: 10px;
+                border-radius: 5px;
+            }
+
+            .dropdown-content a {
+                padding-left: 30px;
+            }
+
+            .carousel-slide img {
+                height: 300px;
+            }
+
+            .carousel-caption h2 {
+                font-size: 1.5rem;
+            }
+
+            .carousel-caption p {
+                font-size: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.7rem;
+            }
+
+            .board-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            .carousel-slide img {
+                height: 250px;
+            }
+            
+            .carousel-caption {
+                padding: 15px;
+            }
+            
+            .carousel-caption h2 {
+                font-size: 1.3rem;
+            }
+            
+            .carousel-caption p {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+            
+            .carousel-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .cta-section {
+                padding: 25px;
+            }
+            
+            .board-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://thefirstprototype.com/mic/2.png" alt="Michigan Inventors Coalition Logo" class="logo-img">
+                <!-- <div class="logo-text">
+                    Michigan<br>Inventors<br>Coalition
+                </div> -->
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li class="dropdown">
+                    <a href="summit.html">2026 Inventors Summit <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="summit.html">Event Details</a>
+                        <a href="know.html">Know Before You Go</a>
+                        <a href="programming.html">Programming</a>
+                        <a href="attend.html">Attend | Exhibit</a>
+                        <a href="pitch-competition.html">Pitch Competition</a>
+                        <a href="sponsor.html">Sponsor | Volunteer</a>
+                    </div>
+                </li>
+                <li><a href="board.html">Board of Directors</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Carousel -->
+    <section class="hero">
+        <div class="container">
+            <div class="carousel-container">
+                <div class="carousel" id="carousel">
+                    <div class="carousel-slide">
+                        <img src="https://thefirstprototype.com/mic/event.jpg" alt="Inventors Summit Conference">
+                        <div class="carousel-caption">
+                            <h2>2026 Inventors Summit</h2>
+                            <p>Join us for Michigan's premier event celebrating invention, creativity, and commercialization on July 9, 2026 at the Kellogg Center in East Lansing.</p>
+                            <a href="summit.html" class="carousel-btn">Learn More & Register</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Innovation and Collaboration">
+                        <div class="carousel-caption">
+                            <h2>Connecting Michigan's Innovators</h2>
+                            <p>MIC provides education, mentorship, and a collaborative network to help inventors move ideas toward commercialization.</p>
+                            <a href="index.html#about" class="carousel-btn">About Our Mission</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Inventors Showcase">
+                        <div class="carousel-caption">
+                            <h2>Exhibit Your Invention</h2>
+                            <p>Showcase your product or prototype at the 2026 Inventors Summit and gain exposure, feedback, and connections.</p>
+                            <a href="attend.html" class="carousel-btn">Exhibit Information</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-dots" id="carouselDots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content container" id="content">
+        <!-- Home Page Content (Default) -->
+        <section id="home">
+            <h1>Welcome to the Michigan Inventors Coalition</h1>
+            <div class="intro">
+                <p>The Michigan Inventors Coalition (MIC) is a statewide 501(c)(3) nonprofit dedicated to supporting Michigan's early-stage inventors and innovators as they move ideas toward commercialization. Founded in 2011, MIC connects inventors to critical resources through education, mentorship, and a collaborative network of local, statewide, and federal partners.</p>
+                <p>In partnership with Michigan State University and the EDA University Center, MIC hosts its annual Inventors Expo and year-round opportunities that bring together innovators, service providers, and industry experts—strengthening Michigan's innovation ecosystem and helping inventors access the guidance, connections, and opportunities they need to succeed.</p>
+            </div>
+            
+            <div id="about">
+                <h2>About Us</h2>
+                <p>For over a decade, the Michigan Inventors Coalition has been at the forefront of Michigan's innovation landscape. Our mission is to foster a vibrant community where inventors can thrive, transform their ideas into viable products, and contribute to Michigan's economic growth.</p>
+                <p>We believe that great ideas can come from anyone, anywhere in Michigan. Our programs are designed to provide the support system necessary to navigate the complex journey from concept to market, including intellectual property guidance, prototyping assistance, business planning, and funding opportunities.</p>
+                <p>Through our annual Inventors Summit, regional workshops, one-on-one mentorship, and online resources, we've helped hundreds of Michigan inventors move closer to commercialization success.</p>
+            </div>
+            
+            <div class="highlight">
+                <h3>Our Impact</h3>
+                <p>Since our founding in 2011, MIC has:</p>
+                <ul>
+                    <li>Supported over 500 early-stage inventors and innovators</li>
+                    <li>Connected inventors with more than 200 mentors and industry experts</li>
+                    <li>Facilitated over $2M in funding for Michigan-based inventions</li>
+                    <li>Hosted 13 successful annual Inventors Summits across Michigan</li>
+                    <li>Built partnerships with 50+ organizations supporting innovation</li>
+                </ul>
+            </div>
+            
+            <div class="cta-section">
+                <h2>Want to Get Involved?</h2>
+                <p>MIC relies on the support of volunteers, sponsors, and community partners to deliver our programs and events. Whether you're an experienced inventor, a business professional, or simply passionate about innovation, there are many ways to contribute to Michigan's innovation ecosystem.</p>
+                <p>Volunteer opportunities include event planning, mentor matching, workshop facilitation, and day-of-event support for our annual Inventors Summit.</p>
+                <a href="contact-us.html" class="cta-btn">Contact Us to Volunteer</a>
+            </div>
+        </section>
+        
+        <!-- Other page content will be loaded here dynamically -->
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Michigan Inventors Coalition</h3>
+                    <p>A statewide 501(c)(3) nonprofit dedicated to supporting Michigan's early-stage inventors and innovators as they move ideas toward commercialization.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="summit.html">2026 Inventors Summit</a></li>
+                        <li><a href="board.html">Board of Directors</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Summit Information</h3>
+                    <ul class="footer-links">
+                        <li><a href="know.html">Know Before You Go</a></li>
+                        <li><a href="programming.html">Programming</a></li>
+                        <li><a href="attend.html">Attend | Exhibit</a></li>
+                        <li><a href="pitch-competition.html">Pitch Competition</a></li>
+                        <li><a href="sponsor.html">Sponsor | Volunteer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Information</h3>
+                    <p>Email: info@michiganinventors.org</p>
+                    <p>Phone: (616) 402-4714</p>
+                    <p>Follow us on social media:</p>
+                    <div style="margin-top: 10px;">
+                        <a href="#" style="color: white; margin-right: 15px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" style="color: white; margin-right: 15px;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; margin-right: 15px;"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" style="color: white;"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Michigan Inventors Coalition. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page content for different routes
+        const pageContent = {
+            'index.html': document.getElementById('home').innerHTML,
+            'summit.html': `
+                <h1>2026 Inventors Summit</h1>
+                <div class="event-details">
+                    <div class="event-info">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <h3>Date & Time</h3>
+                            <p>Thursday, July 9, 2026 | 9:00 AM – 4:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="event-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Kellogg Center, East Lansing, MI</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>Join Us for the 2026 Inventors Summit</p>
+                <p>Hosted by: The Michigan Inventors Coalition</p>
+                <p>Supported in part by: a Michigan State University Regional Economic Innovation grant, the Michigan Inventors Coalition Expo captures innovation in motion, creating space for ideas to grow, connect, and take root in support of economic development across Michigan.</p>
+                <p>Join innovators, entrepreneurs, and industry leaders for the 14th year of Michigan's premier event celebrating invention, creativity, and commercialization. The Michigan Inventors Coalition Expo brings together early-stage inventors, startups, and support organizations for a full day of learning, connection, and opportunity.</p>
+                
+                <h2>What to Expect:</h2>
+                <ul>
+                    <li><strong>Inspiring Speaker Panels & Breakout Sessions</strong> - Hear from successful entrepreneurs and industry experts as they share real-world insights on turning ideas into viable businesses, overcoming challenges, and navigating the path to market. <a href="programming.html">Our line-up of speakers and breakout sessions to be announced soon!</a></li>
+                    <li><strong>Exhibit your product | Invention Showcase</strong> - Explore innovative products, prototypes, and ideas from inventors across the state. Showcase participants gain exposure, valuable feedback, and potential connections to partners, mentors, and investors. <a href="attend.html">Learn more about exhibiting</a></li>
+                    <li><strong>Attend | Networking & Resource Connections</strong> - Connect with fellow inventors, entrepreneurs, service providers, and business support organizations offering expertise in funding, legal, manufacturing, and commercialization.</li>
+                    <li><strong>Live Pitch Competition | Spin, Pitch, & Sell</strong> - Watch inventors compete in our signature pitch competition designed to sharpen communication skills, validate ideas, and highlight promising innovations. <a href="pitch-competition.html">Learn more about the pitch competition</a></li>
+                    <li><strong>Reception & Awards Announcement</strong> - Join us for an afternoon reception as winners of the pitch competition are announced and relationships continue to build.</li>
+                    <li><strong>Be a Sponsor</strong> - Lend your support to this event and be recognized on social media posts, at the event, and on our website. We offer a variety of ways to fit every budget. <a href="sponsor.html">Learn more about sponsorship opportunities</a></li>
+                    <li><strong>Support & Volunteer</strong> - Lend a hand to, spread the word to your networks, event prep, day of show, attend & bring a friend. <a href="sponsor.html">Learn more about volunteer opportunities</a></li>
+                </ul>
+                
+                <p>Whether you're an aspiring inventor, a startup founder, an experienced business owner, or a professional supporting innovation, the Michigan Inventors Coalition Expo is where ideas gain momentum and connections turn into opportunities. Mark your calendar and be part of Michigan's innovation community.</p>
+                
+                <div class="cta-section">
+                    <h2>Ready to Join Us?</h2>
+                    <p>Register now to secure your spot at Michigan's premier innovation event.</p>
+                    <a href="#" class="cta-btn">Register on Eventbrite</a>
+                </div>
+            `,
+            'know.html': `
+                <h1>Know Before You Go</h1>
+                <p>Everything you need to know to prepare for the 2026 Inventors Summit at the Kellogg Center in East Lansing.</p>
+                
+                <h2>Map and Parking</h2>
+                <div class="highlight">
+                    <p>The Kellogg Center is located at 219 S Harrison Rd, East Lansing, MI 48824.</p>
+                    <p>Parking is available in the Kellogg Center parking lot and adjacent parking structures. The conference rate for parking is $10 for the day. Please bring cash or credit card for payment.</p>
+                    <img src="map.jpg" alt="Map and Parking Information" style="width: 100%; border-radius: 5px; margin-top: 15px;">
+                </div>
+                
+                <h2>Hotel Information</h2>
+                <div class="highlight">
+                    <p><strong>Kellogg Hotel & Conference Center</strong><br>
+                    219 S Harrison Rd, East Lansing, MI 48824<br>
+                    Phone: (517) 432-4000</p>
+                    
+                    <p>We have secured a special room rate for Inventors Summit attendees at the Kellogg Hotel & Conference Center. Use the discount code <strong>MIC2026invent</strong> when booking to receive the conference rate.</p>
+                    
+                    <p>Reservations must be made by June 9, 2026 to guarantee availability at the conference rate.</p>
+                    
+                    <a href="#" class="carousel-btn" style="margin-top: 15px;">Book Your Room</a>
+                </div>
+                
+                <h2>Breakfast & Lunch Details</h2>
+                <div class="highlight">
+                    <p><strong>Breakfast</strong> will be served from 8:00 AM to 9:00 AM in the main conference hall. A variety of options will be available including pastries, fruit, yogurt, coffee, and juice.</p>
+                    
+                    <p><strong>Lunch</strong> will be served from 12:00 PM to 1:30 PM. We will offer a buffet-style lunch with vegetarian, vegan, and gluten-free options clearly labeled. Please indicate any dietary restrictions when registering for the event.</p>
+                    
+                    <p>Both breakfast and lunch are included with your conference registration.</p>
+                </div>
+                
+                <h2>Event Schedule Overview</h2>
+                <div class="highlight">
+                    <p><strong>8:00 AM</strong> - Registration & Breakfast</p>
+                    <p><strong>9:00 AM</strong> - Welcome & Opening Remarks</p>
+                    <p><strong>9:30 AM</strong> - Morning Keynote</p>
+                    <p><strong>10:30 AM</strong> - Breakout Session 1</p>
+                    <p><strong>11:30 AM</strong> - Exhibit Hall Open / Networking</p>
+                    <p><strong>12:00 PM</strong> - Lunch</p>
+                    <p><strong>1:30 PM</strong> - Afternoon Keynote</p>
+                    <p><strong>2:30 PM</strong> - Pitch Competition</p>
+                    <p><strong>3:30 PM</strong> - Reception & Awards</p>
+                    <p><strong>4:00 PM</strong> - Event Concludes</p>
+                </div>
+            `,
+            'programming.html': `
+                <h1>Programming</h1>
+                <p>Inspiring Speaker Panels & Breakout Sessions - Hear from successful entrepreneurs and industry experts as they share real-world insights on turning ideas into viable businesses, overcoming challenges, and navigating the path to market.</p>
+                
+                <h2>Speaker List</h2>
+                <div class="highlight">
+                    <p>We invite the best speakers from all over the country to share their expertise and experiences with Michigan's innovation community. Our speaker lineup includes successful entrepreneurs, industry experts, investors, and innovation leaders who have navigated the path from idea to market success.</p>
+                    <div style="text-align: center; padding: 30px;">
+                        <h3 style="color: #00274C; font-size: 2rem;">Coming Soon!</h3>
+                        <p>Our 2026 speaker lineup will be announced in Spring 2026. Check back for updates!</p>
+                    </div>
+                </div>
+                
+                <h2>Breakout Sessions</h2>
+                <div class="highlight">
+                    <p>Our breakout sessions provide focused learning opportunities on specific topics relevant to inventors and innovators. Sessions will cover areas such as intellectual property protection, prototyping, funding strategies, marketing for inventors, and scaling manufacturing.</p>
+                    <p>Breakout session sign-up will be added to Eventbrite attendee registration. Registered attendees will receive an email with instructions on how to select their preferred breakout sessions closer to the event date.</p>
+                    <div style="text-align: center; padding: 20px;">
+                        <h3 style="color: #00274C; font-size: 1.8rem;">Session Details Coming Soon!</h3>
+                    </div>
+                </div>
+                
+                <h2>Reception</h2>
+                <div class="highlight">
+                    <p>Join us for an afternoon reception to celebrate innovation, network with fellow attendees, and honor the winners of the pitch competition. The reception will include light refreshments and opportunities to connect with speakers, exhibitors, and other innovators.</p>
+                    <p>Reception attendance is included with all conference registrations. Additional reception-only tickets may be available for purchase on Eventbrite.</p>
+                    <a href="#" class="carousel-btn" style="margin-top: 15px;">Register for Reception on Eventbrite</a>
+                </div>
+                
+                <div class="cta-section">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to our newsletter to receive announcements about speakers, sessions, and other programming details as they become available.</p>
+                    <a href="contact-us.html" class="cta-btn">Contact Us to Subscribe</a>
+                </div>
+            `,
+            'attend.html': `
+                <h1>Attend | Exhibit</h1>
+                <p>Connect with fellow inventors, entrepreneurs, service providers, and business support organizations offering expertise in funding, legal, manufacturing, and commercialization.</p>
+                
+                <div class="highlight">
+                    <blockquote style="font-style: italic; border-left: 3px solid #FFCB05; padding-left: 15px; margin: 20px 0;">
+                        "The Inventors Summit was a game-changer for our startup. We connected with three potential investors and found a manufacturing partner - all in one day!"
+                        <footer style="margin-top: 10px; font-weight: bold;">- Sarah J., 2023 Attendee</footer>
+                    </blockquote>
+                    
+                    <blockquote style="font-style: italic; border-left: 3px solid #FFCB05; padding-left: 15px; margin: 20px 0;">
+                        "Exhibiting at the Summit gave our product incredible exposure. The feedback we received from industry experts was invaluable."
+                        <footer style="margin-top: 10px; font-weight: bold;">- Michael R., 2024 Exhibitor</footer>
+                    </blockquote>
+                </div>
+                
+                <h2>Attend the Summit</h2>
+                <div class="highlight">
+                    <p>Join Michigan's innovation community for a day of learning, networking, and opportunity. Your attendance includes:</p>
+                    <ul>
+                        <li>Access to all keynote presentations and breakout sessions</li>
+                        <li>Admission to the exhibit hall and invention showcase</li>
+                        <li>Entry to the pitch competition and awards reception</li>
+                        <li>Breakfast and lunch</li>
+                        <li>Networking opportunities with inventors, entrepreneurs, and service providers</li>
+                        <li>Conference materials and swag bag</li>
+                    </ul>
+                    
+                    <div style="text-align: center; margin-top: 25px;">
+                        <a href="#" class="cta-btn">Register to Attend on Eventbrite</a>
+                    </div>
+                </div>
+                
+                <h2>Exhibit at the Summit</h2>
+                <div class="highlight">
+                    <p>Showcase your invention, product, or service to Michigan's innovation community. Exhibiting at the Inventors Summit provides:</p>
+                    <ul>
+                        <li>6' x 8' exhibit space with table and chairs</li>
+                        <li>Company name listed in event program and on website</li>
+                        <li>Access to all attendees during exhibit hours</li>
+                        <li>Opportunity to demonstrate your product to potential customers, partners, and investors</li>
+                        <li>Two attendee registrations per exhibit booth</li>
+                    </ul>
+                    
+                    <p><strong>Early Bird Exhibit Pricing (through March 31, 2026):</strong> $300</p>
+                    <p><strong>Regular Exhibit Pricing (after March 31, 2026):</strong> $400</p>
+                    <p><strong>Non-Profit/University Exhibit Pricing:</strong> $200</p>
+                    
+                    <div style="text-align: center; margin-top: 25px;">
+                        <a href="#" class="cta-btn">Reserve Your Exhibit Space on Eventbrite</a>
+                    </div>
+                </div>
+                
+                <h2>Who Should Attend or Exhibit?</h2>
+                <div class="board-grid">
+                    <div class="board-member">
+                        <h3>Inventors</h3>
+                        <p>Showcase your invention, get feedback, find resources, and connect with potential partners.</p>
+                    </div>
+                    <div class="board-member">
+                        <h3>Startups</h3>
+                        <p>Network with mentors, investors, and service providers to grow your business.</p>
+                    </div>
+                    <div class="board-member">
+                        <h3>Service Providers</h3>
+                        <p>Connect with inventors and startups needing legal, prototyping, manufacturing, or marketing services.</p>
+                    </div>
+                    <div class="board-member">
+                        <h3>Investors</h3>
+                        <p>Discover promising innovations and connect with Michigan's most creative minds.</p>
+                    </div>
+                </div>
+            `,
+            'pitch-competition.html': `
+                <h1>Pitch Competition</h1>
+                
+                <h2>About the Competition</h2>
+                <p>Watch the event and cheer on your favorite inventor. Join us for a competitive pitch event as inventors vie for cash prizes. Be a part of the action with real-time live audience voting. Attendance for the pitch is included with attendee ticket.</p>
+                
+                <div class="highlight">
+                    <h3>Competition Details</h3>
+                    <p><strong>When:</strong> July 9, 2026, 2:30 PM - 3:30 PM</p>
+                    <p><strong>Where:</strong> Main Stage, Kellogg Center</p>
+                    <p><strong>Prizes:</strong> 
+                        <ul>
+                            <li>1st Place: $5,000 cash prize</li>
+                            <li>2nd Place: $2,500 cash prize</li>
+                            <li>3rd Place: $1,000 cash prize</li>
+                            <li>Audience Choice Award: $500 cash prize</li>
+                        </ul>
+                    </p>
+                    <p>All finalists will also receive mentorship sessions with industry experts and additional exposure through MIC's network.</p>
+                </div>
+                
+                <h2>Apply to Pitch</h2>
+                <div class="highlight">
+                    <p>Are you an inventor who is eager to showcase your product? Apply to pitch and get a chance to win!</p>
+                    
+                    <h3>Eligibility Criteria:</h3>
+                    <ul>
+                        <li>Must have a minimum viable product (MVP)</li>
+                        <li>Invention/business must be based in Michigan or have strong Michigan ties</li>
+                        <li>Applicant must be the inventor or have rights to commercialize the invention</li>
+                        <li>Product should have potential for commercialization</li>
+                    </ul>
+                    
+                    <h3>Application Process:</h3>
+                    <ol>
+                        <li>Submit online application by May 1, 2026</li>
+                        <li>Selected semi-finalists will be notified by May 15, 2026</li>
+                        <li>Semi-finalists submit 2-minute pitch video by June 1, 2026</li>
+                        <li>Finalists announced June 15, 2026</li>
+                        <li>Finalists receive pitch coaching session in late June</li>
+                        <li>Live pitch competition on July 9, 2026</li>
+                    </ol>
+                    
+                    <div style="text-align: center; margin-top: 25px;">
+                        <a href="#" class="cta-btn">Apply to Pitch</a>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">Applications hosted by Velocity</p>
+                    </div>
+                </div>
+                
+                <h2>Competition Rules</h2>
+                <div class="highlight">
+                    <ul>
+                        <li>Each finalist will have 5 minutes to present their pitch</li>
+                        <li>Presentations may include slides, product demonstrations, or prototypes</li>
+                        <li>3 minutes of Q&A will follow each pitch</li>
+                        <li>Judges will evaluate based on innovation, market potential, presentation quality, and business model</li>
+                        <li>Audience voting will determine the Audience Choice Award</li>
+                        <li>All finalists must be available to present in person on July 9, 2026</li>
+                    </ul>
+                </div>
+                
+                <div class="cta-section">
+                    <h2>Support Michigan's Innovators</h2>
+                    <p>Come cheer on Michigan's most promising inventors at the 2026 Pitch Competition. Your attendance and support help fuel Michigan's innovation economy.</p>
+                    <a href="attend.html" class="cta-btn">Get Tickets to Attend</a>
+                </div>
+            `,
+            'sponsor.html': `
+                <h1>Sponsor | Volunteer</h1>
+                
+                <h2>Sponsor the 2026 Inventors Summit</h2>
+                <p>Lend your support to this event and be recognized on social media posts, at the event, and on our website. We offer a variety of sponsorship packages to fit every budget.</p>
+                
+                <div class="sponsor-packages">
+                    <div class="sponsor-card gold">
+                        <h3>GOLD Sponsor <span class="price">$10,000</span></h3>
+                        <p><strong>Availability:</strong> 1 available</p>
+                        <ul>
+                            <li>1 XL exhibit booth</li>
+                            <li>4 tickets to attend</li>
+                            <li>4 lunch tickets</li>
+                            <li>Recognition on all communications, print & electronic, Website</li>
+                            <li>Swag Bag Co-branded with MIC to be given to every attendee</li>
+                            <li>3 minutes on main stage to air 60-second video about your business, 2 minutes to speak to audience</li>
+                            <li>Your name on every centerpiece</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sponsor-card silver">
+                        <h3>SILVER Sponsor <span class="price">$5,000</span></h3>
+                        <p><strong>Availability:</strong> 2 available</p>
+                        <ul>
+                            <li>1 exhibit booth</li>
+                            <li>2 attendee tickets</li>
+                            <li>2 lunch tickets</li>
+                            <li>Recognition on all communications, print & electronic, Website</li>
+                            <li>Swag Bag Inclusion item of your choice co-branded with MIC</li>
+                            <li>Your name on every centerpiece</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sponsor-card bronze">
+                        <h3>Bronze Sponsor <span class="price">$2,500</span></h3>
+                        <p><strong>Availability:</strong> 4 available</p>
+                        <ul>
+                            <li>1 exhibit booth</li>
+                            <li>2 attendee tickets</li>
+                            <li>Recognition on all communications, print & electronic, website</li>
+                            <li>Swag Bag Inclusion item of your choice co-branded with MIC</li>
+                            <li>Your name on every centerpiece</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sponsor-card">
+                        <h3>DJ Sponsor <span class="price">$3,000</span></h3>
+                        <p><strong>Availability:</strong> 1 available</p>
+                        <ul>
+                            <li>1 exhibit booth</li>
+                            <li>2 attendee tickets</li>
+                            <li>2 lunch tickets</li>
+                            <li>Recognition on all communications, print & electronic, website</li>
+                            <li>Swag Bag Inclusion item of your choice co-branded with MIC</li>
+                            <li>Your name on every centerpiece & at DJ Booth</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sponsor-card">
+                        <h3>Photo Booth Sponsor <span class="price">$3,000</span></h3>
+                        <p><strong>Availability:</strong> 1 available</p>
+                        <ul>
+                            <li>1 exhibit booth</li>
+                            <li>2 attendee tickets</li>
+                            <li>2 lunch tickets</li>
+                            <li>Recognition on all communications, print & electronic, website</li>
+                            <li>Swag Bag Inclusion item of your choice co-branded with MIC</li>
+                            <li>Your logo on every photo printed at event</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sponsor-card">
+                        <h3>Breakfast Sponsor <span class="price">$1,000</span></h3>
+                        <p><strong>Availability:</strong> 4 available</p>
+                        <ul>
+                            <li>1 exhibit booth</li>
+                            <li>2 attendee tickets</li>
+                            <li>2 lunch tickets</li>
+                            <li>Recognition on all communications, print & electronic, website</li>
+                            <li>Swag Bag Inclusion item of your choice co-branded with MIC</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sponsor-card">
+                        <h3>Reception Sponsor <span class="price">$1,000</span></h3>
+                        <p><strong>Availability:</strong> 4 available</p>
+                        <ul>
+                            <li>1 exhibit booth</li>
+                            <li>2 attendee tickets</li>
+                            <li>2 lunch tickets</li>
+                            <li>Recognition on all communications, print & electronic, website</li>
+                            <li>Swag Bag Inclusion item of your choice co-branded with MIC</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin: 40px 0;">
+                    <a href="contact-us.html" class="cta-btn">Contact Us About Sponsorship</a>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">For sponsorship inquiries, contact Joe Finkler</p>
+                </div>
+                
+                <h2>Volunteer Opportunities</h2>
+                <div class="highlight">
+                    <p>Michigan Inventors Coalition is seeking volunteers to make the 2026 Inventors Summit a success! It takes a village to put on an event of this size and we can't do it alone. Please consider donating 2-3 hours of your time at the event to help us make it a great day.</p>
+                    
+                    <h3>Volunteer Roles Available:</h3>
+                    <ul>
+                        <li><strong>Registration Desk:</strong> Help check in attendees and distribute materials</li>
+                        <li><strong>Event Guides:</strong> Direct attendees to sessions, exhibits, and facilities</li>
+                        <li><strong>Session Support:</strong> Assist speakers with setup and timekeeping</li>
+                        <li><strong>Exhibit Hall Support:</strong> Help exhibitors with setup and logistics</li>
+                        <li><strong>Pitch Competition Support:</strong> Assist with competition logistics and judging</li>
+                        <li><strong>Pre-Event Support:</strong> Help with preparations in the weeks leading up to the event</li>
+                    </ul>
+                    
+                    <div style="text-align: center; margin-top: 25px;">
+                        <a href="#" class="cta-btn">Sign Up to Volunteer</a>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">Volunteer sign-up hosted by Velocity</p>
+                    </div>
+                </div>
+            `,
+            'board.html': `
+                <h1>Board of Directors</h1>
+                <p>The Michigan Inventors Coalition is guided by a dedicated board of directors with extensive experience in innovation, entrepreneurship, and economic development.</p>
+                
+                <div class="board-grid">
+                    <div class="board-member">
+                        <h3>Joe Finkler</h3>
+                        <p>Board Member</p>
+                    </div>
+                    <div class="board-member">
+                        <h3>Dennis Shaver</h3>
+                        <p>Board Member</p>
+                    </div>
+                    <div class="board-member">
+                        <h3>Kevin Moran</h3>
+                        <p>Board Member</p>
+                    </div>
+                    <div class="board-member">
+                        <h3>Paula Macpherson</h3>
+                        <p>Board Member</p>
+                    </div>
+                    <div class="board-member">
+                        <h3>John D. Hopkins</h3>
+                        <p>2026 Inventors Summit Event Chair</p>
+                    </div>
+                </div>
+                
+                <div class="highlight" style="margin-top: 40px;">
+                    <h3>Board Responsibilities</h3>
+                    <p>The MIC Board of Directors provides strategic guidance, financial oversight, and governance for the organization. Board members contribute their expertise in areas such as entrepreneurship, finance, law, marketing, and innovation to advance MIC's mission of supporting Michigan's inventors.</p>
+                    <p>Board meetings are held quarterly, with additional committee work as needed. Board members also play an active role in MIC events and programs throughout the year.</p>
+                </div>
+            `,
+            'contact-us.html': `
+                <h1>Contact Us</h1>
+                <p>Get in touch with the Michigan Inventors Coalition for inquiries about our programs, events, or how to get involved.</p>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                        
+                        <h3>Primary Contact</h3>
+                        <p><i class="fas fa-user"></i> Kevin Moran</p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:ontvgrin@gmail.com">ontvgrin@gmail.com</a></p>
+                        <p><i class="fas fa-phone"></i> (616) 402-4714</p>
+                        
+                        <h3>General Inquiries</h3>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:info@michiganinventors.org">info@michiganinventors.org</a></p>
+                        
+                        <h3>Mailing Address</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Michigan Inventors Coalition<br>
+                        P.O. Box 1234<br>
+                        Lansing, MI 48906</p>
+                        
+                        <h3>Event-Specific Contacts</h3>
+                        <p><strong>Sponsorship Inquiries:</strong> Joe Finkler</p>
+                        <p><strong>Volunteer Inquiries:</strong> Katie Nida</p>
+                        <p><strong>Pitch Competition:</strong> Meghan Hubbs</p>
+                        
+                        <div style="margin-top: 30px;">
+                            <h3>Follow Us</h3>
+                            <p>
+                                <a href="#" style="color: #00274C; margin-right: 15px;"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" style="color: #00274C; margin-right: 15px;"><i class="fab fa-twitter"></i></a>
+                                <a href="#" style="color: #00274C; margin-right: 15px;"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" style="color: #00274C;"><i class="fab fa-instagram"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h2>Send Us a Message</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" class="form-control" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="summit">2026 Inventors Summit</option>
+                                    <option value="sponsorship">Sponsorship Opportunity</option>
+                                    <option value="volunteer">Volunteer Opportunity</option>
+                                    <option value="pitch">Pitch Competition</option>
+                                    <option value="board">Board of Directors</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" class="form-control" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="cta-btn" style="width: 100%;">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            `
+        };
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const carousel = document.getElementById('carousel');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = document.querySelectorAll('.carousel-slide').length;
+        
+        // Initialize carousel dots
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        // Change slide
+        function goToSlide(slideIndex) {
+            if (slideIndex < 0) slideIndex = totalSlides - 1;
+            if (slideIndex >= totalSlides) slideIndex = 0;
+            
+            currentSlide = slideIndex;
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateDots();
+        }
+        
+        // Auto-advance carousel
+        let carouselInterval = setInterval(() => {
+            goToSlide(currentSlide + 1);
+        }, 5000);
+        
+        // Reset interval when user interacts
+        function resetInterval() {
+            clearInterval(carouselInterval);
+            carouselInterval = setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, 5000);
+        }
+        
+        // Dot click events
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const slideIndex = parseInt(this.getAttribute('data-slide'));
+                goToSlide(slideIndex);
+                resetInterval();
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!mobileMenuBtn.contains(event.target) && !navLinks.contains(event.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // Simple client-side routing
+        function loadPage(page) {
+            const contentArea = document.getElementById('content');
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === page) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Update page title
+            let pageTitle = 'Michigan Inventors Coalition';
+            if (page === 'summit.html') pageTitle = '2026 Inventors Summit - MIC';
+            else if (page === 'know.html') pageTitle = 'Know Before You Go - MIC';
+            else if (page === 'programming.html') pageTitle = 'Programming - MIC';
+            else if (page === 'attend.html') pageTitle = 'Attend | Exhibit - MIC';
+            else if (page === 'pitch-competition.html') pageTitle = 'Pitch Competition - MIC';
+            else if (page === 'sponsor.html') pageTitle = 'Sponsor | Volunteer - MIC';
+            else if (page === 'board.html') pageTitle = 'Board of Directors - MIC';
+            else if (page === 'contact-us.html') pageTitle = 'Contact Us - MIC';
+            
+            document.title = pageTitle;
+            
+            // Load page content
+            if (pageContent[page]) {
+                contentArea.innerHTML = pageContent[page];
+            } else {
+                contentArea.innerHTML = pageContent['index.html'];
+            }
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Handle navigation clicks
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Only handle internal links with .html extension
+                if (href && href.endsWith('.html') && !href.startsWith('http')) {
+                    e.preventDefault();
+                    loadPage(href);
+                    
+                    // Update URL without page reload
+                    window.history.pushState({page: href}, '', href);
+                }
+            });
+        });
+        
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function(e) {
+            const page = window.location.pathname.substring(1) || 'index.html';
+            loadPage(page);
+        });
+        
+        // Form submission handler
+        document.addEventListener('submit', function(e) {
+            if (e.target && e.target.id === 'contactForm') {
+                e.preventDefault();
+                alert('Thank you for your message! In a real implementation, this would send your message to the MIC team.');
+                e.target.reset();
+            }
+        });
+        
+        // Initialize page based on URL
+        const initialPage = window.location.pathname.substring(1) || 'index.html';
+        loadPage(initialPage);
+    </script>
+</body>
+</html>
